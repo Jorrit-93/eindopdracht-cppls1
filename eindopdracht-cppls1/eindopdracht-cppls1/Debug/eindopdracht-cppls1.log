@@ -1,2 +1,8 @@
-﻿  eindopdracht-cppls1.cpp
+﻿  heavy_ship.cpp
+  light_ship.cpp
+  main.cpp
+  ship.cpp
+  ship_decorator.cpp
+  small_ship.cpp
+  Generating Code...
   eindopdracht-cppls1.vcxproj -> D:\Documents\School\HBO Informatica\Jaar 4\Blok 1\CPP\eindopdracht-cppls1\eindopdracht-cppls1\Debug\eindopdracht-cppls1.exe

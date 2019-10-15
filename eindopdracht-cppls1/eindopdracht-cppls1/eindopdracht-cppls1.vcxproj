@@ -151,7 +151,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cannon.cpp" />
+    <ClCompile Include="heavy_cannon.cpp" />
+    <ClCompile Include="heavy_ship.cpp" />
+    <ClCompile Include="light_cannon.cpp" />
+    <ClCompile Include="light_ship.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="medium_cannon.cpp" />
+    <ClCompile Include="ship.cpp" />
+    <ClCompile Include="ship_decorator.cpp" />
+    <ClCompile Include="small_ship.cpp" />
+    <ClCompile Include="string.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="array.h" />
+    <ClInclude Include="cannon.h" />
+    <ClInclude Include="heavy_cannon.h" />
+    <ClInclude Include="i_ship.h" />
+    <ClInclude Include="light_cannon.h" />
+    <ClInclude Include="heavy_ship.h" />
+    <ClInclude Include="light_ship.h" />
+    <ClInclude Include="medium_cannon.h" />
+    <ClInclude Include="ship.h" />
+    <ClInclude Include="ship_decorator.h" />
+    <ClInclude Include="ship_type.h" />
+    <ClInclude Include="small_ship.h" />
+    <ClInclude Include="string.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\afstanden tussen steden.csv" />
+    <None Include="Resources\goederen hoeveelheid.csv" />
+    <None Include="Resources\goederen prijzen.csv" />
+    <None Include="Resources\schepen.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
