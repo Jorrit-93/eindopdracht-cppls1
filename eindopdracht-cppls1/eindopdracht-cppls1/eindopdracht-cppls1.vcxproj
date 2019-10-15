@@ -171,6 +171,7 @@
     <ClInclude Include="light_cannon.h" />
     <ClInclude Include="heavy_ship.h" />
     <ClInclude Include="light_ship.h" />
+    <ClInclude Include="list.h" />
     <ClInclude Include="medium_cannon.h" />
     <ClInclude Include="ship.h" />
     <ClInclude Include="ship_decorator.h" />

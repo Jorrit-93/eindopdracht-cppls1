@@ -10,10 +10,11 @@ protected:
 	ShipType type;
 	int price;
 	int cargo_space;
-	Array<Cannon*> cannons;
+	Array<Cannon*>* cannons;
 	int hp;
 	
 public:
+	Ship(int cannon_amount);
 	
 	bool hasFled() override;
 };
