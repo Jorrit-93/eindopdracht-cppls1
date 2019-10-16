@@ -6,7 +6,6 @@ String::String()
 	n_string = new char[n_length + 1];
 	n_string[n_length] = '\0';
 }
-
 String::~String()
 {
 	delete[] n_string;
@@ -19,8 +18,8 @@ String::String(const String& other)
 }
 String& String::operator=(const String& other)
 {
-	n_length = other.n_length;
 	delete[] n_string;
+	n_length = other.n_length;
 	n_string = new char[n_length + 1];
 	for (int i = 0; i < n_length; i++)
 	{
@@ -37,19 +36,18 @@ String::String(const char* input) noexcept
 }
 String& String::operator=(const char* input) noexcept
 {
+	delete[] n_string;
 	n_length = 0;
 	while (input[n_length] != '\0')
 	{
 		n_length++;
 	}
-	delete[] n_string;
 	n_string = new char[n_length + 1];
 	for (int i = 0; i < n_length; i++)
 	{
 		n_string[i] = input[i];
 	}
 	n_string[n_length] = '\0';
-	input = nullptr;
 	return *this;
 }
 
