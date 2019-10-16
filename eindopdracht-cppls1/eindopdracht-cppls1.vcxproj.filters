@@ -131,6 +131,9 @@
     <ClInclude Include="list.h">
       <Filter>Header Files\Types</Filter>
     </ClInclude>
+    <ClInclude Include="dictionary.h">
+      <Filter>Header Files\Types</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\goederen hoeveelheid.csv">

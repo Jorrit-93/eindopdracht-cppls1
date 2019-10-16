@@ -166,6 +166,7 @@
   <ItemGroup>
     <ClInclude Include="array.h" />
     <ClInclude Include="cannon.h" />
+    <ClInclude Include="dictionary.h" />
     <ClInclude Include="heavy_cannon.h" />
     <ClInclude Include="i_ship.h" />
     <ClInclude Include="light_cannon.h" />

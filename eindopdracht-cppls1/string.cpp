@@ -3,20 +3,51 @@
 String::String()
 {
 	n_length = 0;
-	n_string = new char[n_length];
+	n_string = new char[n_length + 1];
 	n_string[n_length] = '\0';
 }
-
-String& String::operator=(const String& s)
+String::~String()
 {
-	n_length = s.n_length;
 	delete[] n_string;
-	n_string = new char[n_length];
-	for (int i = 0; i < (n_length - 1); i++)
+}
+
+//copy
+String::String(const String& other)
+{
+	*this = other;
+}
+String& String::operator=(const String& other)
+{
+	delete[] n_string;
+	n_length = other.n_length;
+	n_string = new char[n_length + 1];
+	for (int i = 0; i < n_length; i++)
 	{
-		n_string[i] = s.n_string[i];
+		n_string[i] = other.n_string[i];
 	}
-	n_string[(n_length - 1)] = '\0';
+	n_string[n_length] = '\0';
+	return *this;
+}
+
+//move
+String::String(const char* input) noexcept
+{
+	*this = input;
+}
+String& String::operator=(const char* input) noexcept
+{
+	delete[] n_string;
+	n_length = 0;
+	while (input[n_length] != '\0')
+	{
+		n_length++;
+	}
+	n_string = new char[n_length + 1];
+	for (int i = 0; i < n_length; i++)
+	{
+		n_string[i] = input[i];
+	}
+	n_string[n_length] = '\0';
 	return *this;
 }
 
@@ -44,12 +75,15 @@ std::ostream& operator<<(std::ostream& os, const String& s)
 
 std::istream& operator>>(std::istream& is, String& s)
 {
-	s.n_length = is.gcount();
-	char* input = new char[s.n_length];
-	is.getline(input, s.n_length);
-
+	delete[] s.n_string;
+	char* input = new char[100];
+	is.getline(input, 100);
+	s.n_length = is.gcount() - 1;
 	s.n_string = input;
-	delete[]input;
-	
 	return is;
+}
+
+int String::length() const
+{
+	return n_length;
 }
