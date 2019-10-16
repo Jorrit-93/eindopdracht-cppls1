@@ -25,4 +25,6 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& os, const String& s);
 	friend std::istream& operator>>(std::istream& is, String& s);
+
+	int length() const;
 };

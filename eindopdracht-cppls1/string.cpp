@@ -84,3 +84,8 @@ std::istream& operator>>(std::istream& is, String& s)
 	s.n_string = input;
 	return is;
 }
+
+int String::length() const
+{
+	return n_length;
+}
