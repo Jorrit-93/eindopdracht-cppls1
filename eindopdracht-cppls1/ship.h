@@ -14,7 +14,8 @@ protected:
 	int hp;
 	
 public:
-	Ship(int cannon_amount);
+	Ship(ShipType type, int price, int cargo_space, int cannon_amount, int hp);
+	~Ship();
 	
 	bool hasFled() override;
 };

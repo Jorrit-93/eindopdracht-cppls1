@@ -12,6 +12,7 @@ enum class ShipType
 	Galjoen,
 	Handelsfluyt,
 	Caravel,
+	Carrack,
 	Oorlogsgaljoen,
 	Ship_of_the_line,
 };

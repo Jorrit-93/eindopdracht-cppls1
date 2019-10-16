@@ -159,6 +159,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="medium_cannon.cpp" />
     <ClCompile Include="ship.cpp" />
+    <ClCompile Include="ship_attribute.h" />
+    <ClCompile Include="ship_builder.cpp" />
     <ClCompile Include="ship_decorator.cpp" />
     <ClCompile Include="small_ship.cpp" />
     <ClCompile Include="string.cpp" />
@@ -175,6 +177,7 @@
     <ClInclude Include="list.h" />
     <ClInclude Include="medium_cannon.h" />
     <ClInclude Include="ship.h" />
+    <ClInclude Include="ship_builder.h" />
     <ClInclude Include="ship_decorator.h" />
     <ClInclude Include="ship_type.h" />
     <ClInclude Include="small_ship.h" />
