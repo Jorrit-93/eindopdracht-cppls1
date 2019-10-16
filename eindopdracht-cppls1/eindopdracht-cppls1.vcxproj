@@ -152,33 +152,47 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cannon.cpp" />
-    <ClCompile Include="heavy_cannon.cpp" />
+    <ClCompile Include="harbor.cpp" />
     <ClCompile Include="heavy_ship.cpp" />
-    <ClCompile Include="light_cannon.cpp" />
     <ClCompile Include="light_ship.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="medium_cannon.cpp" />
+    <ClCompile Include="random.cpp" />
+    <ClCompile Include="random_value.cpp" />
     <ClCompile Include="ship.cpp" />
     <ClCompile Include="ship_decorator.cpp" />
     <ClCompile Include="small_ship.cpp" />
+    <ClCompile Include="stock.cpp" />
     <ClCompile Include="string.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="array.h" />
     <ClInclude Include="cannon.h" />
+    <ClInclude Include="cannon_type.h" />
     <ClInclude Include="dictionary.h" />
-    <ClInclude Include="heavy_cannon.h" />
+    <ClInclude Include="harbor.h" />
+    <ClInclude Include="harbor_name.h" />
+    <ClInclude Include="in_battle.h" />
+    <ClInclude Include="in_battle_view.h" />
+    <ClInclude Include="in_harbor.h" />
+    <ClInclude Include="in_harbor_view.h" />
     <ClInclude Include="i_ship.h" />
-    <ClInclude Include="light_cannon.h" />
     <ClInclude Include="heavy_ship.h" />
+    <ClInclude Include="i_turn_view.h" />
     <ClInclude Include="light_ship.h" />
     <ClInclude Include="list.h" />
-    <ClInclude Include="medium_cannon.h" />
+    <ClInclude Include="on_sea.h" />
+    <ClInclude Include="on_sea_view.h" />
+    <ClInclude Include="random.h" />
+    <ClInclude Include="random_value.h" />
     <ClInclude Include="ship.h" />
     <ClInclude Include="ship_decorator.h" />
     <ClInclude Include="ship_type.h" />
     <ClInclude Include="small_ship.h" />
+    <ClInclude Include="stock.h" />
+    <ClInclude Include="stock_type.h" />
     <ClInclude Include="string.h" />
+    <ClInclude Include="i_turn.h" />
+    <ClInclude Include="wind_type.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\afstanden tussen steden.csv" />

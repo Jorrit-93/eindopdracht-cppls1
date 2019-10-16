@@ -3,7 +3,8 @@
 class IShip
 {
 public:
-	virtual ~IShip() {}
-
+	virtual ~IShip() = default;
+	
+protected:
 	virtual bool hasFled() = 0;
 };
