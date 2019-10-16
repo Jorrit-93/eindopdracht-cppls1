@@ -52,6 +52,18 @@
     <Filter Include="Source Files\Model\Ships">
       <UniqueIdentifier>{17283b3b-9e98-467d-aff4-b56f1ccfa64a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Controller\Parser">
+      <UniqueIdentifier>{fdd1be20-d412-481a-9362-d0e10b4701b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controller\Parser">
+      <UniqueIdentifier>{1cdd4065-b032-4b5f-844b-27b7a4092fd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structs">
+      <UniqueIdentifier>{d02e91ae-c335-426e-84d7-e882d764778b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Structs">
+      <UniqueIdentifier>{abdffabf-1d85-4957-9fa5-cc5ed344b014}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -86,6 +98,15 @@
     </ClCompile>
     <ClCompile Include="small_ship.cpp">
       <Filter>Source Files\Model\Ships</Filter>
+    </ClCompile>
+    <ClCompile Include="parser.cpp">
+      <Filter>Source Files\Controller\Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="city_distance_strategy.cpp">
+      <Filter>Source Files\Controller\Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="ship_strategy.cpp">
+      <Filter>Source Files\Controller\Parser</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +151,30 @@
     </ClInclude>
     <ClInclude Include="list.h">
       <Filter>Header Files\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="parser.h">
+      <Filter>Header Files\Controller\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="i_parse_strategy.h">
+      <Filter>Header Files\Controller\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="ship_strategy.h">
+      <Filter>Header Files\Controller\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="s_result.h">
+      <Filter>Header Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="s_ship.h">
+      <Filter>Header Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="city_distance_strategy.h">
+      <Filter>Header Files\Controller\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="s_city.h">
+      <Filter>Header Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="s_good.h">
+      <Filter>Header Files\Structs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
