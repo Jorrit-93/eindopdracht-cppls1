@@ -31,9 +31,8 @@ String* Parser::Open()
 {
 	String* result = new String("");
 	
-	std::ifstream is;
-	//is.open(path->toCharArray(), std::ofstream::binary | std::ios::in);
-	is.open("schepen.csv");
+	std::ifstream ifs("schepen.csv");
+	//std::ifstream ifs(path->toCharArray());
 
 	// if (!is.is_open())
 	// {
@@ -41,7 +40,7 @@ String* Parser::Open()
 	// }
 
 	char c;
-	while (is.get(c))
+	while (ifs.get(c))
 	{
 		*result += c;
 	}
