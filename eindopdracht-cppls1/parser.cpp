@@ -28,9 +28,7 @@ void Parser::setPath(String& path)
 void Parser::Open()
 {
 	std::fstream fs;
-	fs.open(this->path, std::fstream::in | std::fstream::out | std::fstream::app);
-
-	fs << " more lorem ipsum";
+	fs.open("afstanden tussen steden.csv", std::fstream::in | std::fstream::out | std::fstream::app);
 
 	fs.close();
 }
