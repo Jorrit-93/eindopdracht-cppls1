@@ -6,9 +6,13 @@ Parser::Parser()
 	
 }
 
-void Parser::getResult(char* path)
+void Parser::getResult(const String& path)
 {
 	
+}
+
+void Parser::setStrategy(const IParseStrategy& strategy)
+{
 }
 
 void Parser::Open()

@@ -8,8 +8,8 @@ class Parser
 public:
 	Parser();
 	~Parser();
-	void getResult(String* path);
-	void setStrategy(IParseStrategy* strategy);
+	void getResult(const String& path);
+	void setStrategy(const IParseStrategy& strategy);
 	
 private:
 	IParseStrategy* strategy;
