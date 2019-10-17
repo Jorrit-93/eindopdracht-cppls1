@@ -99,13 +99,13 @@
     <ClCompile Include="parser.cpp">
       <Filter>Source Files\Controller\parser</Filter>
     </ClCompile>
-    <ClCompile Include="city_distance_strategy.cpp">
+    <ClCompile Include="city_distance_state.cpp">
       <Filter>Source Files\Controller\parser</Filter>
     </ClCompile>
-    <ClCompile Include="i_parse_strategy.cpp">
+    <ClCompile Include="i_parse_state.cpp">
       <Filter>Source Files\Controller\parser</Filter>
     </ClCompile>
-    <ClCompile Include="ship_strategy.cpp">
+    <ClCompile Include="ship_state.cpp">
       <Filter>Source Files\Controller\parser</Filter>
     </ClCompile>
   </ItemGroup>
@@ -155,26 +155,29 @@
     <ClInclude Include="dictionary.h">
       <Filter>Header Files\Types</Filter>
     </ClInclude>
-    <ClInclude Include="city_distance_strategy.h">
-      <Filter>Header Files\Controller\parser</Filter>
-    </ClInclude>
-    <ClInclude Include="i_parse_strategy.h">
-      <Filter>Header Files\Controller\parser</Filter>
-    </ClInclude>
     <ClInclude Include="parser.h">
       <Filter>Header Files\Controller\parser</Filter>
     </ClInclude>
-    <ClInclude Include="s_city.h">
+    <ClInclude Include="city_struct.h">
       <Filter>Header Files\Structs</Filter>
     </ClInclude>
-    <ClInclude Include="s_good.h">
+    <ClInclude Include="good_struct.h">
       <Filter>Header Files\Structs</Filter>
     </ClInclude>
-    <ClInclude Include="s_ship.h">
+    <ClInclude Include="result_struct.h">
       <Filter>Header Files\Structs</Filter>
     </ClInclude>
-    <ClInclude Include="s_result.h">
+    <ClInclude Include="ship_struct.h">
       <Filter>Header Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="i_parse_state.h">
+      <Filter>Header Files\Controller\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="city_distance_state.h">
+      <Filter>Header Files\Controller\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="ship_state.h">
+      <Filter>Header Files\Controller\parser</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

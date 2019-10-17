@@ -1,18 +1,21 @@
 #pragma once
-#include "i_parse_strategy.h"
+#include "i_parse_state.h"
 #include "string.h"
-#include "s_result.h"
+#include "result_struct.h"
+#include "list.h"
 
 class Parser
 {
 public:
 	Parser();
 	~Parser();
-	void getResult(const String& path);
-	void setStrategy(const IParseStrategy& strategy);
+	List<ResultStruct*>* getResult();
+	void setState(IParseState& state);
+	void setPath(String& path);
 	
 private:
-	IParseStrategy* strategy;
+	IParseState* state;
+	String* path;
 	void Open();
 };
 

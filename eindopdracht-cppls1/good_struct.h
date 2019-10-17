@@ -1,8 +1,8 @@
 #pragma once
-#include "s_result.h"
+#include "result_struct.h"
 #include "string.h"
 
-struct SGood : SResult
+struct SGood : ResultStruct
 {
 	String name;
 	
