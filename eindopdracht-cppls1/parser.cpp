@@ -1,6 +1,7 @@
 #include "parser.h"
 #include "ship_state.h"
 #include <fstream>
+#include <iostream>
 
 Parser::Parser()
 {
