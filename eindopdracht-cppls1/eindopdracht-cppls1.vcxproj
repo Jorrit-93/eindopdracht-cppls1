@@ -155,14 +155,15 @@
     <ClCompile Include="city_distance_strategy.cpp" />
     <ClCompile Include="heavy_cannon.cpp" />
     <ClCompile Include="heavy_ship.cpp" />
+    <ClCompile Include="i_parse_strategy.cpp" />
     <ClCompile Include="light_cannon.cpp" />
     <ClCompile Include="light_ship.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="medium_cannon.cpp" />
     <ClCompile Include="parser.cpp" />
     <ClCompile Include="ship.cpp" />
-    <ClCompile Include="ship_strategy.cpp" />
     <ClCompile Include="ship_decorator.cpp" />
+    <ClCompile Include="ship_strategy.cpp" />
     <ClCompile Include="small_ship.cpp" />
     <ClCompile Include="string.cpp" />
   </ItemGroup>
@@ -170,6 +171,7 @@
     <ClInclude Include="array.h" />
     <ClInclude Include="cannon.h" />
     <ClInclude Include="city_distance_strategy.h" />
+    <ClInclude Include="dictionary.h" />
     <ClInclude Include="heavy_cannon.h" />
     <ClInclude Include="i_parse_strategy.h" />
     <ClInclude Include="i_ship.h" />
@@ -181,7 +183,6 @@
     <ClInclude Include="parser.h" />
     <ClInclude Include="ship.h" />
     <ClInclude Include="ship_decorator.h" />
-    <ClInclude Include="ship_strategy.h" />
     <ClInclude Include="ship_type.h" />
     <ClInclude Include="small_ship.h" />
     <ClInclude Include="string.h" />

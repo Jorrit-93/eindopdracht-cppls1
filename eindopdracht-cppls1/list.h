@@ -4,43 +4,56 @@
 template<typename T>
 class List
 {
-private:
+protected:
 	Array<T>* n_array;
-	int n_size;
+	
 public:
 	List()
-		: n_array(new Array<T>(10)), n_size(10) { }
+		: n_array(new Array<T>(10)) { }
 	~List() { delete n_array; }
 	
 	//copy
 	List(const List& other)
-		: n_array(other.n_array), n_size(other.n_size) { }
+	{
+		*this = other;
+	}
 	List& operator=(const List& other)
 	{
-		return *this = List(other);
+		delete n_array;
+		n_array = new Array<T>(other.size());
+		for (int i = 0; i < other.count(); i++)
+		{
+			n_array->add(other.getAt(i));
+		}
+		return *this;
 	}
 
 	//move
 	List(List&& other) noexcept
-		: n_array(std::exchange(other.n_array, nullptr)), n_size(std::exchange(other.n_size, nullptr)) { }
+	{
+		*this = other;
+	}
 	List& operator=(List&& other) noexcept
 	{
-		std::swap(n_array, other.n_array);
-		std::swap(n_size, other.n_size);
+		delete n_array;
+		n_array = new Array<T>(other.size());
+		for (int i = 0; i < other.count(); i++)
+		{
+			n_array->add(other->getAt(i));
+		}
 		return *this;
 	}
 
 	bool operator==(const List& other)
 	{
-		return n_array == other.n_array;
+		return (*n_array == *other.n_array);
 	}
 	
 	void add(T t)
 	{
-		if (n_array->count() >= n_size)
+		if (n_array->count() >= size())
 		{
-			n_size += 10;
-			auto newArray = new Array<T>(n_size);
+			auto newArray = new Array<T>(size() + 10);
 			for (int i = 0; i < n_array->count(); i++)
 			{
 				newArray->add(n_array->getAt(i));
@@ -62,7 +75,7 @@ public:
 		return n_array->get(t);
 	}
 
-	T getAt(int index)
+	T getAt(const int index) const
 	{
 		return n_array->getAt(index);
 	}
@@ -72,13 +85,18 @@ public:
 		n_array->remove(t);
 	}
 
-	void removeAt(int index)
+	void removeAt(const int index)
 	{
 		n_array->removeAt(index);
 	}
 
-	int count()
+	int count() const
 	{
 		return n_array->count();
+	}
+
+	int size() const
+	{
+		return n_array->size();
 	}
 };

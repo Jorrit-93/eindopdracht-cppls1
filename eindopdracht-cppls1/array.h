@@ -5,7 +5,7 @@ class Array
 {
 private:
 	T* n_array;
-	const int n_size;
+	int n_size;
 	int n_count;
 
 public:
@@ -15,30 +15,47 @@ public:
 
 	//copy
 	Array(const Array& other)
-	: n_array(new T[other.n_size]), n_size(other.n_size), n_count(other.n_count) { std::copy(other.n_array, other.n_array + other.n_count, n_array); }
+	{
+		*this = other;
+	}
 	Array& operator=(const Array& other)
 	{
-		return *this = Array(other);
+		delete[] n_array;
+		n_size = other.n_size;
+		n_count = other.n_count;
+		n_array = new T[n_size];
+		for (int i = 0; i < n_count; i++)
+		{
+			n_array[i] = other.n_array[i];
+		}
+		return *this;
 	}
 
 	//move
 	Array(Array&& other) noexcept
-	: n_array(std::exchange(other.n_array, nullptr)), n_size(std::exchange(other.n_size, nullptr)), n_count(std::exchange(other.n_count, nullptr)) { }
+	{
+		*this = other;
+	}
 	Array& operator=(Array&& other) noexcept
 	{
-		std::swap(n_array, other.n_array);
-		std::swap(n_size, other.n_size);
-		std::swap(n_count, other.n_count);
+		delete[] n_array;
+		n_size = other.n_size;
+		n_count = other.n_count;
+		n_array = new T[n_size];
+		for (int i = 0; i < n_count; i++)
+		{
+			n_array[i] = other.n_array[i];
+		}
 		return *this;
 	}
 
-	bool operator==(const Array* other)
+	bool operator==(const Array& other)
 	{
-		if(n_count != other->n_count)
+		if(n_count == other.n_count)
 		{
 			for (int i = 0; i < n_count; i++)
 			{
-				if (n_array[i] != other->n_array[i])
+				if (n_array[i] != other.n_array[i])
 				{
 					return false;
 				}
@@ -78,7 +95,7 @@ public:
 		return getAt(indexOf(t));
 	}
 
-	T getAt(int index)
+	T getAt(const int index)
 	{
 		if (n_count > index)
 		{
@@ -114,5 +131,10 @@ public:
 	int count() const
 	{
 		return n_count;
+	}
+
+	int size() const
+	{
+		return n_size;
 	}
 };
