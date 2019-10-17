@@ -1,11 +1,17 @@
 #pragma once
-#include "turn.h"
+#include "in_battle_view.h"
 
-class InBattle : public Turn
+class Game;
+
+class InBattle
 {
+private:
+	InBattleView* view;
+	Game* game;
+	
 public:
-	InBattle();
-	~InBattle() override;
+	InBattle(Game* game);
+	~InBattle();
 
-	void nextTurn() override;
+	void engageInBattle() const;
 };

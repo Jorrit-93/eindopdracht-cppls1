@@ -1,11 +1,17 @@
 #pragma once
-#include "turn.h"
+#include "in_harbor_view.h"
 
-class InHarbor : public Turn
+class Game;
+
+class InHarbor
 {
+private:
+	InHarborView* view;
+	Game* game;
+	
 public:
-	InHarbor();
-	~InHarbor() override;
+	InHarbor(Game* game);
+	~InHarbor();
 
-	void nextTurn() override;
+	void moveToHarbor(HarborName name) const;
 };

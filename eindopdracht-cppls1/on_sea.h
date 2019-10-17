@@ -1,11 +1,17 @@
 #pragma once
-#include "turn.h"
+#include "on_sea_view.h"
 
-class OnSea : public Turn
+class Game;
+
+class OnSea
 {
-public:
-	OnSea();
-	~OnSea() override;
+private:
+	OnSeaView* view;
+	Game* game;
 	
-	void nextTurn() override;
+public:
+	OnSea(Game* game);
+	~OnSea();
+
+	void moveToSea() const;
 };
