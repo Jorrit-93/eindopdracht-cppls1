@@ -32,17 +32,18 @@ String* Parser::Open()
 	String* result = new String("");
 	
 	std::ifstream is;
-	is.open(path->toCharArray(), std::ofstream::binary | std::ios::in);
+	//is.open(path->toCharArray(), std::ofstream::binary | std::ios::in);
+	is.open("schepen.csv");
 
-	if (!is.is_open())
-	{
-		// Throw new exception
-	}
+	// if (!is.is_open())
+	// {
+	// 	return nullptr;
+	// }
 
 	char c;
 	while (is.get(c))
 	{
-		
+		*result += c;
 	}
 
 	return result;
