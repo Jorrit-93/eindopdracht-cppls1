@@ -67,6 +67,25 @@ bool operator==(const String& s1, const String& s2)
 	return false;
 }
 
+char String::operator[](int index) const
+{
+	if (index < n_length)
+	{
+		return n_string[index];
+	}
+	throw; //index out of bounds exception
+}
+
+char& String::operator[](int index)
+{
+	if (index < n_length)
+	{
+		return n_string[index];
+	}
+	throw; //index out of bounds exception
+}
+
+
 std::ostream& operator<<(std::ostream& os, const String& s)
 {
 	os << s.n_string;
@@ -81,6 +100,11 @@ std::istream& operator>>(std::istream& is, String& s)
 	s.n_length = is.gcount() - 1;
 	s.n_string = input;
 	return is;
+}
+
+char* String::toCharArray() const
+{
+	return n_string;
 }
 
 int String::length() const

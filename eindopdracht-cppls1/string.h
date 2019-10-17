@@ -23,8 +23,12 @@ public:
 
 	friend bool operator==(const String& s1, const String& s2);
 
+	char operator[](int index) const;
+	char& operator[](int index);
+	
 	friend std::ostream& operator<<(std::ostream& os, const String& s);
 	friend std::istream& operator>>(std::istream& is, String& s);
-
+	
+	char* toCharArray() const;
 	int length() const;
 };
