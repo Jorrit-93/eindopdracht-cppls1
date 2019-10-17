@@ -29,7 +29,7 @@ int main()
 	//dictionary->add(key3, value3);
 	//
 	//auto test = InBattleView();
-	//test.printGeneralOutput(dictionary);
+	//test.printGeneralInfoOutput(dictionary);
 	//
 	//auto choice = test.getInput(options);
 

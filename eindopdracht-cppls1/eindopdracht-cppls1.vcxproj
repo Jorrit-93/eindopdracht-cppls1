@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="cannon.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="game_view.cpp" />
     <ClCompile Include="harbor.cpp" />
     <ClCompile Include="heavy_ship.cpp" />
     <ClCompile Include="in_battle.cpp" />
