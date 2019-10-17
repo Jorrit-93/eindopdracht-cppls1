@@ -67,6 +67,11 @@ bool operator==(const String& s1, const String& s2)
 	return false;
 }
 
+void operator+=(String& s, const char c)
+{
+	s.pushBack(c);
+}
+
 char String::operator[](int index) const
 {
 	if (index < n_length)
@@ -107,14 +112,14 @@ char* String::toCharArray() const
 	return n_string;
 }
 
-void String::pushBack(char input)
+void String::pushBack(const char c)
 {
 	char* temp = new char[n_length + 2];
 	for (int i = 0; i < n_length; i++)
 	{
 		temp[i] = n_string[i];
 	}
-	temp[n_length] = input;
+	temp[n_length] = c;
 	temp[++n_length] = '\0';
 	delete[] n_string;
 	n_string = temp;

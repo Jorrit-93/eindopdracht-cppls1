@@ -22,6 +22,7 @@ public:
 	String& operator=(const char* input) noexcept;
 
 	friend bool operator==(const String& s1, const String& s2);
+	friend void operator+=(String& s, char c);
 
 	char operator[](int index) const;
 	char& operator[](int index);
