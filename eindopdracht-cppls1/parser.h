@@ -16,6 +16,6 @@ public:
 private:
 	IParseState* state;
 	String* path;
-	void Open();
+	String* Open();
 };
 

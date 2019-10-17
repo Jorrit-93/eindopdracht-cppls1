@@ -6,6 +6,7 @@ String::String()
 	n_string = new char[n_length + 1];
 	n_string[n_length] = '\0';
 }
+
 String::~String()
 {
 	delete[] n_string;

@@ -3,6 +3,6 @@
 
 class ShipState : public IParseState
 {
-	List<ResultStruct*>* parse(const String& path) override;
+	List<ResultStruct*>* parse(const String* content) override;
 };
 

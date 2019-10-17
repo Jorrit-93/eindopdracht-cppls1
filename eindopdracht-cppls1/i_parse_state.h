@@ -6,6 +6,6 @@
 class IParseState
 {
 public:
-	virtual List<ResultStruct*>* parse(const String& path) = 0;	
+	virtual List<ResultStruct*>* parse(const String* content) = 0;	
 };
 
