@@ -1,7 +1,7 @@
 #pragma once
-#include "i_turn.h"
+#include "turn.h"
 
-class InHarbor : public ITurn
+class InHarbor : public Turn
 {
 public:
 	InHarbor();

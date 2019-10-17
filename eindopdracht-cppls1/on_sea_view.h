@@ -1,8 +1,8 @@
 #pragma once
-#include "i_turn_view.h"
+#include "turn_view.h"
 #include "wind_type.h"
 
-class OnSeaView : ITurnView
+class OnSeaView : public TurnView
 {
 public:
 	void printSeaOutput(WindType type);

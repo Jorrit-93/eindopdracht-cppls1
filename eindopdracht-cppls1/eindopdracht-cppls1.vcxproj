@@ -154,6 +154,7 @@
     <ClCompile Include="cannon.cpp" />
     <ClCompile Include="harbor.cpp" />
     <ClCompile Include="heavy_ship.cpp" />
+    <ClCompile Include="turn_view.cpp" />
     <ClCompile Include="light_ship.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="random.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="cannon.h" />
     <ClInclude Include="cannon_type.h" />
     <ClInclude Include="dictionary.h" />
+    <ClInclude Include="game.h" />
     <ClInclude Include="harbor.h" />
     <ClInclude Include="harbor_name.h" />
     <ClInclude Include="in_battle.h" />
@@ -177,7 +179,7 @@
     <ClInclude Include="in_harbor_view.h" />
     <ClInclude Include="i_ship.h" />
     <ClInclude Include="heavy_ship.h" />
-    <ClInclude Include="i_turn_view.h" />
+    <ClInclude Include="turn_view.h" />
     <ClInclude Include="light_ship.h" />
     <ClInclude Include="list.h" />
     <ClInclude Include="on_sea.h" />
@@ -191,7 +193,7 @@
     <ClInclude Include="stock.h" />
     <ClInclude Include="stock_type.h" />
     <ClInclude Include="string.h" />
-    <ClInclude Include="i_turn.h" />
+    <ClInclude Include="turn.h" />
     <ClInclude Include="wind_type.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,11 +1,11 @@
 #pragma once
-#include "i_turn_view.h"
+#include "turn_view.h"
 #include "harbor_name.h"
 #include "stock_type.h"
 #include "cannon_type.h"
 #include "ship_type.h"
 
-class InHarborView : ITurnView
+class InHarborView : public TurnView
 {
 public:
 	void printHarborOutput(HarborName name);

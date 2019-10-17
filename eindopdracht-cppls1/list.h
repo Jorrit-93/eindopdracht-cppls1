@@ -51,9 +51,9 @@ public:
 	
 	void add(T t)
 	{
-		if (n_array->count() >= size())
+		if (n_array->count() >= n_array->size())
 		{
-			auto newArray = new Array<T>(size() + 10);
+			auto newArray = new Array<T>(n_array->size() + 10);
 			for (int i = 0; i < n_array->count(); i++)
 			{
 				newArray->add(n_array->getAt(i));
@@ -93,10 +93,5 @@ public:
 	int count() const
 	{
 		return n_array->count();
-	}
-
-	int size() const
-	{
-		return n_array->size();
 	}
 };

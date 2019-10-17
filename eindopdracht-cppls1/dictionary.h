@@ -82,4 +82,9 @@ public:
 	{
 		return n_value;
 	}
+
+	int count() const
+	{
+		return n_key->count();
+	}
 };

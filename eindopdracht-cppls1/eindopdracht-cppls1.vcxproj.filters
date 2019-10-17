@@ -84,6 +84,9 @@
     <ClCompile Include="harbor.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
+    <ClCompile Include="turn_view.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="string.h">
@@ -143,9 +146,6 @@
     <ClInclude Include="harbor_name.h">
       <Filter>Header Files\Enumeration</Filter>
     </ClInclude>
-    <ClInclude Include="i_turn.h">
-      <Filter>Header Files\Controller</Filter>
-    </ClInclude>
     <ClInclude Include="in_battle.h">
       <Filter>Header Files\Controller</Filter>
     </ClInclude>
@@ -154,9 +154,6 @@
     </ClInclude>
     <ClInclude Include="on_sea.h">
       <Filter>Header Files\Controller</Filter>
-    </ClInclude>
-    <ClInclude Include="i_turn_view.h">
-      <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="in_battle_view.h">
       <Filter>Header Files\View</Filter>
@@ -169,6 +166,15 @@
     </ClInclude>
     <ClInclude Include="wind_type.h">
       <Filter>Header Files\Enumeration</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="turn_view.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="turn.h">
+      <Filter>Header Files\Controller</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
