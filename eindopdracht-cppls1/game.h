@@ -1,30 +1,29 @@
 #pragma once
 #include "game_view.h"
-#include "in_harbor.h"
-#include "on_sea.h"
-#include "in_battle.h"
+#include "harbor_controller.h"
+#include "sea_controller.h"
+#include "battle_controller.h"
 #include "i_ship.h"
 
-class InHarbor;
-class OnSea;
-class InBattle;
+class HarborController;
+class SeaController;
+class BattleController;
 
 class Game
 {
 private:
 	GameView* view;
-	InHarbor* in_harbor;
-	OnSea* on_sea;
-	InBattle* in_battle;
+	HarborController* in_harbor;
+	SeaController* on_sea;
+	BattleController* in_battle;
 
 	IShip* ship = nullptr;
+	Dictionary<Stock*, int>* stocks;
 	int gold = 0;
 
 public:
 	Game();
 	~Game();
-
-	void initiate();
 	
 	void start();
 	void win();
@@ -37,6 +36,7 @@ public:
 	void moveToSea() const;
 	void engageInBattle() const;
 
+	IShip& getShip() const;
 	void setShip(ShipType type);
 	void addGold(int value);
 };

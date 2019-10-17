@@ -1,24 +1,24 @@
-# include "in_harbor.h"
+# include "harbor_controller.h"
 #include "game.h"
 
-InHarbor::InHarbor(Game& game)
-	: view(new InHarborView()), game(game)
+HarborController::HarborController(Game& game)
+	: view(new HarborView()), game(game)
 {
 	
 }
 
-InHarbor::~InHarbor()
+HarborController::~HarborController()
 {
 	delete view;
 }
 
-void InHarbor::moveToHarbor(HarborName name) const
+void HarborController::moveToHarbor(const HarborName name)
 {
-	//create harbor model
-	options();
+	harbor = new Harbor(name);
+	enterHarbor();
 }
 
-void InHarbor::options() const
+void HarborController::enterHarbor() const
 {
 	auto option1 = String("koop goederen");
 	auto option2 = String("koop kannonen");
@@ -34,32 +34,37 @@ void InHarbor::options() const
 	options.add(&option5);
 	options.add(&option6);
 
-	//printoptions
+	//view->printEnterHarborOutput();
 	const auto input = view->getInput(&options);
 
 	if (*input == option1)
 	{
+		//view->printStockOutput();
 		//buy stock
 		return;
 	}
 	if (*input == option2)
 	{
+		//view->printCannonOutput();
 		//buy cannons
 		return;
 	}
 	if (*input == option3)
 	{
+		//view->printShipOutput();
 		//buy ship
 		return;
 	}
 	if (*input == option4)
 	{
+		view->printRepairOutput();
 		//repair ship
 		return;
 	}
 	if (*input == option5)
 	{
-		//bon voyage
+		//view->printBonVoyageOutput();
+		game.moveToSea();
 		return;
 	}
 	if (*input == option6)
@@ -67,5 +72,10 @@ void InHarbor::options() const
 		game.quit();
 		return;
 	}
-	throw; //option not available
+	throw; //option not valid
+}
+
+void HarborController::exitHarbor(HarborName name, int distance) const
+{
+	delete harbor;
 }

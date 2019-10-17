@@ -78,9 +78,6 @@
     <ClCompile Include="random.cpp">
       <Filter>Source Files\Types</Filter>
     </ClCompile>
-    <ClCompile Include="random_value.cpp">
-      <Filter>Source Files\Model</Filter>
-    </ClCompile>
     <ClCompile Include="harbor.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
@@ -90,17 +87,26 @@
     <ClCompile Include="game.cpp">
       <Filter>Source Files\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="in_battle.cpp">
-      <Filter>Source Files\Controller</Filter>
-    </ClCompile>
-    <ClCompile Include="in_harbor.cpp">
-      <Filter>Source Files\Controller</Filter>
-    </ClCompile>
-    <ClCompile Include="on_sea.cpp">
-      <Filter>Source Files\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="game_view.cpp">
       <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="random_value.cpp">
+      <Filter>Source Files\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="sea.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="battle_controller.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="harbor_controller.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="sea_controller.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="battle.cpp">
+      <Filter>Source Files\Model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -155,29 +161,8 @@
     <ClInclude Include="random.h">
       <Filter>Header Files\Types</Filter>
     </ClInclude>
-    <ClInclude Include="random_value.h">
-      <Filter>Header Files\Model</Filter>
-    </ClInclude>
     <ClInclude Include="harbor_name.h">
       <Filter>Header Files\Enumeration</Filter>
-    </ClInclude>
-    <ClInclude Include="in_battle.h">
-      <Filter>Header Files\Controller</Filter>
-    </ClInclude>
-    <ClInclude Include="in_harbor.h">
-      <Filter>Header Files\Controller</Filter>
-    </ClInclude>
-    <ClInclude Include="on_sea.h">
-      <Filter>Header Files\Controller</Filter>
-    </ClInclude>
-    <ClInclude Include="in_battle_view.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="in_harbor_view.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="on_sea_view.h">
-      <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="wind_type.h">
       <Filter>Header Files\Enumeration</Filter>
@@ -189,6 +174,33 @@
       <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="game_view.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="random_value.h">
+      <Filter>Header Files\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="sea.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="battle.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="battle_controller.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="harbor_controller.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="sea_controller.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="battle_view.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="harbor_view.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="sea_view.h">
       <Filter>Header Files\View</Filter>
     </ClInclude>
   </ItemGroup>

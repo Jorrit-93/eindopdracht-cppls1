@@ -151,14 +151,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="battle.cpp" />
     <ClCompile Include="cannon.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="game_view.cpp" />
     <ClCompile Include="harbor.cpp" />
     <ClCompile Include="heavy_ship.cpp" />
-    <ClCompile Include="in_battle.cpp" />
-    <ClCompile Include="in_harbor.cpp" />
-    <ClCompile Include="on_sea.cpp" />
+    <ClCompile Include="battle_controller.cpp" />
+    <ClCompile Include="harbor_controller.cpp" />
+    <ClCompile Include="sea_controller.cpp" />
+    <ClCompile Include="sea.cpp" />
     <ClCompile Include="turn_view.cpp" />
     <ClCompile Include="light_ship.cpp" />
     <ClCompile Include="main.cpp" />
@@ -172,6 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="array.h" />
+    <ClInclude Include="battle.h" />
     <ClInclude Include="cannon.h" />
     <ClInclude Include="cannon_type.h" />
     <ClInclude Include="dictionary.h" />
@@ -179,17 +182,18 @@
     <ClInclude Include="game_view.h" />
     <ClInclude Include="harbor.h" />
     <ClInclude Include="harbor_name.h" />
-    <ClInclude Include="in_battle.h" />
-    <ClInclude Include="in_battle_view.h" />
-    <ClInclude Include="in_harbor.h" />
-    <ClInclude Include="in_harbor_view.h" />
+    <ClInclude Include="battle_controller.h" />
+    <ClInclude Include="battle_view.h" />
+    <ClInclude Include="harbor_controller.h" />
+    <ClInclude Include="harbor_view.h" />
     <ClInclude Include="i_ship.h" />
     <ClInclude Include="heavy_ship.h" />
+    <ClInclude Include="sea.h" />
     <ClInclude Include="turn_view.h" />
     <ClInclude Include="light_ship.h" />
     <ClInclude Include="list.h" />
-    <ClInclude Include="on_sea.h" />
-    <ClInclude Include="on_sea_view.h" />
+    <ClInclude Include="sea_controller.h" />
+    <ClInclude Include="sea_view.h" />
     <ClInclude Include="random.h" />
     <ClInclude Include="random_value.h" />
     <ClInclude Include="ship.h" />

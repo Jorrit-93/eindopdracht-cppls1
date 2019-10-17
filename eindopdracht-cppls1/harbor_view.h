@@ -6,10 +6,10 @@
 #include "cannon_type.h"
 #include "ship_type.h"
 
-class InHarborView : public TurnView
+class HarborView : public TurnView
 {
 public:
-	void printHarborOutput(HarborName name);
+	void printEnterHarborOutput(HarborName name);
 	void printStockOutput(Dictionary<StockType, String*> stocks);
 	void printCannonOutput(Dictionary<CannonType, String*> cannons);
 	void printShipOutput(Dictionary<ShipType, String*> ships);

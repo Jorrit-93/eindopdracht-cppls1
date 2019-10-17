@@ -4,7 +4,7 @@
 #include "ship.h"
 
 Game::Game()
-	: view(new GameView()), in_harbor(new InHarbor(*this)), on_sea(new OnSea(*this)), in_battle(new InBattle(*this))
+	: view(new GameView()), in_harbor(new HarborController(*this)), on_sea(new SeaController(*this)), in_battle(new BattleController(*this))
 {
 	start();
 }
@@ -13,8 +13,8 @@ Game::~Game()
 {
 	delete view;
 	delete in_harbor;
-	//delete on_sea;
-	//delete in_battle;
+	delete on_sea;
+	delete in_battle;
 }
 
 void Game::start()
@@ -61,7 +61,7 @@ void Game::redo()
 		quit();
 		return;
 	}
-	throw; //option not available
+	throw; //option not valid
 }
 
 void Game::quit() const
@@ -81,10 +81,10 @@ void Game::quit() const
 	}
 	if (*input == option2)
 	{
-		in_harbor->options();
+		in_harbor->enterHarbor();
 		return;
 	}
-	throw; //option not available
+	throw; //option not valid
 }
 
 void Game::generalInfo() const
@@ -106,12 +106,17 @@ void Game::moveToHarbor(const HarborName name) const
 
 void Game::moveToSea() const
 {
-	//on_sea->moveToSea();
+	//on_sea->enterSea();
 }
 
 void Game::engageInBattle() const
 {
-	//in_battle->engageInBattle();
+	in_battle->engageInBattle();
+}
+
+IShip& Game::getShip() const
+{
+	return *ship;
 }
 
 void Game::setShip(ShipType type)

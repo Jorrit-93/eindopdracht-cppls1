@@ -1,10 +1,9 @@
 #include "cannon.h"
-#include "random.h"
 
 Cannon::Cannon(const CannonType type, const int price, const int max_damage)
-	: type(type), price(price), max_damage(max_damage)
+	: type(type), price(price), damage(new RandomValue(0, max_damage))
 {
-	
+	damage->setRandomValue();
 }
 
 int Cannon::getPrice() const
@@ -14,5 +13,6 @@ int Cannon::getPrice() const
 
 int Cannon::getDamage() const
 {
-	return Random::global()->randomInt(0, max_damage);
+	damage->setRandomValue();
+	return damage->getValue();
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include "turn_view.h"
 
-class InBattleView : public TurnView
+class BattleView : public TurnView
 {
 public:
 	void printBattleOutput(int hp, Array<int>* pirate_hp);
