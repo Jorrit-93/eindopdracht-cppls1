@@ -30,5 +30,7 @@ public:
 	friend std::istream& operator>>(std::istream& is, String& s);
 	
 	char* toCharArray() const;
+	void pushBack(char input);
+	void clear();
 	int length() const;
 };

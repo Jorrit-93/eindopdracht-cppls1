@@ -107,6 +107,26 @@ char* String::toCharArray() const
 	return n_string;
 }
 
+void String::pushBack(char input)
+{
+	char* temp = new char[n_length + 2];
+	for (int i = 0; i < n_length; i++)
+	{
+		temp[i] = n_string[i];
+	}
+	temp[n_length] = input;
+	temp[++n_length] = '\0';
+	delete[] n_string;
+	n_string = temp;
+}
+
+void String::clear()
+{
+	n_length = 0;
+	n_string = new char[n_length + 1];
+	n_string[n_length] = '\0';
+}
+
 int String::length() const
 {
 	return n_length;
