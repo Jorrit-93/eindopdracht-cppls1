@@ -97,8 +97,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(ProjectDir)Resources\*" "$(OutDir)"
-copy "$(ProjectDir)Resources\*" "$(ProjectDir)"</Command>
+      <Command>copy "$(ProjectDir)Resources\*" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -138,8 +137,7 @@ copy "$(ProjectDir)Resources\*" "$(ProjectDir)"</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(ProjectDir)Resources\*" "$(OutDir)"
-copy "$(ProjectDir)Resources\*" "$(ProjectDir)"</Command>
+      <Command>copy "$(ProjectDir)Resources\*" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

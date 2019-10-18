@@ -14,7 +14,7 @@
 int main()
 {
 	CityDistanceState* city_distance_state = new CityDistanceState();
-	String* path = new String("afstand tussen steden.csv");
+	String* path = new String("resources/schepen.csv");
 	
 	Parser* parser = new Parser();
 	parser->setState(*city_distance_state);
