@@ -9,6 +9,7 @@ std::istream& IParseState::getline(std::istream& stream, String& line, char deli
 	line = "";
 	
 	while (stream.get(ch)) {
+		
 		if (ch == delimeter)
 			break;
 
@@ -18,27 +19,30 @@ std::istream& IParseState::getline(std::istream& stream, String& line, char deli
 	return stream;
 }
 
-void IParseState::removeFirstLine(std::istream& stream, char delimeter)
+void IParseState::removeFirstLine(std::istream& stream, const char delimiter)
 {
 	char ch;
 
 	while (stream.get(ch)) {
-		if (ch == delimeter)
+		if (ch == delimiter)
 			break;
 	}
 }
 
-List<String*>* IParseState::explode(String& string, char delimeter)
+List<String*>* IParseState::explode(String& string, const char delimiter)
 {
-	List<String*>* result = new List<String*>;
+	List<String*>* results = new List<String*>;
 	std::stringstream* stream = new std::stringstream(string.toCharArray());
 
-	for (String* token = new String; getline(*stream, *token, delimeter); )
-	{
-		result->add(token);
-	}
+	String s;
 
+	while (!stream->eof(), getline(*stream, s, delimiter) )
+	{
+		results->add(new String(s));
+	}
+	results->add(new String(s));
+	
 	delete stream;
 	
-	return result;
+	return results;
 }

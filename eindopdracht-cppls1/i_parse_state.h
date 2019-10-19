@@ -10,7 +10,7 @@ public:
 
 protected:
 	std::istream& getline(std::istream& stream, String& line, char delimeter = '\n');
-	void removeFirstLine(std::istream& stream, char delimeter = '\n');
-	List<String*>* explode(String& string, char delimeter = ';');
+	void removeFirstLine(std::istream& stream, const char delimiter = '\n');
+	List<String*>* explode(String& string, const char delimiter = ';');
 };
 
