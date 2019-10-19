@@ -4,13 +4,25 @@
 #include <iostream>
 
 List<ResultStruct*>* ShipState::parse(std::ifstream& stream)
-{	
+{
+	List<ShipStruct*>* result = new List<ShipStruct*>;
+	List<String*>* temp = new List<String*>;
+
+
+	
+	removeFirstLine(stream);
 	
 	for (String* line = new String; getline(stream, *line);)
 	{
-		std::cout << *line;
+		temp = explode(*line);
+		std::cout << *temp->getAt(1) << std::endl;
+		std::cout << *temp->getAt(2) << std::endl;
+		std::cout << *temp->getAt(3) << std::endl;
+		std::cout << *temp->getAt(4) << std::endl;
+		
 	}
-	
+
+	delete temp;
 	
 	return nullptr;
 }

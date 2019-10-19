@@ -196,6 +196,7 @@
     <ClInclude Include="ship.h" />
     <ClInclude Include="ship_decorator.h" />
     <ClInclude Include="ship_state.h" />
+    <ClInclude Include="ship_traits.h" />
     <ClInclude Include="ship_type.h" />
     <ClInclude Include="small_ship.h" />
     <ClInclude Include="string.h" />

@@ -179,6 +179,9 @@
     <ClInclude Include="ship_state.h">
       <Filter>Header Files\Controller\parser</Filter>
     </ClInclude>
+    <ClInclude Include="ship_traits.h">
+      <Filter>Header Files\Enumeration</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\goederen hoeveelheid.csv">
