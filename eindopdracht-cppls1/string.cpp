@@ -1,4 +1,6 @@
 #include "string.h"
+#include <sstream>
+#include <fstream>
 
 String::String()
 {

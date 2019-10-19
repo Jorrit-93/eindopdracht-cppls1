@@ -2,7 +2,7 @@
 #include "result_struct.h"
 #include "string.h"
 
-struct SGood : ResultStruct
+struct GoodStruct : ResultStruct
 {
 	String name;
 	

@@ -9,15 +9,16 @@
 #include "city_distance_state.h"
 #include "string.h"
 #include <conio.h>
+#include "ship_state.h"
 
 
 int main()
 {
-	CityDistanceState* city_distance_state = new CityDistanceState();
+	ShipState* ship_state = new ShipState();
 	String* path = new String("resources/schepen.csv");
 	
 	Parser* parser = new Parser();
-	parser->setState(*city_distance_state);
+	parser->setState(*ship_state);
 	parser->setPath(*path);
 	parser->getResult();
 	

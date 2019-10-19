@@ -28,22 +28,9 @@ void Parser::setPath(String& path)
 	this->path = &path;
 }
 
-String* Parser::Open()
-{
-	String* result = new String("");
-	
-	std::ifstream ifs(path->toCharArray());
+std::ifstream& Parser::Open()
+{	
+	std::ifstream* ifs = new std::ifstream(this->path->toCharArray());
 
-	if (!ifs.is_open())
-	{
-		return nullptr;
-	}
-
-	char c;
-	while (ifs.get(c))
-	{
-		*result += c;
-	}
-
-	return result;
+	return *ifs;
 }

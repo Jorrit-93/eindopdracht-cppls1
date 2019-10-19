@@ -1,6 +1,7 @@
 #pragma once
 #include <ostream>
 #include <istream>
+#include "list.h"
 
 class String
 {
@@ -34,4 +35,5 @@ public:
 	void pushBack(char input);
 	void clear();
 	int length() const;
+
 };

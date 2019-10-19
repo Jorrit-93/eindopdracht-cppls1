@@ -10,5 +10,5 @@ struct CityStruct : ResultStruct
 
 	Dictionary<String, int> distances;
 
-	List<SGood> goods;
+	List<GoodStruct> goods;
 };

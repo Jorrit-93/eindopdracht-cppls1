@@ -6,6 +6,9 @@
 class IParseState
 {
 public:
-	virtual List<ResultStruct*>* parse(const String* content) = 0;	
+	virtual List<ResultStruct*>* parse(std::ifstream& stream) = 0;
+
+protected:
+	std::ifstream& getline(std::ifstream& stream, String& line, char delimeter = '\n');
 };
 
