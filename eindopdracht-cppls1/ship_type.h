@@ -1,4 +1,5 @@
 #pragma once
+#include <ostream>
 
 enum class ShipType
 {
@@ -15,3 +16,5 @@ enum class ShipType
 	Oorlogsgaljoen,
 	Ship_of_the_line,
 };
+
+std::ostream& operator<<(std::ostream& os, ShipType& ship_type);

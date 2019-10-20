@@ -61,6 +61,9 @@
     <Filter Include="Header Files\Structs">
       <UniqueIdentifier>{d826ff96-6f4b-4441-bbd6-6b4288768058}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Enumeration">
+      <UniqueIdentifier>{57d0a75d-8f43-4ca1-9fff-7023fe9ab6b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -107,6 +110,9 @@
     </ClCompile>
     <ClCompile Include="ship_state.cpp">
       <Filter>Source Files\Controller\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="ship_type.cpp">
+      <Filter>Source Files\Enumeration</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
