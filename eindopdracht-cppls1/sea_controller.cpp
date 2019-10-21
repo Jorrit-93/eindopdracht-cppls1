@@ -13,7 +13,7 @@ SeaController::~SeaController()
 	delete view;
 }
 
-void SeaController::moveToSea(const HarborName destination, const int distance)
+void SeaController::instantiateSea(const HarborName destination, const int distance)
 {
 	sea = new Sea(destination, distance);
 	enterSea();

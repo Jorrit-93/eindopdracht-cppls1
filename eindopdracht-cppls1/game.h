@@ -4,6 +4,7 @@
 #include "sea_controller.h"
 #include "battle_controller.h"
 #include "i_ship.h"
+#include "stock.h"
 
 class HarborController;
 class SeaController;
@@ -33,8 +34,8 @@ public:
 	void generalInfo() const;
 
 	void moveToHarbor(HarborName name) const;
-	void moveToSea() const;
-	void engageInBattle() const;
+	void moveToSea(HarborName name, int distance) const;
+	void engageInBattle( HarborName name, int distance) const;
 
 	IShip& getShip() const;
 	void setShip(ShipType type);

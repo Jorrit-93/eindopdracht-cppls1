@@ -101,17 +101,17 @@ void Game::generalInfo() const
 
 void Game::moveToHarbor(const HarborName name) const
 {
-	in_harbor->moveToHarbor(name);
+	in_harbor->instantiateHarbor(name);
 }
 
-void Game::moveToSea() const
+void Game::moveToSea(const HarborName name, const int distance) const
 {
-	//on_sea->enterSea();
+	on_sea->instantiateSea(name, distance);
 }
 
-void Game::engageInBattle() const
+void Game::engageInBattle(const HarborName name, const int distance) const
 {
-	in_battle->engageInBattle();
+	in_battle->instantiateBattle(name, distance);
 }
 
 IShip& Game::getShip() const

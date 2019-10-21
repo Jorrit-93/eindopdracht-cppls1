@@ -17,7 +17,13 @@ public:
 	HarborController(Game& game);
 	~HarborController();
 
-	void moveToHarbor(HarborName name);
+	void instantiateHarbor(HarborName name);
 	void enterHarbor() const;
 	void exitHarbor(HarborName name, int distance) const;
+
+	void buyStock();
+	void buyCannon();
+	void buyShip();
+	void repairShip();
+	void bonVoyage();
 };

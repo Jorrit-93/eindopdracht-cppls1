@@ -17,7 +17,7 @@ public:
 	BattleController(Game& game);
 	~BattleController();
 
-	void engageInBattle(HarborName destination, int distance);
+	void instantiateBattle(HarborName destination, int distance);
 	void enterBattle() const;
 	void exitBattle() const;
 };

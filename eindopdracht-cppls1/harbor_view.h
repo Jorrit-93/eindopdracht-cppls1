@@ -14,5 +14,5 @@ public:
 	void printCannonOutput(Dictionary<CannonType, String*> cannons);
 	void printShipOutput(Dictionary<ShipType, String*> ships);
 	void printRepairOutput();
-	void printBonVoyageOutput(Dictionary<HarborName, String*> destinations);
+	void printBonVoyageOutput(Dictionary<HarborName, int> destinations);
 };

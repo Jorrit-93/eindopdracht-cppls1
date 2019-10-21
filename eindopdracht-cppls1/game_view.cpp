@@ -1,9 +1,11 @@
 #include "game_view.h"
+#include "ship_type.h"
 #include <iostream>
 
 void GameView::printStartOutput()
 {
 	std::cout << "Hallo!" << '\n';
+	auto test = ShipTypeStruct::getShipType(String("Pinnance"));
 }
 
 void GameView::printWinOutput()
@@ -22,7 +24,7 @@ void GameView::printRedoOutput()
 }
 
 void GameView::printQuitOutput()
-{
+{;
 	std::cout << "Weet je zeker dat je wilt stoppen?" << '\n';
 }
 

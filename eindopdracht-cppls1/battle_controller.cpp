@@ -12,9 +12,10 @@ BattleController::~BattleController()
 	delete view;
 }
 
-void BattleController::engageInBattle(const HarborName destination, const int distance)
+void BattleController::instantiateBattle(const HarborName destination, const int distance)
 {
 	battle = new Battle(destination, distance);
+	enterBattle();
 }
 
 void BattleController::enterBattle() const

@@ -161,6 +161,7 @@
     <ClCompile Include="harbor_controller.cpp" />
     <ClCompile Include="sea_controller.cpp" />
     <ClCompile Include="sea.cpp" />
+    <ClCompile Include="sea_view.cpp" />
     <ClCompile Include="turn_view.cpp" />
     <ClCompile Include="light_ship.cpp" />
     <ClCompile Include="main.cpp" />

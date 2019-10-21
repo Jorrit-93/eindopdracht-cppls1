@@ -17,7 +17,7 @@ public:
 	SeaController(Game& game);
 	~SeaController();
 
-	void moveToSea(HarborName destination, int distance);
+	void instantiateSea(HarborName destination, int distance);
 	void enterSea() const;
 	void exitSea() const;
 };

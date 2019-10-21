@@ -12,7 +12,7 @@ HarborController::~HarborController()
 	delete view;
 }
 
-void HarborController::moveToHarbor(const HarborName name)
+void HarborController::instantiateHarbor(const HarborName name)
 {
 	harbor = new Harbor(name);
 	enterHarbor();
@@ -57,14 +57,14 @@ void HarborController::enterHarbor() const
 	}
 	if (*input == option4)
 	{
-		view->printRepairOutput();
+		//view->printRepairOutput();
 		//repair ship
 		return;
 	}
 	if (*input == option5)
 	{
 		//view->printBonVoyageOutput();
-		game.moveToSea();
+		//game.moveToSea();
 		return;
 	}
 	if (*input == option6)
@@ -79,3 +79,15 @@ void HarborController::exitHarbor(HarborName name, int distance) const
 {
 	delete harbor;
 }
+
+void HarborController::bonVoyage()
+{
+	//auto options = harbor->distances->getKeys();
+
+/*	auto option1 = HarborName::Belize;
+	auto options = Array<HarborName>(1);
+	options.add(option1);
+	const auto input = view->getInput<HarborName>(&options);*/ //IMPLEMENT LIST.TOARRAY();
+}
+
+
