@@ -82,7 +82,7 @@ public:
 	{
 		for (int i = 0; i < n_count; i++)
 		{
-			if (n_array[i] == t)
+			if (*n_array[i] == *t)
 			{
 				return i;
 			}

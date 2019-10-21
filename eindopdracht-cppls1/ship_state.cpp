@@ -14,16 +14,15 @@ List<ResultStruct*>* ShipState::parse(std::ifstream& stream)
 	{
 		temp = explode(*line);
 
-		//GetShipType(*temp->getAt(0));
-		
 		ShipStruct* ship = new ShipStruct();
-		//ship->type = GetShipType(*temp->getAt(0));
+		ship->type = GetShipType(*temp->getAt(0));
 		ship->price = atoi(temp->getAt(1)->toCharArray());
 		ship->storage_capacity = atoi(temp->getAt(2)->toCharArray());
 		ship->cannons = atoi(temp->getAt(3)->toCharArray());
 		ship->health = atoi(temp->getAt(4)->toCharArray());
+	
 		
-		std::cout << *temp->getAt(0) << std::endl;
+		std::cout << ship->type << std::endl;
 		std::cout << ship->price << std::endl;
 		std::cout << ship->storage_capacity << std::endl;
 		std::cout << ship->cannons << std::endl;

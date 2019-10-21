@@ -19,6 +19,7 @@ enum class ShipType
 	Ship_of_the_line,
 };
 std::ostream& operator<<(std::ostream& os, ShipType& ship_type);
+ShipType GetShipType(const String& s);
 
-Dictionary<String*, ShipType>* yeet = new Dictionary<String*, ShipType>();
+
 

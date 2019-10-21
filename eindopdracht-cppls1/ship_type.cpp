@@ -1,22 +1,6 @@
 #include "ship_type.h"
 #include "string.h"
 
-// ShipType GetShipType(const String& s)
-// {
-// 	if (s == "Pinnance") return ShipType::Pinnance;
-// 	if (s == "Sloep") return ShipType::Sloep;
-// 	if (s == "Brigg") return ShipType::Brigg;
-// 	if (s == "Barque") return ShipType::Barque;
-// 	if (s == "Korvet") return ShipType::Korvet;
-// 	if (s == "Fluyt") return ShipType::Fluyt;
-// 	if (s == "Fregat") return ShipType::Fregat;
-// 	if (s == "Galjoen") return ShipType::Galjoen;
-// 	if (s == "Handelsfluyt") return ShipType::Handelsfluyt;
-// 	if (s == "Caravel") return ShipType::Caravel;
-// 	if (s == "Oorlogsgaljoen") return ShipType::Oorlogsgaljoen;
-// 	if (s == "Ship of the Line") return ShipType::Ship_of_the_line;
-// }
-
 std::ostream& operator<<(std::ostream& os, ShipType& ship_type)
 {
 	{
@@ -61,4 +45,26 @@ std::ostream& operator<<(std::ostream& os, ShipType& ship_type)
 
 		return os;
 	}
+}
+
+
+ShipType GetShipType(const String& s)
+{
+	Dictionary<const char*, ShipType> types = Dictionary<const char*, ShipType>();
+
+	types.add("Pinnance", ShipType::Pinnance);
+	types.add("Sloep", ShipType::Sloep);
+	types.add("Brigg", ShipType::Brigg);
+	types.add("Barque", ShipType::Barque);
+	types.add("Korvet", ShipType::Korvet);
+	types.add("Fluyt", ShipType::Fluyt);
+	types.add("Fregat", ShipType::Fregat);
+	types.add("Galjoen", ShipType::Galjoen);
+	types.add("Handelsfluyt", ShipType::Handelsfluyt);
+	types.add("Caravel", ShipType::Caravel);
+	types.add("Oorlogsgaljoen", ShipType::Oorlogsgaljoen);
+	types.add("Ship of the line", ShipType::Ship_of_the_line);
+
+	auto test = types.get(s.toCharArray());
+	return test;
 }
