@@ -1,5 +1,7 @@
 #pragma once
 #include <ostream>
+#include "string.h"
+#include "dictionary.h"
 
 enum class ShipType
 {
@@ -16,5 +18,7 @@ enum class ShipType
 	Oorlogsgaljoen,
 	Ship_of_the_line,
 };
-
 std::ostream& operator<<(std::ostream& os, ShipType& ship_type);
+
+Dictionary<String*, ShipType>* yeet = new Dictionary<String*, ShipType>();
+
