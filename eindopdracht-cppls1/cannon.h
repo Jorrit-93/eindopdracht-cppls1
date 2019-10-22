@@ -1,10 +1,18 @@
 #pragma once
+#include "cannon_type.h"
+#include "random_value.h"
 
 class Cannon
 {
-protected:
-	int max_damage;
+private:
+	CannonType type;
+	int price = 0;
+	RandomValue* damage;
 
 public:
-	virtual int getDamage() = 0;
+	Cannon(CannonType type, int price, int max_damage);
+	~Cannon();
+
+	int getPrice() const;
+	int getDamage() const;
 };

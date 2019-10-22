@@ -39,6 +39,7 @@ String::String(const char* input) noexcept
 }
 String& String::operator=(const char* input) noexcept
 {
+	n_string = nullptr;
 	delete[] n_string;
 	n_length = 0;
 	while (input[n_length] != '\0')

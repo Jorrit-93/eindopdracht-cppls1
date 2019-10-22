@@ -163,36 +163,59 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="battle.cpp" />
     <ClCompile Include="cannon.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="game_view.cpp" />
+    <ClCompile Include="harbor.cpp" />
     <ClCompile Include="city_distance_state.cpp" />
-    <ClCompile Include="heavy_cannon.cpp" />
     <ClCompile Include="heavy_ship.cpp" />
+    <ClCompile Include="battle_controller.cpp" />
+    <ClCompile Include="harbor_controller.cpp" />
+    <ClCompile Include="sea_controller.cpp" />
+    <ClCompile Include="sea.cpp" />
+    <ClCompile Include="sea_view.cpp" />
+    <ClCompile Include="turn_view.cpp" />
     <ClCompile Include="i_parse_state.cpp" />
-    <ClCompile Include="light_cannon.cpp" />
     <ClCompile Include="light_ship.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="medium_cannon.cpp" />
+    <ClCompile Include="random.cpp" />
+    <ClCompile Include="random_value.cpp" />
     <ClCompile Include="parser.cpp" />
     <ClCompile Include="ship.cpp" />
     <ClCompile Include="ship_decorator.cpp" />
     <ClCompile Include="ship_state.cpp" />
     <ClCompile Include="ship_type.cpp" />
     <ClCompile Include="small_ship.cpp" />
+    <ClCompile Include="stock.cpp" />
     <ClCompile Include="string.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="array.h" />
+    <ClInclude Include="battle.h" />
     <ClInclude Include="cannon.h" />
+    <ClInclude Include="cannon_type.h" />
     <ClInclude Include="city_distance_state.h" />
     <ClInclude Include="dictionary.h" />
-    <ClInclude Include="heavy_cannon.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="game_view.h" />
+    <ClInclude Include="harbor.h" />
+    <ClInclude Include="harbor_name.h" />
+    <ClInclude Include="battle_controller.h" />
+    <ClInclude Include="battle_view.h" />
+    <ClInclude Include="harbor_controller.h" />
+    <ClInclude Include="harbor_view.h" />
     <ClInclude Include="i_parse_state.h" />
     <ClInclude Include="i_ship.h" />
-    <ClInclude Include="light_cannon.h" />
     <ClInclude Include="heavy_ship.h" />
+    <ClInclude Include="sea.h" />
+    <ClInclude Include="turn_view.h" />
     <ClInclude Include="light_ship.h" />
     <ClInclude Include="list.h" />
-    <ClInclude Include="medium_cannon.h" />
+    <ClInclude Include="sea_controller.h" />
+    <ClInclude Include="sea_view.h" />
+    <ClInclude Include="random.h" />
+    <ClInclude Include="random_value.h" />
     <ClInclude Include="parser.h" />
     <ClInclude Include="ship.h" />
     <ClInclude Include="ship_decorator.h" />
@@ -200,7 +223,10 @@
     <ClInclude Include="ship_traits.h" />
     <ClInclude Include="ship_type.h" />
     <ClInclude Include="small_ship.h" />
+    <ClInclude Include="stock.h" />
+    <ClInclude Include="stock_type.h" />
     <ClInclude Include="string.h" />
+    <ClInclude Include="wind_type.h" />
     <ClInclude Include="city_struct.h" />
     <ClInclude Include="good_struct.h" />
     <ClInclude Include="result_struct.h" />

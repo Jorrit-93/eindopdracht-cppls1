@@ -1,7 +1,18 @@
 #include "cannon.h"
 
-int Cannon::getDamage()
+Cannon::Cannon(const CannonType type, const int price, const int max_damage)
+	: type(type), price(price), damage(new RandomValue(0, max_damage))
 {
-	//TODO return random damage between 0 and max_damage
-	return max_damage;
+	damage->setRandomValue();
+}
+
+int Cannon::getPrice() const
+{
+	return price;
+}
+
+int Cannon::getDamage() const
+{
+	damage->setRandomValue();
+	return damage->getValue();
 }

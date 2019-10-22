@@ -5,7 +5,7 @@
 
 enum class ShipType
 {
-	Pinnance,
+	Pinnace,
 	Sloep,
 	Brigg,
 	Barque,
@@ -15,11 +15,14 @@ enum class ShipType
 	Galjoen,
 	Handelsfluyt,
 	Caravel,
+	Carrack,
 	Oorlogsgaljoen,
-	Ship_of_the_line,
+	Ship_of_the_Line,
 };
-std::ostream& operator<<(std::ostream& os, ShipType& ship_type);
-ShipType GetShipType(const String& s);
+
+std::ostream& operator<<(std::ostream& os, ShipType ship_type);
+
+ShipType getShipType(String* s);
 
 
 

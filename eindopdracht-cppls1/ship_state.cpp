@@ -15,7 +15,7 @@ List<ResultStruct*>* ShipState::parse(std::ifstream& stream)
 		temp = explode(*line);
 
 		ShipStruct* ship = new ShipStruct();
-		ship->type = GetShipType(*temp->getAt(0));
+		ship->type = GetShipType(temp->getAt(0));
 		ship->price = atoi(temp->getAt(1)->toCharArray());
 		ship->storage_capacity = atoi(temp->getAt(2)->toCharArray());
 		ship->cannons = atoi(temp->getAt(3)->toCharArray());

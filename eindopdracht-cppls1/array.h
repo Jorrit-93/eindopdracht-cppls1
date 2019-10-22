@@ -3,6 +3,7 @@
 template <typename T>
 class Array
 {
+
 private:
 	T* n_array;
 	int n_size;
@@ -126,6 +127,19 @@ public:
 		{
 			throw; //throw index out of bounds exception
 		}
+	}
+
+	bool contains(const T t)
+	{
+		for (int i = 0; i < n_count; i++)
+		{
+			auto test = *n_array[i];
+			if (*n_array[i] == *t)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	int count() const

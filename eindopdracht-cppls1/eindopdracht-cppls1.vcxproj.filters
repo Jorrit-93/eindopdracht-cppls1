@@ -31,9 +31,6 @@
     <Filter Include="Header Files\Enumeration">
       <UniqueIdentifier>{e0306f3b-d7e5-4d12-9542-c4d41e7e72bc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Model\Cannons">
-      <UniqueIdentifier>{bf5bd3d1-548c-46a9-99b7-442a98d98593}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Model\Ships">
       <UniqueIdentifier>{5235e673-10bf-44ce-bf06-23bc3c13b18e}</UniqueIdentifier>
     </Filter>
@@ -45,9 +42,6 @@
     </Filter>
     <Filter Include="Source Files\View">
       <UniqueIdentifier>{4c3f2030-0e27-4850-aab5-dfe60748c193}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Model\Cannons">
-      <UniqueIdentifier>{e84a94cc-d70c-4811-8023-2cb35a7bd928}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Model\Ships">
       <UniqueIdentifier>{17283b3b-9e98-467d-aff4-b56f1ccfa64a}</UniqueIdentifier>
@@ -72,18 +66,6 @@
     <ClCompile Include="string.cpp">
       <Filter>Source Files\Types</Filter>
     </ClCompile>
-    <ClCompile Include="cannon.cpp">
-      <Filter>Source Files\Model\Cannons</Filter>
-    </ClCompile>
-    <ClCompile Include="light_cannon.cpp">
-      <Filter>Source Files\Model\Cannons</Filter>
-    </ClCompile>
-    <ClCompile Include="heavy_cannon.cpp">
-      <Filter>Source Files\Model\Cannons</Filter>
-    </ClCompile>
-    <ClCompile Include="medium_cannon.cpp">
-      <Filter>Source Files\Model\Cannons</Filter>
-    </ClCompile>
     <ClCompile Include="heavy_ship.cpp">
       <Filter>Source Files\Model\Ships</Filter>
     </ClCompile>
@@ -98,6 +80,48 @@
     </ClCompile>
     <ClCompile Include="small_ship.cpp">
       <Filter>Source Files\Model\Ships</Filter>
+    </ClCompile>
+    <ClCompile Include="cannon.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="stock.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="random.cpp">
+      <Filter>Source Files\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="harbor.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="turn_view.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="game_view.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="random_value.cpp">
+      <Filter>Source Files\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="sea.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="battle_controller.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="harbor_controller.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="sea_controller.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="battle.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="sea_view.cpp">
+      <Filter>Source Files\View</Filter>
     </ClCompile>
     <ClCompile Include="parser.cpp">
       <Filter>Source Files\Controller\parser</Filter>
@@ -137,18 +161,6 @@
     <ClInclude Include="heavy_ship.h">
       <Filter>Header Files\Model\Ships</Filter>
     </ClInclude>
-    <ClInclude Include="light_cannon.h">
-      <Filter>Header Files\Model\Cannons</Filter>
-    </ClInclude>
-    <ClInclude Include="cannon.h">
-      <Filter>Header Files\Model\Cannons</Filter>
-    </ClInclude>
-    <ClInclude Include="heavy_cannon.h">
-      <Filter>Header Files\Model\Cannons</Filter>
-    </ClInclude>
-    <ClInclude Include="medium_cannon.h">
-      <Filter>Header Files\Model\Cannons</Filter>
-    </ClInclude>
     <ClInclude Include="array.h">
       <Filter>Header Files\Types</Filter>
     </ClInclude>
@@ -160,6 +172,66 @@
     </ClInclude>
     <ClInclude Include="dictionary.h">
       <Filter>Header Files\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="stock.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="harbor.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="stock_type.h">
+      <Filter>Header Files\Enumeration</Filter>
+    </ClInclude>
+    <ClInclude Include="cannon_type.h">
+      <Filter>Header Files\Enumeration</Filter>
+    </ClInclude>
+    <ClInclude Include="cannon.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="random.h">
+      <Filter>Header Files\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="harbor_name.h">
+      <Filter>Header Files\Enumeration</Filter>
+    </ClInclude>
+    <ClInclude Include="wind_type.h">
+      <Filter>Header Files\Enumeration</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="turn_view.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="game_view.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="random_value.h">
+      <Filter>Header Files\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="sea.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="battle.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="battle_controller.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="harbor_controller.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="sea_controller.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="battle_view.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="harbor_view.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="sea_view.h">
+      <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="parser.h">
       <Filter>Header Files\Controller\parser</Filter>

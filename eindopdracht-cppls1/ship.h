@@ -15,6 +15,8 @@ protected:
 	
 public:
 	Ship(int cannon_amount);
-	
+
+	bool hasSunk() override;
 	bool hasFled() override;
+	int sail(WindType type, int distance) override;
 };

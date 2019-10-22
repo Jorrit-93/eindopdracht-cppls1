@@ -5,4 +5,6 @@ class LightShip : public ShipDecorator
 {
 public:
 	LightShip(IShip* ship);
+
+	int sail(WindType type, int distance) override;
 };
