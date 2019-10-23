@@ -14,8 +14,9 @@ protected:
 	int hp;
 	
 public:
-	Ship(int cannon_amount);
-
+	Ship(ShipType type, int price, int cargo_space, int cannon_amount, int hp);
+	~Ship();
+	
 	bool hasSunk() override;
 	bool hasFled() override;
 	int sail(WindType type, int distance) override;

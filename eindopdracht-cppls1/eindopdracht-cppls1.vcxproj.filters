@@ -81,6 +81,12 @@
     <ClCompile Include="small_ship.cpp">
       <Filter>Source Files\Model\Ships</Filter>
     </ClCompile>
+    <ClCompile Include="ship_builder.cpp">
+      <Filter>Source Files\Model\Ships</Filter>
+    </ClCompile>
+    <ClCompile Include="ship_attribute.h">
+      <Filter>Header Files\Enumeration</Filter>
+    </ClCompile>
     <ClCompile Include="cannon.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
@@ -172,6 +178,9 @@
     </ClInclude>
     <ClInclude Include="dictionary.h">
       <Filter>Header Files\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="ship_builder.h">
+      <Filter>Header Files\Model\Ships</Filter>
     </ClInclude>
     <ClInclude Include="stock.h">
       <Filter>Header Files\Model</Filter>

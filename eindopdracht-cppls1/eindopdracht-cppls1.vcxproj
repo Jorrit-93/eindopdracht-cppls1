@@ -183,6 +183,8 @@
     <ClCompile Include="random_value.cpp" />
     <ClCompile Include="parser.cpp" />
     <ClCompile Include="ship.cpp" />
+    <ClCompile Include="ship_attribute.h" />
+    <ClCompile Include="ship_builder.cpp" />
     <ClCompile Include="ship_decorator.cpp" />
     <ClCompile Include="ship_state.cpp" />
     <ClCompile Include="ship_type.cpp" />
@@ -218,6 +220,7 @@
     <ClInclude Include="random_value.h" />
     <ClInclude Include="parser.h" />
     <ClInclude Include="ship.h" />
+    <ClInclude Include="ship_builder.h" />
     <ClInclude Include="ship_decorator.h" />
     <ClInclude Include="ship_state.h" />
     <ClInclude Include="ship_traits.h" />

@@ -2,7 +2,7 @@
 #include "wind_type.h"
 
 class IShip
-{
+{	
 public:
 	virtual ~IShip() = default;
 

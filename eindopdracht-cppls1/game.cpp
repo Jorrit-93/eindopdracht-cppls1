@@ -2,6 +2,7 @@
 #include "game_view.h"
 #include "random.h"
 #include "ship.h"
+#include "ship_builder.h"
 
 Game::Game()
 	: view(new GameView()), in_harbor(new HarborController(*this)), on_sea(new SeaController(*this)), in_battle(new BattleController(*this))
@@ -122,7 +123,7 @@ IShip& Game::getShip() const
 void Game::setShip(ShipType type)
 {
 	delete ship;
-	ship = new Ship(10); //set ship
+	//ship = new Ship();
 }
 
 void Game::addGold(const int value)
