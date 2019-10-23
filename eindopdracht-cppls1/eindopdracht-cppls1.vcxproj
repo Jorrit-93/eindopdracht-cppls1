@@ -164,20 +164,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="battle.cpp" />
+    <ClCompile Include="battle_view.cpp" />
     <ClCompile Include="cannon.cpp" />
+    <ClCompile Include="game_controller.cpp" />
     <ClCompile Include="cannon_type.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="game_view.cpp" />
     <ClCompile Include="harbor.cpp" />
+    <ClCompile Include="harbor_view.cpp" />
     <ClCompile Include="harbor_builder.cpp" />
     <ClCompile Include="harbor_distance_state.cpp" />
     <ClCompile Include="harbor_name.cpp" />
     <ClCompile Include="heavy_ship.cpp" />
     <ClCompile Include="battle_controller.cpp" />
     <ClCompile Include="harbor_controller.cpp" />
+    <ClCompile Include="pirate_ship.cpp" />
     <ClCompile Include="parser_controller.cpp" />
     <ClCompile Include="sea_controller.cpp" />
     <ClCompile Include="sea.cpp" />
+    <ClCompile Include="sea_view.cpp" />
+    <ClCompile Include="ship_trait.cpp" />
     <ClCompile Include="sea_view.cpp" />
     <ClCompile Include="ship_state.cpp" />
     <ClCompile Include="ship_trait.cpp" />
@@ -207,7 +213,7 @@
     <ClInclude Include="harbor_builder.h" />
     <ClInclude Include="harbor_distance_state.h" />
     <ClInclude Include="dictionary.h" />
-    <ClInclude Include="game.h" />
+    <ClInclude Include="game_controller.h" />
     <ClInclude Include="game_view.h" />
     <ClInclude Include="harbor.h" />
     <ClInclude Include="harbor_name.h" />
@@ -219,7 +225,9 @@
     <ClInclude Include="parse_state.h" />
     <ClInclude Include="i_ship.h" />
     <ClInclude Include="heavy_ship.h" />
+    <ClInclude Include="pirate_ship.h" />
     <ClInclude Include="sea.h" />
+    <ClInclude Include="ship_trait.h" />
     <ClInclude Include="ship_trait.h" />
     <ClInclude Include="stock_amount_state.h" />
     <ClInclude Include="stock_price_state.h" />

@@ -7,4 +7,6 @@ public:
 	LightShip(IShip* ship);
 
 	int sail(WindType type, int distance) override;
+	bool hasFled(IShip& from) override;
+	Array<ShipTrait>* getTraits() override;
 };

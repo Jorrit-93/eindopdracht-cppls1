@@ -5,14 +5,12 @@
 #include "battle_controller.h"
 #include "i_ship.h"
 #include "stock.h"
-#include "ship_struct.h"
-#include "ship_builder.h"
 
 class HarborController;
 class SeaController;
 class BattleController;
 
-class Game
+class GameController
 {
 private:
 	GameView* view;
@@ -20,15 +18,13 @@ private:
 	SeaController* on_sea;
 	BattleController* in_battle;
 
-	ShipBuilder* ship_builder;
-	
 	IShip* ship = nullptr;
 	Dictionary<Stock*, int>* stocks;
 	int gold = 0;
 
 public:
-	Game();
-	~Game();
+	GameController();
+	~GameController();
 	
 	void start();
 	void win();
@@ -38,10 +34,12 @@ public:
 	void generalInfo() const;
 
 	void moveToHarbor(HarborName name) const;
-	void moveToSea(HarborName name, int distance) const;
-	void engageInBattle( HarborName name, int distance) const;
+	void moveToSea() const;
+	void engageInBattle() const;
 
 	IShip& getShip() const;
 	void setShip(ShipType type);
 	void addGold(int value);
+	Dictionary<Stock*, int>* getStocks();
+	void setStocks(Dictionary<Stock*, int>* stocks);
 };

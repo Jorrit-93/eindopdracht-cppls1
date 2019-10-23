@@ -18,6 +18,8 @@ public:
 	~Ship();
 	
 	bool hasSunk() override;
-	bool hasFled() override;
+	bool hasFled(IShip& from) override;
+	void shoot(IShip& at) override;
 	int sail(WindType type, int distance) override;
+	Array<ShipTrait>* getTraits() override;
 };

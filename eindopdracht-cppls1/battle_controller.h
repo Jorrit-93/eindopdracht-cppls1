@@ -1,23 +1,25 @@
 #pragma once
 #include "battle_view.h"
-#include "game.h"
+#include "game_controller.h"
 #include "battle.h"
+#include "pirate_ship.h"
 
-class Game;
+class GameController;
 
 class BattleController
 {
 private:
 	BattleView* view;
-	Game& game;
+	GameController& game;
 
-	Battle* battle = nullptr;
+	bool isOver = false;
+	IShip* pirate_ship;
 	
 public:
-	BattleController(Game& game);
+	BattleController(GameController& game);
 	~BattleController();
 
-	void instantiateBattle(HarborName destination, int distance);
+	void initialize();
 	void enterBattle() const;
 	void exitBattle() const;
 };

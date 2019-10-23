@@ -13,3 +13,21 @@ int LightShip::sail(WindType type, int distance)
 	}
 	return ship->sail(type, distance);
 }
+
+bool LightShip::hasFled(IShip& from)
+{
+	auto* traits = from.getTraits();
+	
+	return true;
+}
+
+Array<ShipTrait>* LightShip::getTraits()
+{
+	auto* traits = ship->getTraits();
+
+	traits->add(ShipTrait::licht);
+
+	return traits;
+}
+
+

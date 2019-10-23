@@ -46,6 +46,9 @@
     <Filter Include="Source Files\Model\Ships">
       <UniqueIdentifier>{17283b3b-9e98-467d-aff4-b56f1ccfa64a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Enumeration">
+      <UniqueIdentifier>{294b8f30-6371-4d15-bfd2-9ca44f7a85c4}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Header Files\Structs">
       <UniqueIdentifier>{d826ff96-6f4b-4441-bbd6-6b4288768058}</UniqueIdentifier>
     </Filter>
@@ -102,9 +105,6 @@
     <ClCompile Include="turn_view.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
-    <ClCompile Include="game.cpp">
-      <Filter>Source Files\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="game_view.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
@@ -125,6 +125,24 @@
     </ClCompile>
     <ClCompile Include="battle.cpp">
       <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="harbor_view.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="sea_view.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="game_controller.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="battle_view.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="pirate_ship.cpp">
+      <Filter>Source Files\Model\Ships</Filter>
+    </ClCompile>
+    <ClCompile Include="ship_trait.cpp">
+      <Filter>Source Files\Enumeration</Filter>
     </ClCompile>
     <ClCompile Include="sea_view.cpp">
       <Filter>Source Files\View</Filter>
@@ -230,9 +248,6 @@
     <ClInclude Include="wind_type.h">
       <Filter>Header Files\Enumeration</Filter>
     </ClInclude>
-    <ClInclude Include="game.h">
-      <Filter>Header Files\Controller</Filter>
-    </ClInclude>
     <ClInclude Include="turn_view.h">
       <Filter>Header Files\View</Filter>
     </ClInclude>
@@ -265,6 +280,15 @@
     </ClInclude>
     <ClInclude Include="sea_view.h">
       <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="game_controller.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="pirate_ship.h">
+      <Filter>Header Files\Model\Ships</Filter>
+    </ClInclude>
+    <ClInclude Include="ship_trait.h">
+      <Filter>Header Files\Enumeration</Filter>
     </ClInclude>
     <ClInclude Include="parser.h">
       <Filter>Header Files\Controller\Parser</Filter>

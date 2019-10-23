@@ -16,9 +16,25 @@ bool Ship::hasSunk()
 	return hp <= 0;
 }
 
-bool Ship::hasFled()
+bool Ship::hasFled(IShip& from)
 {
-	return false;
+	Array<ShipTrait>* traits = from.getTraits();
+
+	if (traits->contains(ShipTrait::licht)) 
+		return Random::global()->chance(50);
+
+	if (traits->contains(ShipTrait::log))
+		return Random::global()->chance(75);
+
+	if(traits->count() == 0)
+		Random::global()->chance(60);
+	
+	throw;
+}
+
+void Ship::shoot(IShip& at)
+{
+	
 }
 
 int Ship::sail(WindType type, int distance)
@@ -48,4 +64,11 @@ int Ship::sail(WindType type, int distance)
 		}
 	}
 	throw; //wind_type not valid
+}
+
+Array<ShipTrait>* Ship::getTraits()
+{
+	Array<ShipTrait>* traits = new Array<ShipTrait>(5);
+
+	return traits;
 }

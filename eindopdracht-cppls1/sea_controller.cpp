@@ -1,8 +1,8 @@
 # include "sea_controller.h"
-#include "game.h"
+#include "game_controller.h"
 #include "random.h"
 
-SeaController::SeaController(Game& game)
+SeaController::SeaController(GameController& game)
 	: view(new SeaView()), game(game)
 {
 

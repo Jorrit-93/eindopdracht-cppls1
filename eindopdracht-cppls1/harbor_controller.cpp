@@ -5,7 +5,7 @@
 #include "stock_amount_state.h"
 #include "stock_price_state.h"
 
-HarborController::HarborController(Game& game)
+HarborController::HarborController(GameController& game)
 	: view(new HarborView()), game(game)
 {
 	harbor_builder = new HarborBuilder();
@@ -41,11 +41,34 @@ void HarborController::enterHarbor() const
 	//view->printEnterHarborOutput();
 	const auto input = view->getInput(&options);
 
-	if (*input == option1)
+	switch(input)
 	{
-		//view->printStockOutput();
-		//buy stock
-		return;
+		case 1:
+			//view->printStockOutput();
+			//buy stock
+			break;
+		case 2:
+			//view->printCannonOutput();
+			//buy cannons
+			break;
+		case 3:
+			//view->printShipOutput();
+			//buy ship
+			break;
+		case 4:
+			view->printRepairOutput();
+			//repair ship
+			break;
+		case 5:
+			game.engageInBattle();
+			//view->printBonVoyageOutput();
+			//game.moveToSea();
+			break;
+		case 6:
+			game.quit();
+			break;
+		default:
+			throw;
 	}
 	if (*input == option2)
 	{
