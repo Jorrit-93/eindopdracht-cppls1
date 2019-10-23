@@ -1,20 +1,20 @@
 #pragma once
 #include "battle_view.h"
-#include "game.h"
+#include "game_controller.h"
 #include "battle.h"
 
-class Game;
+class GameController;
 
 class BattleController
 {
 private:
 	BattleView* view;
-	Game& game;
+	GameController& game;
 
 	Battle* battle = nullptr;
 	
 public:
-	BattleController(Game& game);
+	BattleController(GameController& game);
 	~BattleController();
 
 	void engageInBattle(HarborName destination, int distance);

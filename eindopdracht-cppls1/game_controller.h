@@ -10,7 +10,7 @@ class HarborController;
 class SeaController;
 class BattleController;
 
-class Game
+class GameController
 {
 private:
 	GameView* view;
@@ -23,8 +23,8 @@ private:
 	int gold = 0;
 
 public:
-	Game();
-	~Game();
+	GameController();
+	~GameController();
 	
 	void start();
 	void win();

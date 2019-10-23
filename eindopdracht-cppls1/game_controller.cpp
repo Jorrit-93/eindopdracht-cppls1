@@ -1,15 +1,15 @@
-#include "game.h"
+#include "game_controller.h"
 #include "game_view.h"
 #include "random.h"
 #include "ship.h"
 
-Game::Game()
+GameController::GameController()
 	: view(new GameView()), in_harbor(new HarborController(*this)), on_sea(new SeaController(*this)), in_battle(new BattleController(*this))
 {
 	start();
 }
 
-Game::~Game()
+GameController::~GameController()
 {
 	delete view;
 	delete in_harbor;
@@ -17,7 +17,7 @@ Game::~Game()
 	delete in_battle;
 }
 
-void Game::start()
+void GameController::start()
 {
 	setShip(ShipType::Pinnance);
 	gold = 1000;
@@ -26,21 +26,21 @@ void Game::start()
 	moveToHarbor(static_cast<HarborName>(Random::global()->randomInt(0, 23))); //determine size by harbor struct array
 }
 
-void Game::win()
+void GameController::win()
 {
 	view->printWinOutput();
 	view->getInput();
 	redo();
 }
 
-void Game::gameOver()
+void GameController::gameOver()
 {
 	view->printGameOverOutput();
 	view->getInput();
 	redo();
 }
 
-void Game::redo()
+void GameController::redo()
 {
 	auto option1 = String("ja");
 	auto option2 = String("nee");
@@ -63,7 +63,7 @@ void Game::redo()
 	}
 }
 
-void Game::quit() const
+void GameController::quit() const
 {
 	auto option1 = String("ja");
 	auto option2 = String("nee");
@@ -85,7 +85,7 @@ void Game::quit() const
 	}
 }
 
-void Game::generalInfo() const
+void GameController::generalInfo() const
 {
 	auto key1 = String("hp");
 	auto key2 = String("gold");
@@ -97,33 +97,33 @@ void Game::generalInfo() const
 	view->printGeneralInfoOutput(&dictionary);
 }
 
-void Game::moveToHarbor(const HarborName name) const
+void GameController::moveToHarbor(const HarborName name) const
 {
 	in_harbor->moveToHarbor(name);
 }
 
-void Game::moveToSea() const
+void GameController::moveToSea() const
 {
 	//on_sea->enterSea();
 }
 
-void Game::engageInBattle() const
+void GameController::engageInBattle() const
 {
 	//in_battle->engageInBattle();
 }
 
-IShip& Game::getShip() const
+IShip& GameController::getShip() const
 {
 	return *ship;
 }
 
-void Game::setShip(ShipType type)
+void GameController::setShip(ShipType type)
 {
 	delete ship;
 	ship = new Ship(10); //set ship
 }
 
-void Game::addGold(const int value)
+void GameController::addGold(const int value)
 {
 	gold += value;
 }

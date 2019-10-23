@@ -1,7 +1,7 @@
 # include "harbor_controller.h"
-#include "game.h"
+#include "game_controller.h"
 
-HarborController::HarborController(Game& game)
+HarborController::HarborController(GameController& game)
 	: view(new HarborView()), game(game)
 {
 	

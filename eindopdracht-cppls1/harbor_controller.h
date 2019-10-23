@@ -1,20 +1,20 @@
 #pragma once
 #include "harbor_view.h"
-#include "game.h"
+#include "game_controller.h"
 #include "harbor.h"
 
-class Game;
+class GameController;
 
 class HarborController
 {
 private:
 	HarborView* view;
-	Game& game;
+	GameController& game;
 
 	Harbor* harbor = nullptr;
 	
 public:
-	HarborController(Game& game);
+	HarborController(GameController& game);
 	~HarborController();
 
 	void moveToHarbor(HarborName name);

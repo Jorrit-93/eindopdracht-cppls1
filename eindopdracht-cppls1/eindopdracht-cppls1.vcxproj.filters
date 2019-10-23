@@ -84,9 +84,6 @@
     <ClCompile Include="turn_view.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
-    <ClCompile Include="game.cpp">
-      <Filter>Source Files\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="game_view.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
@@ -113,6 +110,9 @@
     </ClCompile>
     <ClCompile Include="sea_view.cpp">
       <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="game_controller.cpp">
+      <Filter>Source Files\Controller</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -173,9 +173,6 @@
     <ClInclude Include="wind_type.h">
       <Filter>Header Files\Enumeration</Filter>
     </ClInclude>
-    <ClInclude Include="game.h">
-      <Filter>Header Files\Controller</Filter>
-    </ClInclude>
     <ClInclude Include="turn_view.h">
       <Filter>Header Files\View</Filter>
     </ClInclude>
@@ -208,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="sea_view.h">
       <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="game_controller.h">
+      <Filter>Header Files\Controller</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

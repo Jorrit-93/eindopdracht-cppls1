@@ -4,11 +4,11 @@
 #include "battle_view.h"
 #include "sea_view.h"
 #include "harbor_view.h"
-#include "game.h"
+#include "game_controller.h"
 
 int main()
 {
-	Game game = Game();
+	GameController game = GameController();
 	//auto option1 = new String("option1");
 	//auto option2 = new String("option2");
 	//auto option3 = new String("option3");

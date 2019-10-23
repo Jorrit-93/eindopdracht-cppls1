@@ -1,7 +1,7 @@
 #include "battle_controller.h"
-#include "game.h"
+#include "game_controller.h"
 
-BattleController::BattleController(Game& game)
+BattleController::BattleController(GameController& game)
 	: view(new BattleView()), game(game)
 {
 	
