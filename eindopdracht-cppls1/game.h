@@ -4,6 +4,7 @@
 #include "sea_controller.h"
 #include "battle_controller.h"
 #include "i_ship.h"
+#include "stock.h"
 
 class HarborController;
 class SeaController;

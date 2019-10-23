@@ -111,7 +111,7 @@ void Game::moveToSea() const
 
 void Game::engageInBattle() const
 {
-	in_battle->engageInBattle();
+	//in_battle->engageInBattle();
 }
 
 IShip& Game::getShip() const
