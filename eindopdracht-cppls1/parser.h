@@ -1,21 +1,27 @@
 #pragma once
-#include "i_parse_state.h"
 #include "string.h"
-#include "result_struct.h"
+#include "parse_state.h"
 #include "list.h"
 
 class Parser
 {
-public:
-	Parser();
-	~Parser();
-	List<ResultStruct*>* getResult();
-	void setState(IParseState& state);
-	void setPath(String& path);
-	
 private:
-	IParseState* state;
-	String* path;
-	std::ifstream& Open();
+	String* path = nullptr;
+	
+public:
+	void setPath(String& path);
+
+	template<typename  T>
+	List<T*>* getResult(ParseState<T>& state)
+	{
+		if (!path)
+		{
+			return nullptr;
+		}
+		std::ifstream* ifs = new std::ifstream(this->path->toCharArray());
+		List<T*>* returnList = state.parse(*ifs);
+		delete ifs;
+		return returnList;
+	}
 };
 

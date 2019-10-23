@@ -5,6 +5,8 @@
 #include "battle_controller.h"
 #include "i_ship.h"
 #include "stock.h"
+#include "ship_struct.h"
+#include "ship_builder.h"
 
 class HarborController;
 class SeaController;
@@ -18,6 +20,8 @@ private:
 	SeaController* on_sea;
 	BattleController* in_battle;
 
+	ShipBuilder* ship_builder;
+	
 	IShip* ship = nullptr;
 	Dictionary<Stock*, int>* stocks;
 	int gold = 0;

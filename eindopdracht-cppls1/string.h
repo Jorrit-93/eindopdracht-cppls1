@@ -35,4 +35,5 @@ public:
 	void pushBack(char input);
 	void clear();
 	int length() const;
+	bool empty() const;
 };

@@ -1,10 +1,14 @@
 # include "harbor_controller.h"
 #include "game.h"
+#include "parser.h"
+#include "harbor_distance_state.h"
+#include "stock_amount_state.h"
+#include "stock_price_state.h"
 
 HarborController::HarborController(Game& game)
 	: view(new HarborView()), game(game)
 {
-	
+	harbor_builder = new HarborBuilder();
 }
 
 HarborController::~HarborController()
@@ -14,7 +18,7 @@ HarborController::~HarborController()
 
 void HarborController::instantiateHarbor(const HarborName name)
 {
-	harbor = new Harbor(name);
+	harbor = harbor_builder->createHarbor(name);
 	enterHarbor();
 }
 

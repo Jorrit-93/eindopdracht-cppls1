@@ -1,8 +1,9 @@
 #pragma once
-#include "i_parse_state.h"
+#include "parse_state.h"
+#include "ship_struct.h"
 
-class ShipState : public IParseState
+class ShipState : public ParseState<ShipStruct>
 {
-	List<ResultStruct*>* parse(std::ifstream& stream) override;
+	List<ShipStruct*>* parse(std::ifstream& stream) override;
 };
 

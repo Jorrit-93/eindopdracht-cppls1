@@ -1,12 +1,32 @@
 #include "ship_builder.h"
+#include "parser_controller.h"
 #include "ship.h"
 #include "light_ship.h"
 #include "small_ship.h"
 #include "heavy_ship.h"
 
+ShipBuilder::ShipBuilder()
+{
+	const auto parserController = ParserController();
+	ship_structs = parserController.parseShips();
+}
+
 ShipBuilder::~ShipBuilder()
 {
 	delete attributes_def;
+	delete ship_structs;
+}
+
+IShip* ShipBuilder::createShip(ShipType type)
+{
+	int i = 0;
+	auto ship = ship_structs->getAt(i);
+	while (ship->type != type)
+	{
+		ship = ship_structs->getAt(i);
+		i++;
+	}
+	return setType(ship->type).setPrice(ship->price).setCargoSpace(ship->storage_capacity).setCannonAmount(ship->cannons).setHP(ship->health).setAttributes(ship->traits).build();
 }
 
 ShipBuilder& ShipBuilder::setType(const ShipType type)
@@ -53,13 +73,13 @@ IShip* ShipBuilder::build() const
 	{
 		switch (attributes_def->getAt(i))
 		{
-		case ShipTrait::Small:
+		case ShipTrait::klein:
 			ship = new SmallShip(ship);
 			break;
-		case ShipTrait::Light:
+		case ShipTrait::licht:
 			ship = new LightShip(ship);
 			break;
-		case ShipTrait::Heavy:
+		case ShipTrait::log:
 			ship = new HeavyShip(ship);
 			break;
 		}

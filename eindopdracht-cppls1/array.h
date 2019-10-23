@@ -1,8 +1,10 @@
 #pragma once
+#include <type_traits>
 
 template <typename T>
 class Array
 {
+	//static_assert(std::is_pointer<T>::value, "Array requires a pointer type");
 
 private:
 	T* n_array;
@@ -50,6 +52,18 @@ public:
 		return *this;
 	}
 
+	//pointer parsers
+	template<typename P>
+	static P* toPointer(P& p)
+	{
+		return &p;
+	}
+	template<typename P>
+	static P* toPointer(P* p)
+	{
+		return p;
+	}
+	
 	bool operator==(const Array& other)
 	{
 		if(n_count == other.n_count)
@@ -83,7 +97,7 @@ public:
 	{
 		for (int i = 0; i < n_count; i++)
 		{
-			if (*n_array[i] == *t)
+			if (*toPointer(n_array[i]) == *toPointer(t))
 			{
 				return i;
 			}
@@ -133,10 +147,9 @@ public:
 	{
 		for (int i = 0; i < n_count; i++)
 		{
-			auto test = *n_array[i];
-			if (*n_array[i] == *t)
+			if (*toPointer(n_array[i]) == *toPointer(t))
 			{
-				return true;
+				return i;
 			}
 		}
 		return false;

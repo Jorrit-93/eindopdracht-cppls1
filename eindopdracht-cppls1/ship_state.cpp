@@ -1,36 +1,39 @@
 #include "ship_state.h"
-#include "ship_struct.h"
 #include <fstream>
 #include <iostream>
 
-List<ResultStruct*>* ShipState::parse(std::ifstream& stream)
+List<ShipStruct*>* ShipState::parse(std::ifstream& stream)
 {
-	List<ShipStruct*>* result = new List<ShipStruct*>;
-	List<String*>* temp = new List<String*>;
+	auto result = new List<ShipStruct*>;
 
-	removeFirstLine(stream);
-	
-	for (String* line = new String; getline(stream, *line);)
+	removeLine(stream);
+
+	for (const auto line = new String; getLine(stream, *line);)
 	{
-		temp = explode(*line);
-
-		ShipStruct* ship = new ShipStruct();
-		ship->type = getShipType(temp->getAt(0));
-		ship->price = atoi(temp->getAt(1)->toCharArray());
-		ship->storage_capacity = atoi(temp->getAt(2)->toCharArray());
-		ship->cannons = atoi(temp->getAt(3)->toCharArray());
-		ship->health = atoi(temp->getAt(4)->toCharArray());
-	
+		auto temp = explode(*line);
+		auto ship = new ShipStruct();
 		
-		std::cout << ship->type << std::endl;
-		std::cout << ship->price << std::endl;
-		std::cout << ship->storage_capacity << std::endl;
-		std::cout << ship->cannons << std::endl;
-		std::cout << ship->health << std::endl;
-		std::cout << "---------" << std::endl;
+		ship->type = getShipType(temp->getAt(0));
+		
+		ship->price = atoi(temp->getAt(1)->toCharArray());
+		
+		ship->storage_capacity = atoi(temp->getAt(2)->toCharArray());
+		
+		ship->cannons = atoi(temp->getAt(3)->toCharArray());
+		
+		ship->health = atoi(temp->getAt(4)->toCharArray());
+		
+		const auto traits = explode(String(temp->getAt(5)->toCharArray()), ',');
+		ship->traits = new Array<ShipTrait>(traits->count());
+		for (int i = 0; i < traits->count(); i++)
+		{
+			ship->traits->add(getShipTrait(traits->getAt(i)));
+		}
+		delete traits;
+
+		delete temp;
+		result->add(ship);
 	}
 
-	delete temp;
-	
-	return nullptr;
+	return result;
 }

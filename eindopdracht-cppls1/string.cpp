@@ -140,3 +140,12 @@ int String::length() const
 {
 	return n_length;
 }
+
+bool String::empty() const
+{
+	if (n_length == 0)
+	{
+		return true;
+	}
+	return false;
+}
