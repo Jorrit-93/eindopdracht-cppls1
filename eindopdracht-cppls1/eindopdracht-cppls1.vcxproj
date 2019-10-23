@@ -165,6 +165,7 @@
     <ClCompile Include="sea_controller.cpp" />
     <ClCompile Include="sea.cpp" />
     <ClCompile Include="sea_view.cpp" />
+    <ClCompile Include="ship_trait.cpp" />
     <ClCompile Include="turn_view.cpp" />
     <ClCompile Include="light_ship.cpp" />
     <ClCompile Include="main.cpp" />
@@ -194,6 +195,7 @@
     <ClInclude Include="heavy_ship.h" />
     <ClInclude Include="pirate_ship.h" />
     <ClInclude Include="sea.h" />
+    <ClInclude Include="ship_trait.h" />
     <ClInclude Include="turn_view.h" />
     <ClInclude Include="light_ship.h" />
     <ClInclude Include="list.h" />

@@ -6,8 +6,18 @@ SmallShip::SmallShip(IShip* ship) : ShipDecorator(ship)
 	
 }
 
-bool SmallShip::hasFled(const IShip& from)
+bool SmallShip::hasFled(IShip& from)
 {
+	auto* traits = getTraits();
 	
 	return true;
+}
+
+Array<ShipTrait>* SmallShip::getTraits()
+{
+	auto* traits = ship->getTraits();
+
+	traits->add(ShipTrait::klein);
+
+	return traits;
 }

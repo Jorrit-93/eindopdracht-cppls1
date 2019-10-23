@@ -22,7 +22,7 @@ void BattleController::initialize()
 	case 0:
 		pirate_ship = new LightShip(new PirateShip());
 	case 1:
-		pirate_ship = new SmallShip(new PirateShip());
+		pirate_ship = new PirateShip();
 	case 2:
 		pirate_ship = new HeavyShip(new PirateShip());
 	}
@@ -69,8 +69,12 @@ void BattleController::enterBattle() const
 
 			break;
 		case 3:
-			// maak de lading van het ship leeg
+			{
+			const auto stocks = new Dictionary<Stock*, int>();
+
+			game.setStocks(stocks);
 			break;
+			}
 		default:
 			throw;
 		}

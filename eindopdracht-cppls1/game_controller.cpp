@@ -127,3 +127,14 @@ void GameController::addGold(const int value)
 {
 	gold += value;
 }
+
+Dictionary<Stock*, int>* GameController::getStocks()
+{
+	return stocks;
+}
+
+void GameController::setStocks(Dictionary<Stock*, int>* stocks)
+{
+	delete stocks;
+	this->stocks = stocks;
+}
