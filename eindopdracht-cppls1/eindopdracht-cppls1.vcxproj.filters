@@ -84,9 +84,6 @@
     <ClCompile Include="ship_builder.cpp">
       <Filter>Source Files\Model\Ships</Filter>
     </ClCompile>
-    <ClCompile Include="ship_attribute.h">
-      <Filter>Header Files\Enumeration</Filter>
-    </ClCompile>
     <ClCompile Include="cannon.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
@@ -142,6 +139,21 @@
       <Filter>Source Files\Controller\parser</Filter>
     </ClCompile>
     <ClCompile Include="ship_type.cpp">
+      <Filter>Source Files\Enumeration</Filter>
+    </ClCompile>
+    <ClCompile Include="cannon_type.cpp">
+      <Filter>Source Files\Enumeration</Filter>
+    </ClCompile>
+    <ClCompile Include="ship_trait.cpp">
+      <Filter>Source Files\Enumeration</Filter>
+    </ClCompile>
+    <ClCompile Include="stock_type.cpp">
+      <Filter>Source Files\Enumeration</Filter>
+    </ClCompile>
+    <ClCompile Include="wind_type.cpp">
+      <Filter>Source Files\Enumeration</Filter>
+    </ClCompile>
+    <ClCompile Include="harbor_name.cpp">
       <Filter>Source Files\Enumeration</Filter>
     </ClCompile>
   </ItemGroup>
@@ -266,7 +278,7 @@
     <ClInclude Include="ship_state.h">
       <Filter>Header Files\Controller\parser</Filter>
     </ClInclude>
-    <ClInclude Include="ship_traits.h">
+    <ClInclude Include="ship_trait.h">
       <Filter>Header Files\Enumeration</Filter>
     </ClInclude>
   </ItemGroup>

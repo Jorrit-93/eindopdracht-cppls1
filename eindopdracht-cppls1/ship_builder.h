@@ -11,7 +11,7 @@ protected:
 	int cargo_space_def = 1;
 	int cannon_amount_def = 1;
 	int hp_def = 1;
-	Array<ShipAttribute>* attributes_def = new Array<ShipAttribute>(0);
+	Array<ShipTrait>* attributes_def = new Array<ShipTrait>(0);
 
 public:
 	~ShipBuilder();
@@ -21,7 +21,7 @@ public:
 	ShipBuilder& setCargoSpace(int cargo_space);
 	ShipBuilder& setCannonAmount(int cannon_amount);
 	ShipBuilder& setHP(int hp);
-	ShipBuilder& setAttributes(Array<ShipAttribute>* attributes);
+	ShipBuilder& setAttributes(Array<ShipTrait>* attributes);
 
 	IShip* build() const;
 };

@@ -1,4 +1,5 @@
 #include "stock_type.h"
+#include "dictionary.h"
 
 std::ostream& operator<<(std::ostream& os, StockType stock_type)
 {

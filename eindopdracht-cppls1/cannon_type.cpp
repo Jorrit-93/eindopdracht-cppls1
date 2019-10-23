@@ -1,4 +1,5 @@
 #include "cannon_type.h"
+#include "dictionary.h"
 
 std::ostream& operator<<(std::ostream& os, CannonType cannon_type)
 {

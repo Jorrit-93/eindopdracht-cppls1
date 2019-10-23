@@ -1,4 +1,5 @@
 #include "wind_type.h"
+#include "dictionary.h"
 
 std::ostream& operator<<(std::ostream& os, WindType wind_type)
 {

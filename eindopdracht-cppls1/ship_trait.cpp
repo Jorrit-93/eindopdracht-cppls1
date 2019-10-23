@@ -1,4 +1,5 @@
 #include "ship_trait.h"
+#include "dictionary.h"
 
 std::ostream& operator<<(std::ostream& os, ShipTrait ship_trait)
 {

@@ -38,7 +38,7 @@ ShipBuilder& ShipBuilder::setHP(const int hp)
 	return *this;
 }
 
-ShipBuilder& ShipBuilder::setAttributes(Array<ShipAttribute>* attributes)
+ShipBuilder& ShipBuilder::setAttributes(Array<ShipTrait>* attributes)
 {
 	delete attributes_def;
 	attributes_def = attributes;
@@ -53,13 +53,13 @@ IShip* ShipBuilder::build() const
 	{
 		switch (attributes_def->getAt(i))
 		{
-		case ShipAttribute::Small:
+		case ShipTrait::Small:
 			ship = new SmallShip(ship);
 			break;
-		case ShipAttribute::Light:
+		case ShipTrait::Light:
 			ship = new LightShip(ship);
 			break;
-		case ShipAttribute::Heavy:
+		case ShipTrait::Heavy:
 			ship = new HeavyShip(ship);
 			break;
 		}

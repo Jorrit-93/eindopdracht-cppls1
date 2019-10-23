@@ -165,16 +165,20 @@
   <ItemGroup>
     <ClCompile Include="battle.cpp" />
     <ClCompile Include="cannon.cpp" />
+    <ClCompile Include="cannon_type.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="game_view.cpp" />
     <ClCompile Include="harbor.cpp" />
     <ClCompile Include="city_distance_state.cpp" />
+    <ClCompile Include="harbor_name.cpp" />
     <ClCompile Include="heavy_ship.cpp" />
     <ClCompile Include="battle_controller.cpp" />
     <ClCompile Include="harbor_controller.cpp" />
     <ClCompile Include="sea_controller.cpp" />
     <ClCompile Include="sea.cpp" />
     <ClCompile Include="sea_view.cpp" />
+    <ClCompile Include="ship_trait.cpp" />
+    <ClCompile Include="stock_type.cpp" />
     <ClCompile Include="turn_view.cpp" />
     <ClCompile Include="i_parse_state.cpp" />
     <ClCompile Include="light_ship.cpp" />
@@ -183,7 +187,6 @@
     <ClCompile Include="random_value.cpp" />
     <ClCompile Include="parser.cpp" />
     <ClCompile Include="ship.cpp" />
-    <ClCompile Include="ship_attribute.h" />
     <ClCompile Include="ship_builder.cpp" />
     <ClCompile Include="ship_decorator.cpp" />
     <ClCompile Include="ship_state.cpp" />
@@ -191,6 +194,7 @@
     <ClCompile Include="small_ship.cpp" />
     <ClCompile Include="stock.cpp" />
     <ClCompile Include="string.cpp" />
+    <ClCompile Include="wind_type.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="array.h" />
@@ -211,6 +215,7 @@
     <ClInclude Include="i_ship.h" />
     <ClInclude Include="heavy_ship.h" />
     <ClInclude Include="sea.h" />
+    <ClInclude Include="ship_trait.h" />
     <ClInclude Include="turn_view.h" />
     <ClInclude Include="light_ship.h" />
     <ClInclude Include="list.h" />
@@ -223,7 +228,6 @@
     <ClInclude Include="ship_builder.h" />
     <ClInclude Include="ship_decorator.h" />
     <ClInclude Include="ship_state.h" />
-    <ClInclude Include="ship_traits.h" />
     <ClInclude Include="ship_type.h" />
     <ClInclude Include="small_ship.h" />
     <ClInclude Include="stock.h" />

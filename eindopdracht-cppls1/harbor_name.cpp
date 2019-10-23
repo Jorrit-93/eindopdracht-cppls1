@@ -1,4 +1,5 @@
 #include "harbor_name.h"
+#include "dictionary.h"
 
 std::ostream& operator<<(std::ostream& os, HarborName harbor_name)
 {
