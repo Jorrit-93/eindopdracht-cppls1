@@ -11,6 +11,7 @@ SeaController::SeaController(GameController& game)
 SeaController::~SeaController()
 {
 	delete view;
+	delete sea;
 }
 
 void SeaController::instantiateSea(const HarborName destination, const int distance)

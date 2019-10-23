@@ -47,7 +47,12 @@ Harbor* HarborBuilder::createHarbor(HarborName name)
 		k++;
 	}
 
-	return setName(harbor_distance->name).setDistances(harbor_distance->distances).setCannons().setStocks(stock_amount->minAmount, stock_amount->maxAmount, stock_price->min_price, stock_price->max_price).setShips().build();
+	return setName(harbor_distance->name)
+		.setDistances(harbor_distance->distances)
+		.setCannons()
+		.setStocks(stock_amount->minAmount, stock_amount->maxAmount, stock_price->min_price, stock_price->max_price)
+		.setShips()
+		.build();
 }
 
 HarborBuilder& HarborBuilder::setName(HarborName name)
@@ -77,10 +82,10 @@ HarborBuilder& HarborBuilder::setStocks(Dictionary<StockType, int>* min_amount_l
 {
 	delete stocks_def;
 	stocks_def = new Dictionary<Stock*, RandomValue*>();
-	for (int i = 0; i < min_amount_list->count(); i++)
+	for (int i = 0; i < min_amount_list->getKeys()->count(); i++)
 	{
-		auto type = min_amount_list->getKeys()->getAt(i);
-		auto min_amount = min_amount_list->get(type);
+		const auto type = min_amount_list->getKeys()->getAt(i);
+		const auto min_amount = min_amount_list->get(type);
 		const auto max_amount = max_amount_list->get(type);
 		const auto min_price = min_price_list->get(type);
 		const auto max_price = max_price_list->get(type);

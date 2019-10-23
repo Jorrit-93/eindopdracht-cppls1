@@ -17,6 +17,7 @@ GameController::~GameController()
 	delete on_sea;
 	delete in_battle;
 	delete ship_builder;
+	delete ship;
 }
 
 void GameController::start()

@@ -11,6 +11,8 @@ HarborController::HarborController(GameController& game)
 HarborController::~HarborController()
 {
 	delete view;
+	delete harbor_builder;
+	delete harbor;
 }
 
 void HarborController::instantiateHarbor(const HarborName name)

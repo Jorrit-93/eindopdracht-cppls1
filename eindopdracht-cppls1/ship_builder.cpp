@@ -26,7 +26,13 @@ IShip* ShipBuilder::createShip(ShipType type)
 		ship = ship_structs->getAt(i);
 		i++;
 	}
-	return setType(ship->type).setPrice(ship->price).setCargoSpace(ship->storage_capacity).setCannonAmount(ship->cannons).setHP(ship->health).setAttributes(ship->traits).build();
+	return setType(ship->type)
+		.setPrice(ship->price)
+		.setCargoSpace(ship->storage_capacity)
+		.setCannonAmount(ship->cannons)
+		.setHP(ship->health)
+		.setAttributes(ship->traits)
+		.build();
 }
 
 ShipBuilder& ShipBuilder::setType(const ShipType type)
