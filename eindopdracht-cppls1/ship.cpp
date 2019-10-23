@@ -11,9 +11,14 @@ bool Ship::hasSunk()
 	return hp <= 0;
 }
 
-bool Ship::hasFled()
+bool Ship::hasFled(const IShip& from)
 {
-	return false;
+	throw;
+}
+
+void Ship::shoot(IShip& at)
+{
+	
 }
 
 int Ship::sail(WindType type, int distance)

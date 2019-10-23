@@ -13,3 +13,10 @@ int LightShip::sail(WindType type, int distance)
 	}
 	return ship->sail(type, distance);
 }
+
+bool LightShip::hasFled(const IShip& from)
+{
+	return true;
+}
+
+

@@ -2,6 +2,7 @@
 #include "battle_view.h"
 #include "game_controller.h"
 #include "battle.h"
+#include "pirate_ship.h"
 
 class GameController;
 
@@ -11,13 +12,14 @@ private:
 	BattleView* view;
 	GameController& game;
 
-	Battle* battle = nullptr;
+	bool isOver = false;
+	IShip* pirate_ship;
 	
 public:
 	BattleController(GameController& game);
 	~BattleController();
 
-	void engageInBattle(HarborName destination, int distance);
+	void initialize();
 	void enterBattle() const;
 	void exitBattle() const;
 };

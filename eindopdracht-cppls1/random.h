@@ -12,4 +12,5 @@ private:
 public:
 	static Random* global();
 	int randomInt(int min_int, int max_int);
+	bool chance(const int percentage);
 };

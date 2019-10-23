@@ -56,8 +56,9 @@ void HarborController::enterHarbor() const
 			//repair ship
 			break;
 		case 5:
+			game.engageInBattle();
 			//view->printBonVoyageOutput();
-			game.moveToSea();
+			//game.moveToSea();
 			break;
 		case 6:
 			game.quit();

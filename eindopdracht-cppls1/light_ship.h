@@ -7,4 +7,5 @@ public:
 	LightShip(IShip* ship);
 
 	int sail(WindType type, int distance) override;
+	bool hasFled(const IShip& from) override;
 };

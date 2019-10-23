@@ -104,12 +104,12 @@ void GameController::moveToHarbor(const HarborName name) const
 
 void GameController::moveToSea() const
 {
-	//on_sea->enterSea();
+	on_sea->enterSea();
 }
 
 void GameController::engageInBattle() const
 {
-	//in_battle->engageInBattle();
+	in_battle->initialize();
 }
 
 IShip& GameController::getShip() const

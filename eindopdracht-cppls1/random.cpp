@@ -16,3 +16,10 @@ int Random::randomInt(int min_int, int max_int)
 	const std::uniform_int_distribution<int> distribution(min_int, max_int);
 	return distribution(device);
 }
+
+bool Random::chance(const int percentage)
+{
+	int r = randomInt(1, 100);
+	
+	return percentage <= r;
+}

@@ -10,9 +10,13 @@ bool ShipDecorator::hasSunk()
 	return ship->hasSunk();
 }
 
-bool ShipDecorator::hasFled()
+bool ShipDecorator::hasFled(const IShip& from)
 {
-	return ship->hasFled();
+	return ship->hasFled(from);
+}
+
+void ShipDecorator::shoot(IShip& at)
+{
 }
 
 int ShipDecorator::sail(WindType type, int destination)
