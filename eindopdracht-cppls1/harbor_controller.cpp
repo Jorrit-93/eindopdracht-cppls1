@@ -37,42 +37,34 @@ void HarborController::enterHarbor() const
 	//view->printEnterHarborOutput();
 	const auto input = view->getInput(&options);
 
-	if (*input == option1)
+	switch(input)
 	{
-		//view->printStockOutput();
-		//buy stock
-		return;
+		case 1:
+			//view->printStockOutput();
+			//buy stock
+			break;
+		case 2:
+			//view->printCannonOutput();
+			//buy cannons
+			break;
+		case 3:
+			//view->printShipOutput();
+			//buy ship
+			break;
+		case 4:
+			view->printRepairOutput();
+			//repair ship
+			break;
+		case 5:
+			//view->printBonVoyageOutput();
+			game.moveToSea();
+			break;
+		case 6:
+			game.quit();
+			break;
+		default:
+			throw;
 	}
-	if (*input == option2)
-	{
-		//view->printCannonOutput();
-		//buy cannons
-		return;
-	}
-	if (*input == option3)
-	{
-		//view->printShipOutput();
-		//buy ship
-		return;
-	}
-	if (*input == option4)
-	{
-		view->printRepairOutput();
-		//repair ship
-		return;
-	}
-	if (*input == option5)
-	{
-		//view->printBonVoyageOutput();
-		game.moveToSea();
-		return;
-	}
-	if (*input == option6)
-	{
-		game.quit();
-		return;
-	}
-	throw; //option not valid
 }
 
 void HarborController::exitHarbor(HarborName name, int distance) const

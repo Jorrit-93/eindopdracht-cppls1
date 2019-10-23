@@ -51,17 +51,16 @@ void Game::redo()
 	view->printRedoOutput();
 	const auto input = view->getInput(&options);
 
-	if (*input == option1)
-	{
-		start();
-		return;
+	switch(input){
+		case 1:
+			start();
+			break;
+		case 2:
+			quit();
+			break;
+		default:
+			throw;
 	}
-	if (*input == option2)
-	{
-		quit();
-		return;
-	}
-	throw; //option not valid
 }
 
 void Game::quit() const
@@ -75,16 +74,15 @@ void Game::quit() const
 	view->printQuitOutput();
 	const auto input = view->getInput(&options);
 
-	if (*input == option1)
+	switch(input)
 	{
-		return;
+		case 1:
+			break;
+		case 2:
+			in_harbor->enterHarbor();
+		default:
+			throw;
 	}
-	if (*input == option2)
-	{
-		in_harbor->enterHarbor();
-		return;
-	}
-	throw; //option not valid
 }
 
 void Game::generalInfo() const

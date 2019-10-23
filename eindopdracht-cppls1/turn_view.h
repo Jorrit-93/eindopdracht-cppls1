@@ -7,6 +7,6 @@ class TurnView
 public:
 	virtual ~TurnView() = default;
 	
-	virtual String* getInput(Array<String*>* options);
+	virtual int getInput(Array<String*>* options);
 	virtual void getInput();
 };
