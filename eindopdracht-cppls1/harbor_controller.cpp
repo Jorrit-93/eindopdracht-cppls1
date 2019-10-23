@@ -1,9 +1,6 @@
 # include "harbor_controller.h"
-#include "game.h"
+#include "game_controller.h"
 #include "parser.h"
-#include "harbor_distance_state.h"
-#include "stock_amount_state.h"
-#include "stock_price_state.h"
 
 HarborController::HarborController(GameController& game)
 	: view(new HarborView()), game(game)
@@ -70,36 +67,6 @@ void HarborController::enterHarbor() const
 		default:
 			throw;
 	}
-	if (*input == option2)
-	{
-		//view->printCannonOutput();
-		//buy cannons
-		return;
-	}
-	if (*input == option3)
-	{
-		//view->printShipOutput();
-		//buy ship
-		return;
-	}
-	if (*input == option4)
-	{
-		//view->printRepairOutput();
-		//repair ship
-		return;
-	}
-	if (*input == option5)
-	{
-		//view->printBonVoyageOutput();
-		//game.moveToSea();
-		return;
-	}
-	if (*input == option6)
-	{
-		game.quit();
-		return;
-	}
-	throw; //option not valid
 }
 
 void HarborController::exitHarbor(HarborName name, int distance) const

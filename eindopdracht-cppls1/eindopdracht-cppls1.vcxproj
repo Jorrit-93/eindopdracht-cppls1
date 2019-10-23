@@ -168,7 +168,6 @@
     <ClCompile Include="cannon.cpp" />
     <ClCompile Include="game_controller.cpp" />
     <ClCompile Include="cannon_type.cpp" />
-    <ClCompile Include="game.cpp" />
     <ClCompile Include="game_view.cpp" />
     <ClCompile Include="harbor.cpp" />
     <ClCompile Include="harbor_view.cpp" />
@@ -182,8 +181,6 @@
     <ClCompile Include="parser_controller.cpp" />
     <ClCompile Include="sea_controller.cpp" />
     <ClCompile Include="sea.cpp" />
-    <ClCompile Include="sea_view.cpp" />
-    <ClCompile Include="ship_trait.cpp" />
     <ClCompile Include="sea_view.cpp" />
     <ClCompile Include="ship_state.cpp" />
     <ClCompile Include="ship_trait.cpp" />

@@ -129,9 +129,6 @@
     <ClCompile Include="harbor_view.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
-    <ClCompile Include="sea_view.cpp">
-      <Filter>Source Files\View</Filter>
-    </ClCompile>
     <ClCompile Include="game_controller.cpp">
       <Filter>Source Files\Controller</Filter>
     </ClCompile>
@@ -140,9 +137,6 @@
     </ClCompile>
     <ClCompile Include="pirate_ship.cpp">
       <Filter>Source Files\Model\Ships</Filter>
-    </ClCompile>
-    <ClCompile Include="ship_trait.cpp">
-      <Filter>Source Files\Enumeration</Filter>
     </ClCompile>
     <ClCompile Include="sea_view.cpp">
       <Filter>Source Files\View</Filter>
@@ -188,6 +182,12 @@
     </ClCompile>
     <ClCompile Include="ship_builder.cpp">
       <Filter>Source Files\Controller\Builder</Filter>
+    </ClCompile>
+    <ClCompile Include="ship_trait.cpp">
+      <Filter>Source Files\Enumeration</Filter>
+    </ClCompile>
+    <ClCompile Include="sea_view.cpp">
+      <Filter>Source Files\View</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -331,6 +331,9 @@
     </ClInclude>
     <ClInclude Include="parser_controller.h">
       <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ship_trait.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

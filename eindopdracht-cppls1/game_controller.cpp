@@ -6,6 +6,7 @@
 GameController::GameController()
 	: view(new GameView()), in_harbor(new HarborController(*this)), on_sea(new SeaController(*this)), in_battle(new BattleController(*this))
 {
+	ship_builder = new ShipBuilder();
 	start();
 }
 
@@ -15,11 +16,12 @@ GameController::~GameController()
 	delete in_harbor;
 	delete on_sea;
 	delete in_battle;
+	delete ship_builder;
 }
 
 void GameController::start()
 {
-	setShip(ShipType::Pinnance);
+	setShip(ShipType::Pinnace);
 	gold = 1000;
 	view->printStartOutput();
 	view->getInput();
@@ -99,7 +101,7 @@ void GameController::generalInfo() const
 
 void GameController::moveToHarbor(const HarborName name) const
 {
-	in_harbor->moveToHarbor(name);
+	in_harbor->enterHarbor();
 }
 
 void GameController::moveToSea() const
@@ -120,7 +122,7 @@ IShip& GameController::getShip() const
 void GameController::setShip(ShipType type)
 {
 	delete ship;
-	ship = new Ship(10); //set ship
+	ship = ship_builder->createShip(type);
 }
 
 void GameController::addGold(const int value)

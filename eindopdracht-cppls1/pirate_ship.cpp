@@ -2,7 +2,7 @@
 #include "random.h"
 #include <iostream>
 
-PirateShip::PirateShip() : Ship(Random::global()->randomInt(8, 50))
+PirateShip::PirateShip() : Ship(ShipType::Pinnace, 0, 0, Random::global()->randomInt(8, 50), Random::global()->randomInt(100, 300))
 {
 	// Initialize type & hp
 	type = static_cast<ShipType>(Random::global()->randomInt(0, 11));
