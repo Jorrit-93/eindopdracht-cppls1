@@ -49,14 +49,12 @@ void GameController::gameOver()
 
 void GameController::redo()
 {
-	auto option1 = String("ja");
-	auto option2 = String("nee");
-	auto options = Array<String*>(2);
-	options.add(&option1);
-	options.add(&option2);
+	auto* options = new Array<String*>(2);
+	options->add(new String("ja"));
+	options->add(new String("nee"));
 
 	view->printRedoOutput();
-	const auto input = view->getInput(&options);
+	const auto input = view->getInput(options);
 
 	switch(input){
 		case 1:
@@ -68,16 +66,18 @@ void GameController::redo()
 		default:
 			throw;
 	}
+
+	delete options;
 }
 
 void GameController::quit() const
 {
-	auto options = Array<String*>(2);
-	options.add(new String("ja"));
-	options.add(new String("nee"));
+	auto* options = new Array<String*>(2);
+	options->add(new String("ja"));
+	options->add(new String("nee"));
 	
 	view->printQuitOutput();
-	const auto input = view->getInput(&options);
+	const auto input = view->getInput(options);
 
 	switch(input)
 	{
@@ -88,18 +88,19 @@ void GameController::quit() const
 		default:
 			throw;
 	}
+
+	delete options;
 }
 
 void GameController::generalInfo() const
 {
-	auto key1 = String("hp");
-	auto key2 = String("gold");
-	auto value1 = String("10");
-	auto value2 = String(reinterpret_cast<const char*>(gold));
-	auto dictionary = Dictionary<String*, String*>();
-	dictionary.add(&key1, &value1);
-	dictionary.add(&key2, &value2);
-	view->printGeneralInfoOutput(&dictionary);
+	auto* dictionary = new Dictionary<String*, String*>();
+	dictionary->add(new String("hp"), new String("10"));
+	dictionary->add(new String("gold"), new String(reinterpret_cast<const char*>(gold)));
+	
+	view->printGeneralInfoOutput(dictionary);
+
+	delete dictionary;
 }
 
 void GameController::moveToHarbor(const HarborName name) const
@@ -133,7 +134,7 @@ void GameController::addGold(const int value)
 	gold += value;
 }
 
-Dictionary<Stock*, int>* GameController::getStocks()
+Dictionary<Stock*, int>* GameController::getStocks() const
 {
 	return stocks;
 }

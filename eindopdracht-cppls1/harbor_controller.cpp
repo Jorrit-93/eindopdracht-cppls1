@@ -2,8 +2,10 @@
 #include "game_controller.h"
 #include "parser.h"
 
-HarborController::HarborController(GameController& game)
-	: view(new HarborView()), game(game), harbor_builder(new HarborBuilder())
+HarborController::HarborController(GameController& game) :
+	view(new HarborView()),
+	game(game),
+	harbor_builder(new HarborBuilder())
 {
 	
 }
@@ -23,16 +25,16 @@ void HarborController::instantiateHarbor(const HarborName name)
 
 void HarborController::enterHarbor() const
 {
-	auto options = Array<String*>(6);
-	options.add(new String("koop goederen"));
-	options.add(new String("koop kannonen"));
-	options.add(new String("koop schip"));
-	options.add(new String("repareer schip"));
-	options.add(new String("vaar weg"));
-	options.add(new String("stop"));
+	auto* options = new Array<String*>(6);
+	options->add(new String("koop goederen"));
+	options->add(new String("koop kannonen"));
+	options->add(new String("koop schip"));
+	options->add(new String("repareer schip"));
+	options->add(new String("vaar weg"));
+	options->add(new String("stop"));
 
 	//view->printEnterHarborOutput();
-	const auto input = view->getInput(&options);
+	const auto input = view->getInput(options);
 
 	switch(input)
 	{
@@ -63,6 +65,8 @@ void HarborController::enterHarbor() const
 		default:
 			throw;
 	}
+	
+	delete options;
 }
 
 void HarborController::exitHarbor(HarborName name, int distance) const

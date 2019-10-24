@@ -11,18 +11,23 @@ ParserController::~ParserController()
 
 List<ShipStruct*>* ParserController::parseShips() const
 {
-	auto ship_state = ShipState();
-	auto ship_path = String("resources/schepen.csv");
-	parser->setPath(ship_path);
-	return parser->getResult<ShipStruct>(ship_state);
+	auto* ship_state = new ShipState();
+	auto* ship_path = new String("resources/schepen.csv");
+	parser->setPath(*ship_path);
+
+	List<ShipStruct*>* result = parser->getResult<ShipStruct>(*ship_state);
+
+	delete ship_state;
+	delete ship_path;
+	return result;
 }
 
 List<HarborDistanceStruct*>* ParserController::parseHarborDistances() const
 {
-	auto harbor_distance_state = HarborDistanceState();
-	auto harbor_distance_path = String("resources/afstanden tussen steden.csv");
-	parser->setPath(harbor_distance_path);
-	return parser->getResult<HarborDistanceStruct>(harbor_distance_state);
+	auto* harbor_distance_state = new HarborDistanceState();
+	auto* harbor_distance_path = new String("resources/afstanden tussen steden.csv");
+	parser->setPath(*harbor_distance_path);
+	return parser->getResult<HarborDistanceStruct>(*harbor_distance_state);
 }
 
 List<StockAmountStruct*>* ParserController::parseStockAmount() const

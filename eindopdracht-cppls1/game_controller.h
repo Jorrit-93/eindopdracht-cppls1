@@ -43,6 +43,6 @@ public:
 	IShip& getShip() const;
 	void setShip(ShipType type);
 	void addGold(int value);
-	Dictionary<Stock*, int>* getStocks();
+	Dictionary<Stock*, int>* getStocks() const;
 	void setStocks(Dictionary<Stock*, int>* stocks);
 };
