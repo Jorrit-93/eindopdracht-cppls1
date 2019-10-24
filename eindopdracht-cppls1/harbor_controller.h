@@ -14,7 +14,6 @@ class HarborController
 private:
 	HarborView* view;
 	GameController& game;
-
 	HarborBuilder* harbor_builder;
 	
 	Harbor* harbor = nullptr;

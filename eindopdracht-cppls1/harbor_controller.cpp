@@ -3,9 +3,9 @@
 #include "parser.h"
 
 HarborController::HarborController(GameController& game)
-	: view(new HarborView()), game(game)
+	: view(new HarborView()), game(game), harbor_builder(new HarborBuilder())
 {
-	harbor_builder = new HarborBuilder();
+	
 }
 
 HarborController::~HarborController()

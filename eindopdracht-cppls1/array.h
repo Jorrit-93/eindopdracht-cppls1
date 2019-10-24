@@ -14,7 +14,15 @@ private:
 public:
 	Array(const int size)
 	: n_array(new T[size]), n_size(size), n_count(0) { }
-	~Array() { delete[] n_array; }
+	~Array()
+	{
+		for (int i = 0; i < n_count; i++)
+		{
+			delete (toPointer(n_array[i]));
+		}
+		
+		delete[] n_array;
+	}
 
 	//copy
 	Array(const Array& other)
