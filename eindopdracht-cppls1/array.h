@@ -20,7 +20,7 @@ public:
 		{
 			for (int i = n_count - 1; i >= 0; i--)
 			{
-				delete (toPointer(n_array[i]));
+				delete toPointer(n_array[i]);
 			}
 		}
 		delete[] n_array;

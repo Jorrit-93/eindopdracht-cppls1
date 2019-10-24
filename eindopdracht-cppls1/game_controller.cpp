@@ -68,11 +68,9 @@ void GameController::redo()
 
 void GameController::quit() const
 {
-	auto option1 = String("ja");
-	auto option2 = String("nee");
 	auto options = Array<String*>(2);
-	options.add(&option1);
-	options.add(&option2);
+	options.add(new String("ja"));
+	options.add(new String("nee"));
 	
 	view->printQuitOutput();
 	const auto input = view->getInput(&options);

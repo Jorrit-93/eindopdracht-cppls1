@@ -23,19 +23,13 @@ void HarborController::instantiateHarbor(const HarborName name)
 
 void HarborController::enterHarbor() const
 {
-	auto option1 = String("koop goederen");
-	auto option2 = String("koop kannonen");
-	auto option3 = String("koop schip");
-	auto option4 = String("repareer schip");
-	auto option5 = String("vaar weg");
-	auto option6 = String("stop");
 	auto options = Array<String*>(6);
-	options.add(&option1);
-	options.add(&option2);
-	options.add(&option3);
-	options.add(&option4);
-	options.add(&option5);
-	options.add(&option6);
+	options.add(new String("koop goederen"));
+	options.add(new String("koop kannonen"));
+	options.add(new String("koop schip"));
+	options.add(new String("repareer schip"));
+	options.add(new String("vaar weg"));
+	options.add(new String("stop"));
 
 	//view->printEnterHarborOutput();
 	const auto input = view->getInput(&options);
