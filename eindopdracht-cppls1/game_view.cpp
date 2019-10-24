@@ -1,6 +1,7 @@
 #include "game_view.h"
 #include "ship_type.h"
 #include <iostream>
+#include <stdlib.h>
 
 void GameView::printStartOutput()
 {
@@ -36,4 +37,9 @@ void GameView::printGeneralInfoOutput(Dictionary<String*, String*>* data)
 	}
 	std::cout << '\n';
 	std::cout << "----------------------------------------------------------------------------------------------------" << '\n';
+}
+
+void GameView::clear()
+{
+	system("CLS");
 }
