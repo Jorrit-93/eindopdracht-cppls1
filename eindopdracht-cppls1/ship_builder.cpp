@@ -31,7 +31,7 @@ IShip* ShipBuilder::createShip(ShipType type)
 		.setCargoSpace(ship->storage_capacity)
 		.setCannonAmount(ship->cannons)
 		.setHP(ship->health)
-		.setAttributes(ship->traits)
+		.setAttributes(*ship->traits)
 		.build();
 }
 
@@ -64,10 +64,10 @@ ShipBuilder& ShipBuilder::setHP(const int hp)
 	return *this;
 }
 
-ShipBuilder& ShipBuilder::setAttributes(Array<ShipTrait>* attributes)
+ShipBuilder& ShipBuilder::setAttributes(Array<ShipTrait>& attributes)
 {
 	delete attributes_def;
-	attributes_def = attributes;
+	attributes_def = new Array<ShipTrait>(attributes);
 	return *this;
 }
 

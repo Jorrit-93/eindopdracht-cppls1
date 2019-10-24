@@ -28,7 +28,7 @@ private:
 	ShipBuilder& setCargoSpace(int cargo_space);
 	ShipBuilder& setCannonAmount(int cannon_amount);
 	ShipBuilder& setHP(int hp);
-	ShipBuilder& setAttributes(Array<ShipTrait>* attributes);
+	ShipBuilder& setAttributes(Array<ShipTrait>& attributes);
 
 	IShip* build() const;
 };

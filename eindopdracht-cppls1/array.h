@@ -4,7 +4,6 @@
 template <typename T>
 class Array
 {
-	//static_assert(std::is_pointer<T>::value, "Array requires a pointer type");
 
 private:
 	T* n_array;
@@ -16,14 +15,7 @@ public:
 	: n_array(new T[size]), n_size(size), n_count(0) { }
 	~Array()
 	{
-		if (std::is_pointer<T>::value)
-		{
-			for (int i = n_count - 1; i >= 0; i--)
-			{
-				delete toPointer(n_array[i]);
-			}
-		}
-		delete[] n_array;
+		clear();
 	}
 
 	//copy
@@ -33,7 +25,7 @@ public:
 	}
 	Array& operator=(const Array& other)
 	{
-		delete[] n_array;
+		clear();
 		n_size = other.n_size;
 		n_count = other.n_count;
 		n_array = new T[n_size];
@@ -51,7 +43,7 @@ public:
 	}
 	Array& operator=(Array&& other) noexcept
 	{
-		delete[] n_array;
+		clear();
 		n_size = other.n_size;
 		n_count = other.n_count;
 		n_array = new T[n_size];
@@ -68,6 +60,7 @@ public:
 	{
 		return &p;
 	}
+	
 	template<typename P>
 	static P* toPointer(P* p)
 	{
@@ -174,4 +167,17 @@ public:
 	{
 		return n_size;
 	}
+
+	void clear()
+	{
+		if (std::is_pointer<T>::value)
+		{
+			for (int i = 0; i < n_count; i++)
+			{
+				delete toPointer(n_array[i]);
+			}
+		}
+
+		delete[] n_array;
+	};
 };

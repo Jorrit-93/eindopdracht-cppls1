@@ -5,7 +5,8 @@
 
 int main()
 {
-	GameController game = GameController();
+	GameController* game = new GameController();
+	delete game;
 	
 	_CrtDumpMemoryLeaks();
 	

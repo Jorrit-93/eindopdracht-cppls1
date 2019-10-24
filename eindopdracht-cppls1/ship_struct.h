@@ -10,7 +10,7 @@ public:
 	int storage_capacity;
 	int cannons;
 	int health;
-	Array<ShipTrait>* traits;
+	Array<ShipTrait>* traits = nullptr;
 
 	~ShipStruct() { delete traits; }
 };

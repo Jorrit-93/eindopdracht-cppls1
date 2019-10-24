@@ -33,19 +33,16 @@ void BattleController::initialize()
 
 void BattleController::enterBattle()
 {
+	// Initialize Options
+	auto* options = new Array<String*>(3);
+	options->add(new String("schiet"));
+	options->add(new String("vlucht"));
+	options->add(new String("geef over"));
+	
 	while (!is_over)
 	{
-		// Initialize Options
-		auto option1 = String("schiet");
-		auto option2 = String("vlucht");
-		auto option3 = String("geef over");
-		auto options = Array<String*>(3);
-		options.add(&option1);
-		options.add(&option2);
-		options.add(&option3);
-
 		// Get input
-		const auto input = view->getInput(&options);
+		const auto input = view->getInput(options);
 
 		// Handle the input
 		switch (input)
@@ -81,6 +78,8 @@ void BattleController::enterBattle()
 			throw;
 		}
 	}
+
+	delete options;
 }
 
 void BattleController::exitBattle()

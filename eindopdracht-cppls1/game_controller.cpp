@@ -3,10 +3,14 @@
 #include "random.h"
 #include "ship.h"
 
-GameController::GameController()
-	: view(new GameView()), in_harbor(new HarborController(*this)), on_sea(new SeaController(*this)), in_battle(new BattleController(*this))
+GameController::GameController():
+	view(new GameView()),
+	in_harbor(new HarborController(*this)),
+	on_sea(new SeaController(*this)),
+	in_battle(new BattleController(*this)),
+	ship_builder(new ShipBuilder())
+	
 {
-	ship_builder = new ShipBuilder();
 	start();
 }
 
