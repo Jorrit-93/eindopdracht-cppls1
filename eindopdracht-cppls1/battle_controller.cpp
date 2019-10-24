@@ -31,9 +31,9 @@ void BattleController::initialize()
 	enterBattle();
 }
 
-void BattleController::enterBattle() const
+void BattleController::enterBattle()
 {
-	while (!isOver)
+	while (!is_over)
 	{
 		// Initialize Options
 		auto option1 = String("schiet");
@@ -73,6 +73,8 @@ void BattleController::enterBattle() const
 			const auto stocks = new Dictionary<Stock*, int>();
 
 			game.setStocks(stocks);
+
+			exitBattle();
 			break;
 			}
 		default:
@@ -81,8 +83,8 @@ void BattleController::enterBattle() const
 	}
 }
 
-void BattleController::exitBattle() const
+void BattleController::exitBattle()
 {
 	delete pirate_ship;
-	//isover = false
+	is_over = true;
 }
