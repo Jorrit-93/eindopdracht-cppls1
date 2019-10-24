@@ -5,12 +5,14 @@
 #include "stock_type.h"
 #include "cannon_type.h"
 #include "ship_type.h"
+#include "random_value.h"
+#include "stock.h"
 
 class HarborView : public TurnView
 {
 public:
 	void printEnterHarborOutput(HarborName name);
-	void printStockOutput(Dictionary<StockType, String*> stocks);
+	void printStockOutput(const Dictionary<Stock*, RandomValue*>& stocks);
 	void printCannonOutput(Dictionary<CannonType, String*> cannons);
 	void printShipOutput(Dictionary<ShipType, String*> ships);
 	void printRepairOutput();

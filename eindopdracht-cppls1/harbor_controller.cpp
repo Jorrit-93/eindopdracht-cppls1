@@ -43,7 +43,7 @@ void HarborController::enterHarbor() const
 	switch(input)
 	{
 		case 1:
-			//view->printStockOutput();
+			view->printStockOutput(*harbor->stocks);
 			//buy stock
 			break;
 		case 2:

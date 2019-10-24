@@ -24,8 +24,8 @@ void GameController::start()
 {
 	setShip(ShipType::Pinnace);
 	gold = 1000;
-	view->printStartOutput();
-	view->getInput();
+	//view->printStartOutput();
+	//view->getInput();
 	moveToHarbor(static_cast<HarborName>(Random::global()->randomInt(0, 23))); //determine size by harbor struct array
 }
 
@@ -102,6 +102,7 @@ void GameController::generalInfo() const
 
 void GameController::moveToHarbor(const HarborName name) const
 {
+	in_harbor->instantiateHarbor(HarborName::Curacao);
 	in_harbor->enterHarbor();
 }
 

@@ -12,5 +12,6 @@ public:
 	Stock(StockType type, int min_price, int max_price);
 	~Stock();
 
+	StockType getType() const;
 	int getPrice() const;
 };
