@@ -1,32 +1,42 @@
 #include "game_controller.h"
 #include "game_view.h"
 #include "random.h"
-#include "ship.h"
+#include <sstream>
 
 GameController::GameController()
-	: view(new GameView()), in_harbor(new HarborController(*this)), on_sea(new SeaController(*this)), in_battle(new BattleController(*this))
+	: view(new GameView()), harbor_c(new HarborController(*this)), sea_c(new SeaController(*this)), battle_c(new BattleController(*this))
 {
 	ship_builder = new ShipBuilder();
-	start();
+	//initialize();
+	//start();
 }
 
 GameController::~GameController()
 {
 	delete view;
-	delete in_harbor;
-	delete on_sea;
-	delete in_battle;
+	delete harbor_c;
+	delete sea_c;
+	delete battle_c;
 	delete ship_builder;
 	delete ship;
 }
 
-void GameController::start()
+void GameController::initialize()
 {
 	setShip(ShipType::Pinnace);
 	gold = 1000;
 	//view->printStartOutput();
 	//view->getInput();
-	moveToHarbor(static_cast<HarborName>(Random::global()->randomInt(0, 23))); //determine size by harbor struct array
+
+	moveToHarbor(static_cast<HarborName>(Random::global()->randomInt(0, 23)));
+}
+
+void GameController::start()
+{
+	while (is_playing)
+	{
+		current_c->enter();
+	}
 }
 
 void GameController::win()
@@ -45,34 +55,32 @@ void GameController::gameOver()
 
 void GameController::redo()
 {
-	auto option1 = String("ja");
-	auto option2 = String("nee");
-	auto options = Array<String*>(2);
-	options.add(&option1);
-	options.add(&option2);
+	generalInfo();
+	auto options = Array<String>(2);
+	options.add(new String("ja"));
+	options.add(new String("nee"));
 
 	view->printRedoOutput();
 	const auto input = view->getInput(&options);
 
 	switch(input){
 		case 1:
-			start();
+			initialize();
 			break;
 		case 2:
-			quit();
+			is_playing = false;
 			break;
 		default:
 			throw;
 	}
 }
 
-void GameController::quit() const
+void GameController::quit()
 {
-	auto option1 = String("ja");
-	auto option2 = String("nee");
-	auto options = Array<String*>(2);
-	options.add(&option1);
-	options.add(&option2);
+	generalInfo();
+	auto options = Array<String>(2);
+	options.add(new String("ja"));
+	options.add(new String("nee"));
 	
 	view->printQuitOutput();
 	const auto input = view->getInput(&options);
@@ -80,9 +88,10 @@ void GameController::quit() const
 	switch(input)
 	{
 		case 1:
+			is_playing = false;
 			break;
 		case 2:
-			in_harbor->enterHarbor();
+			break;
 		default:
 			throw;
 	}
@@ -90,30 +99,43 @@ void GameController::quit() const
 
 void GameController::generalInfo() const
 {
-	auto key1 = String("hp");
-	auto key2 = String("gold");
-	auto value1 = String("10");
-	auto value2 = String(reinterpret_cast<const char*>(gold));
-	auto dictionary = Dictionary<String*, String*>();
-	dictionary.add(&key1, &value1);
-	dictionary.add(&key2, &value2);
-	view->printGeneralInfoOutput(&dictionary);
+	view->clear();
+	
+	auto dictionary = Dictionary<String, String>();
+
+	dictionary.add(new String("ship"), new String(shipTypeToString(ship->getType())->toCharArray()));
+	
+	std::stringstream str1;
+	str1 << ship->getHP();
+	dictionary.add(new String("hp") , new String(str1.str().c_str()));
+	
+	std::stringstream str2;
+	str2 << gold;
+	dictionary.add(new String("gold"), new String(str2.str().c_str()));
+	
+	std::stringstream str3;
+	str3 << ship->getCargoSpace() - stocks->count();
+	dictionary.add(new String("cargo space"), new String(str3.str().c_str()));
+	
+	view->printGeneralInfoOutput(dictionary);
 }
 
-void GameController::moveToHarbor(const HarborName name) const
+void GameController::moveToHarbor(const HarborName name)
 {
-	in_harbor->instantiateHarbor(name);
-	in_harbor->enterHarbor();
+	harbor_c->instantiate(name);
+	current_c = harbor_c;
 }
 
-void GameController::moveToSea() const
+void GameController::moveToSea()
 {
-	on_sea->enterSea();
+	//sea_c->instantiate();
+	current_c = sea_c;
 }
 
-void GameController::engageInBattle() const
+void GameController::engageInBattle()
 {
-	in_battle->initialize();
+	battle_c->instantiate();
+	current_c = battle_c;
 }
 
 IShip& GameController::getShip() const
@@ -132,17 +154,31 @@ void GameController::addGold(const int value)
 	gold += value;
 }
 
+void GameController::addStock(Stock* stock, int amount) const
+{
+	for(int i = 0; i < stocks->count(); i++)
+	{
+		if (stocks->getKeys().getAt(i).getType() == stock->getType())
+		{
+			amount += stocks->getValues().getAt(i);
+			stocks->getKeys().removeAt(i);
+			stocks->getValues().removeAt(i);
+		}
+	}
+	stocks->add(stock, amount);
+}
+
 int GameController::getGold() const
 {
 	return gold;
 }
 
-Dictionary<Stock*, int>* GameController::getStocks()
+Dictionary<Stock, int>* GameController::getStocks() const
 {
 	return stocks;
 }
 
-void GameController::setStocks(Dictionary<Stock*, int>* stocks)
+void GameController::setStocks(Dictionary<Stock, int>* stocks)
 {
 	delete stocks;
 	this->stocks = stocks;

@@ -6,6 +6,11 @@ Stock::Stock(const StockType type, const int min_price, const int max_price)
 	price->setRandomValue();
 }
 
+Stock::~Stock()
+{
+	delete price;
+}
+
 StockType Stock::getType() const
 {
 	return type;

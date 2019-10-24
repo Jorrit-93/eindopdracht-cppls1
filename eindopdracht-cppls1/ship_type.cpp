@@ -71,7 +71,7 @@ String* shipTypeToString(const ShipType ship_type)
 
 ShipType getShipType(String* s)
 {
-	auto types = Dictionary<String*, ShipType>();
+	auto types = Dictionary<String, ShipType>();
 
 	types.add(new String("Pinnace"), ShipType::Pinnace);
 	types.add(new String("Sloep"), ShipType::Sloep);

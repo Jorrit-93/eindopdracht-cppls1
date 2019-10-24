@@ -3,16 +3,7 @@
 
 std::ostream& operator<<(std::ostream& os, const CannonType cannon_type)
 {
-	switch (cannon_type)
-	{
-	case CannonType::licht:
-		return os << "licht";
-	case CannonType::medium:
-		return os << "medium";
-	case CannonType::zwaar:
-		return os << "zwaar";
-	}
-	return os;
+	return os << cannonTypeToString(cannon_type)->toCharArray();
 }
 
 String* cannonTypeToString(const CannonType cannon_type)
@@ -31,7 +22,7 @@ String* cannonTypeToString(const CannonType cannon_type)
 
 CannonType getCannonType(String* s)
 {
-	auto types = Dictionary<String*, CannonType>();
+	auto types = Dictionary<String, CannonType>();
 
 	types.add(new String("licht"), CannonType::licht);
 	types.add(new String("medium"), CannonType::medium);

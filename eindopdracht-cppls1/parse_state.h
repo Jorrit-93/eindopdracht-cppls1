@@ -8,7 +8,7 @@ template<typename T>
 class ParseState
 {
 public:
-	virtual List<T*>* parse(std::ifstream& stream) = 0;
+	virtual List<T>* parse(std::ifstream& stream) = 0;
 
 protected:
 	static std::istream& getLine(std::istream& stream, String& line, char delimeter = '\n')
@@ -46,21 +46,21 @@ protected:
 		}
 	}
 	
-	static List<String*>* explode(const String& string, const char delimiter = ';')
+	static List<String>* explode(const String& string, const char delimiter = ';')
 	{
-		auto results = new List<String*>;
+		auto results = new List<String>;
 		auto stream = new std::stringstream(string.toCharArray());
 
 		String s;
 
 		while (!stream->eof(), getLine(*stream, s, delimiter))
 		{
-			if(!s.empty())
+			if(!s.isEmpty())
 			{
 				results->add(new String(s));
 			}
 		}
-		if (!s.empty())
+		if (!s.isEmpty())
 		{
 			results->add(new String(s));
 		}

@@ -25,7 +25,7 @@ Harbor* HarborBuilder::createHarbor(HarborName name)
 {
 	int i = 0;
 	auto harbor_distance = harbor_distance_structs->getAt(i);
-	while (harbor_distance->name != name)
+	while (harbor_distance.name != name)
 	{
 		harbor_distance = harbor_distance_structs->getAt(i);
 		i++;
@@ -33,7 +33,7 @@ Harbor* HarborBuilder::createHarbor(HarborName name)
 
 	int j = 0;
 	auto stock_amount = stock_amount_structs->getAt(j);
-	while (stock_amount->name != name)
+	while (stock_amount.name != name)
 	{
 		stock_amount = stock_amount_structs->getAt(j);
 		j++;
@@ -41,16 +41,16 @@ Harbor* HarborBuilder::createHarbor(HarborName name)
 
 	int k = 0;
 	auto stock_price = stock_price_structs->getAt(k);
-	while (stock_price->name != name)
+	while (stock_price.name != name)
 	{
 		stock_price = stock_price_structs->getAt(k);
 		k++;
 	}
 
-	return setName(harbor_distance->name)
-		.setDistances(harbor_distance->distances)
+	return setName(harbor_distance.name)
+		.setDistances(harbor_distance.distances)
 		.setCannons()
-		.setStocks(stock_amount->minAmount, stock_amount->maxAmount, stock_price->min_price, stock_price->max_price)
+		.setStocks(stock_amount.minAmount, stock_amount.maxAmount, stock_price.min_price, stock_price.max_price)
 		.setShips()
 		.build();
 }
@@ -71,7 +71,7 @@ HarborBuilder& HarborBuilder::setDistances(Dictionary<HarborName, int>* distance
 HarborBuilder& HarborBuilder::setCannons()
 {
 	delete cannons_def;
-	cannons_def = new Dictionary<Cannon*, RandomValue*>();
+	cannons_def = new Dictionary<Cannon, RandomValue>();
 	cannons_def->add(new Cannon(CannonType::licht, 50, 2), new RandomValue(0, 5));
 	cannons_def->add(new Cannon(CannonType::medium, 200, 4), new RandomValue(0, 3));
 	cannons_def->add(new Cannon(CannonType::zwaar, 1000, 6), new RandomValue(0, 2));
@@ -81,10 +81,10 @@ HarborBuilder& HarborBuilder::setCannons()
 HarborBuilder& HarborBuilder::setStocks(Dictionary<StockType, int>* min_amount_list, Dictionary<StockType, int>* max_amount_list, Dictionary<StockType, int>* min_price_list, Dictionary<StockType, int>* max_price_list)
 {
 	delete stocks_def;
-	stocks_def = new Dictionary<Stock*, RandomValue*>();
-	for (int i = 0; i < min_amount_list->getKeys()->count(); i++)
+	stocks_def = new Dictionary<Stock, RandomValue>();
+	for (int i = 0; i < min_amount_list->getKeys().count(); i++)
 	{
-		const auto type = min_amount_list->getKeys()->getAt(i);
+		const auto type = min_amount_list->getKeys().getAt(i);
 		const auto min_amount = min_amount_list->get(type);
 		const auto max_amount = max_amount_list->get(type);
 		const auto min_price = min_price_list->get(type);

@@ -79,7 +79,7 @@ String* stockTypeToString(const StockType stock_type)
 
 StockType getStockType(String* s)
 {
-	auto types = Dictionary<String*, StockType>();
+	auto types = Dictionary<String, StockType>();
 
 	types.add(new String("bakstenen"), StockType::bakstenen);
 	types.add(new String("laken"), StockType::laken);

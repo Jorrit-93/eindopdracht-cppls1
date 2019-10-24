@@ -12,13 +12,13 @@ class HarborBuilder {
 private:
 	HarborName name_def = HarborName::Roatan;
 	Dictionary<HarborName, int>* distances_def = new Dictionary<HarborName, int>();
-	Dictionary<Cannon*, RandomValue*>* cannons_def = new Dictionary<Cannon*, RandomValue*>();
-	Dictionary<Stock*, RandomValue*>* stocks_def = new Dictionary<Stock*, RandomValue*>();
+	Dictionary<Cannon, RandomValue>* cannons_def = new Dictionary<Cannon, RandomValue>();
+	Dictionary<Stock, RandomValue>* stocks_def = new Dictionary<Stock, RandomValue>();
 	Array<ShipType>* ships_def = new Array<ShipType>(0);
 
-	List<HarborDistanceStruct*>* harbor_distance_structs;
-	List<StockAmountStruct*>* stock_amount_structs;
-	List<StockPriceStruct*>* stock_price_structs;
+	List<HarborDistanceStruct>* harbor_distance_structs;
+	List<StockAmountStruct>* stock_amount_structs;
+	List<StockPriceStruct>* stock_price_structs;
 
 public:
 	HarborBuilder();

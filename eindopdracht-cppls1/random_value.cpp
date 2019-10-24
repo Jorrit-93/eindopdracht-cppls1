@@ -12,6 +12,11 @@ int RandomValue::getValue() const
 	return value;
 }
 
+void RandomValue::addToValue(const int add_value)
+{
+	value += add_value;
+}
+
 void RandomValue::setRandomValue()
 {
 	value = Random::global()->randomInt(min_value, max_value);

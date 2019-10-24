@@ -14,13 +14,13 @@ SeaController::~SeaController()
 	delete sea;
 }
 
-void SeaController::instantiateSea(const HarborName destination, const int distance)
+void SeaController::instantiate(const HarborName destination, const int distance)
 {
 	sea = new Sea(destination, distance);
-	enterSea();
+	enter();
 }
 
-void SeaController::enterSea() const
+void SeaController::enter()
 {
 	this->view->printSeaOutput(sea->wind_type);
 	this->view->getInput();
@@ -32,10 +32,10 @@ void SeaController::enterSea() const
 		return;
 	}
 	
-	exitSea();
+	exit();
 }
 
-void SeaController::exitSea() const
+void SeaController::exit()
 {
 	delete sea;
 }

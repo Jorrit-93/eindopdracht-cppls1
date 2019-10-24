@@ -8,5 +8,8 @@ public:
 	HarborName name;
 	Dictionary<HarborName, int>* distances;
 
-	~HarborDistanceStruct() { delete distances; }
+	~HarborDistanceStruct()
+	{
+		delete distances;
+	}
 };

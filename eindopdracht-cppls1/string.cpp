@@ -3,9 +3,8 @@
 #include <fstream>
 
 String::String()
+	: n_string(new char[1]), n_length(0)
 {
-	n_length = 0;
-	n_string = new char[n_length + 1];
 	n_string[n_length] = '\0';
 }
 
@@ -33,6 +32,25 @@ String& String::operator=(const String& other)
 }
 
 //move
+String::String(String&& other) noexcept
+{
+	*this = other;
+}
+
+String& String::operator=(String&& other) noexcept
+{
+	delete[] n_string;
+	n_length = other.n_length;
+	n_string = new char[n_length + 1];
+	for (int i = 0; i < n_length; i++)
+	{
+		n_string[i] = other.n_string[i];
+	}
+	n_string[n_length] = '\0';
+	return *this;
+}
+
+//move char
 String::String(const char* input) noexcept
 {
 	*this = input;
@@ -141,7 +159,7 @@ int String::length() const
 	return n_length;
 }
 
-bool String::empty() const
+bool String::isEmpty() const
 {
 	if (n_length == 0)
 	{

@@ -28,15 +28,17 @@ void GameView::printQuitOutput()
 	std::cout << "Weet je zeker dat je wilt stoppen?" << '\n';
 }
 
-void GameView::printGeneralInfoOutput(Dictionary<String*, String*>* data)
+void GameView::printGeneralInfoOutput(Dictionary<String, String>& data)
 {
-	std::cout << "----------------------------------------------------------------------------------------------------" << '\n';
-	for (int i = 0; i < data->count(); i++)
-	{
-		std::cout << *data->getKeys()->getAt(i) << " - " << *data->getValues()->getAt(i) << '\t';
-	}
-	std::cout << '\n';
-	std::cout << "----------------------------------------------------------------------------------------------------" << '\n';
+	//const auto test1 = data.getKeys();
+	//const auto test2 = data.getValues();
+	//std::cout << "----------------------------------------------------------------------------------------------------" << '\n';
+	//for (int i = 0; i < data.count(); i++)
+	//{
+	//	std::cout << test1.getAt(i) << " - " << test2.getAt(i) << '\t';
+	//}
+	//std::cout << '\n';
+	//std::cout << "----------------------------------------------------------------------------------------------------" << '\n';
 }
 
 void GameView::clear()

@@ -10,6 +10,6 @@ public:
 	void printGameOverOutput();
 	void printRedoOutput();
 	void printQuitOutput();
-	void printGeneralInfoOutput(Dictionary<String*, String*>* data);
+	void printGeneralInfoOutput(Dictionary<String, String>& data);
 	void clear();
 };

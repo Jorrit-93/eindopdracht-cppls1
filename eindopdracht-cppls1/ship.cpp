@@ -2,7 +2,7 @@
 #include "random.h"
 
 Ship::Ship(ShipType type, int price, int cargo_space, int cannon_amount, int hp)
-	: type(type), price(price), cargo_space(cargo_space), cannons(new Array<Cannon*>(cannon_amount)), hp(hp)
+	: type(type), price(price), cargo_space(cargo_space), cannons(new Array<Cannon>(cannon_amount)), hp(hp)
 {
 }
 
@@ -64,6 +64,31 @@ int Ship::sail(WindType type, int distance)
 		}
 	}
 	throw; //wind_type not valid
+}
+
+ShipType Ship::getType()
+{
+	return type;
+}
+
+int Ship::getPrice()
+{
+	return price;
+}
+
+int Ship::getCargoSpace()
+{
+	return cargo_space;
+}
+
+Array<Cannon>* Ship::getCannons()
+{
+	return cannons;
+}
+
+int Ship::getHP()
+{
+	return hp;
 }
 
 Array<ShipTrait>* Ship::getTraits()

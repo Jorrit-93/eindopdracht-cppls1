@@ -9,7 +9,7 @@ ParserController::~ParserController()
 	delete parser;
 }
 
-List<ShipStruct*>* ParserController::parseShips() const
+List<ShipStruct>* ParserController::parseShips() const
 {
 	auto ship_state = ShipState();
 	auto ship_path = String("resources/schepen.csv");
@@ -17,7 +17,7 @@ List<ShipStruct*>* ParserController::parseShips() const
 	return parser->getResult<ShipStruct>(ship_state);
 }
 
-List<HarborDistanceStruct*>* ParserController::parseHarborDistances() const
+List<HarborDistanceStruct>* ParserController::parseHarborDistances() const
 {
 	auto harbor_distance_state = HarborDistanceState();
 	auto harbor_distance_path = String("resources/afstanden tussen steden.csv");
@@ -25,7 +25,7 @@ List<HarborDistanceStruct*>* ParserController::parseHarborDistances() const
 	return parser->getResult<HarborDistanceStruct>(harbor_distance_state);
 }
 
-List<StockAmountStruct*>* ParserController::parseStockAmount() const
+List<StockAmountStruct>* ParserController::parseStockAmount() const
 {
 	auto stock_amount_state = StockAmountState();
 	auto stock_amount_path = String("resources/goederen hoeveelheid.csv");
@@ -33,7 +33,7 @@ List<StockAmountStruct*>* ParserController::parseStockAmount() const
 	return parser->getResult<StockAmountStruct>(stock_amount_state);
 }
 
-List<StockPriceStruct*>* ParserController::parseStockPrices() const
+List<StockPriceStruct>* ParserController::parseStockPrices() const
 {
 	auto stock_price_state = StockPriceState();
 	auto stock_price_path = String("resources/goederen prijzen.csv");

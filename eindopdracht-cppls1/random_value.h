@@ -8,8 +8,10 @@ protected:
 	int max_value = 0;
 
 public:
+	RandomValue() = default;
 	RandomValue(int min_value, int max_value);
 
 	virtual int getValue() const;
+	virtual void addToValue(int add_value);
 	virtual void setRandomValue();
 };

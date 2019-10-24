@@ -19,6 +19,10 @@ public:
 	String& operator=(const String& other);
 
 	//move
+	String(String&& other) noexcept;
+	String& operator=(String&& other) noexcept;
+	
+	//move char
 	String(const char* input) noexcept;
 	String& operator=(const char* input) noexcept;
 
@@ -32,8 +36,8 @@ public:
 	friend std::istream& operator>>(std::istream& is, String& s);
 	
 	char* toCharArray() const;
-	void pushBack(char input);
+	void pushBack(char c);
 	void clear();
 	int length() const;
-	bool empty() const;
+	bool isEmpty() const;
 };

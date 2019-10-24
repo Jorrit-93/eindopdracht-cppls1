@@ -226,6 +226,7 @@
     <ClInclude Include="sea.h" />
     <ClInclude Include="ship_trait.h" />
     <ClInclude Include="ship_trait.h" />
+    <ClInclude Include="i_controller.h" />
     <ClInclude Include="stock_amount_state.h" />
     <ClInclude Include="stock_price_state.h" />
     <ClInclude Include="stock_price_struct.h" />

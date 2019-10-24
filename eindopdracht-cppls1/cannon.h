@@ -10,9 +10,11 @@ private:
 	RandomValue* damage;
 
 public:
+	Cannon() = default;
 	Cannon(CannonType type, int price, int max_damage);
 	~Cannon();
 
+	CannonType getType() const;
 	int getPrice() const;
 	int getDamage() const;
 };

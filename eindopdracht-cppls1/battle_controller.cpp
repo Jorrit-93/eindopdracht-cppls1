@@ -15,7 +15,7 @@ BattleController::~BattleController()
 	delete view;
 }
 
-void BattleController::initialize()
+void BattleController::instantiate()
 {
 	switch(Random::global()->randomInt(0, 2))
 	{
@@ -28,10 +28,10 @@ void BattleController::initialize()
 	}
 
 	// Start the battle
-	enterBattle();
+	enter();
 }
 
-void BattleController::enterBattle()
+void BattleController::enter()
 {
 	while (!is_over)
 	{
@@ -39,7 +39,7 @@ void BattleController::enterBattle()
 		auto option1 = String("schiet");
 		auto option2 = String("vlucht");
 		auto option3 = String("geef over");
-		auto options = Array<String*>(3);
+		auto options = Array<String>(3);
 		options.add(&option1);
 		options.add(&option2);
 		options.add(&option3);
@@ -64,17 +64,17 @@ void BattleController::enterBattle()
 
 			if (game.getShip().hasFled(*pirate_ship))
 			{
-				exitBattle();
+				exit();
 			}
 
 			break;
 		case 3:
 			{
-			const auto stocks = new Dictionary<Stock*, int>();
+			const auto stocks = new Dictionary<Stock, int>();
 
 			game.setStocks(stocks);
 
-			exitBattle();
+			exit();
 			break;
 			}
 		default:
@@ -83,7 +83,7 @@ void BattleController::enterBattle()
 	}
 }
 
-void BattleController::exitBattle()
+void BattleController::exit()
 {
 	delete pirate_ship;
 	is_over = true;

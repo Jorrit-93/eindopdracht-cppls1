@@ -4,6 +4,6 @@
 
 class ShipState : public ParseState<ShipStruct>
 {
-	List<ShipStruct*>* parse(std::ifstream& stream) override;
+	List<ShipStruct>* parse(std::ifstream& stream) override;
 };
 

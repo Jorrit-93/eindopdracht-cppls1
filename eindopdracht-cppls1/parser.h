@@ -12,14 +12,14 @@ public:
 	void setPath(String& path);
 
 	template<typename  T>
-	List<T*>* getResult(ParseState<T>& state)
+	List<T>* getResult(ParseState<T>& state)
 	{
 		if (!path)
 		{
 			return nullptr;
 		}
 		std::ifstream* ifs = new std::ifstream(this->path->toCharArray());
-		List<T*>* returnList = state.parse(*ifs);
+ 		List<T>* returnList = state.parse(*ifs);
 		delete ifs;
 		return returnList;
 	}

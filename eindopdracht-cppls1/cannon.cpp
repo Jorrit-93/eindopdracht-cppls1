@@ -6,6 +6,16 @@ Cannon::Cannon(const CannonType type, const int price, const int max_damage)
 	damage->setRandomValue();
 }
 
+Cannon::~Cannon()
+{
+	delete damage;
+}
+
+CannonType Cannon::getType() const
+{
+	return type;
+}
+
 int Cannon::getPrice() const
 {
 	return price;

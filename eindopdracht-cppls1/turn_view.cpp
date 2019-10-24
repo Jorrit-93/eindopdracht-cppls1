@@ -1,7 +1,7 @@
 #include "turn_view.h"
 #include <iostream>
 
-int TurnView::getInput(Array<String*>* options)
+int TurnView::getInput(Array<String>* options)
 {
 	std::cout << '\n';
 	int input = 0;
@@ -9,7 +9,7 @@ int TurnView::getInput(Array<String*>* options)
 	{
 		for (int i = 0; i < options->count(); i++)
 		{
-			std::cout << "(" << i + 1 << ") " <<  *options->getAt(i) << '\n';
+			std::cout << "(" << i + 1 << ") " <<  options->getAt(i) << '\n';
 		}
 		std::cout << "Kies een optie..." << '\n';
 		std::cin >> input;
@@ -25,12 +25,11 @@ int TurnView::getInputAmount(int max_amount)
 	int input = max_amount + 1;
 	while (input > max_amount)
 	{
-		std::cout << "Maximaal mogelijke hoeveelheid: " << max_amount << '\n';
+		std::cout << "Maximaal: " << max_amount << '\n';
 		std::cout << "Kies een hoeveelheid..." << '\n';
 		std::cin >> input;
 		std::cout << '\n';
 	}
-
 	return input;
 }
 

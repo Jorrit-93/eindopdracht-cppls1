@@ -1,20 +1,17 @@
 #pragma once
+#include "i_controller.h"
 #include "harbor_view.h"
 #include "game_controller.h"
-#include "harbor.h"
-#include "harbor_distance_struct.h"
-#include "stock_amount_struct.h"
-#include "stock_price_struct.h"
 #include "harbor_builder.h"
+#include "harbor.h"
 
 class GameController;
 
-class HarborController
+class HarborController : public IController
 {
 private:
 	HarborView* view;
 	GameController& game;
-
 	HarborBuilder* harbor_builder;
 	
 	Harbor* harbor = nullptr;
@@ -23,9 +20,9 @@ public:
 	HarborController(GameController& game);
 	~HarborController();
 
-	void instantiateHarbor(HarborName name);
-	void enterHarbor();
-	void exitHarbor(HarborName name, int distance) const;
+	void instantiate(HarborName name);
+	void enter() override;
+	void exit() override;
 
 	void buyStock();
 	void buyCannon();

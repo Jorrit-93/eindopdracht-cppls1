@@ -12,9 +12,9 @@ class HarborView : public TurnView
 {
 public:
 	void printEnterHarborOutput(HarborName name);
-	void printStockOutput(const Dictionary<Stock*, RandomValue*>& stocks);
-	void printCannonOutput(Dictionary<CannonType, String*>& cannons);
-	void printShipOutput(Dictionary<ShipType, String*>& ships);
+	void printStockOutput(const Dictionary<Stock, RandomValue>& stocks);
+	void printCannonOutput(Dictionary<CannonType, String>& cannons);
+	void printShipOutput(Dictionary<ShipType, String>& ships);
 	void printRepairOutput();
 	void printBonVoyageOutput(Dictionary<HarborName, int>& destinations);
 };

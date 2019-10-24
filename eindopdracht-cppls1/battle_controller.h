@@ -1,4 +1,5 @@
 #pragma once
+#include "i_controller.h"
 #include "battle_view.h"
 #include "game_controller.h"
 #include "battle.h"
@@ -6,7 +7,7 @@
 
 class GameController;
 
-class BattleController
+class BattleController : public IController
 {
 private:
 	BattleView* view;
@@ -19,7 +20,7 @@ public:
 	BattleController(GameController& game);
 	~BattleController();
 
-	void initialize();
-	void enterBattle();
-	void exitBattle();
+	void instantiate();
+	void enter() override;
+	void exit() override;
 };

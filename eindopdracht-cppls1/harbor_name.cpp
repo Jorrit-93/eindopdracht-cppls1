@@ -115,7 +115,7 @@ String* harborNameToString(const HarborName harbor_name)
 
 HarborName getHarborName(String* s)
 {
-	auto types = Dictionary<String*, HarborName>();
+	auto types = Dictionary<String, HarborName>();
 
 	types.add(new String("Roatan"), HarborName::Roatan);
 	types.add(new String("Belize"), HarborName::Belize);

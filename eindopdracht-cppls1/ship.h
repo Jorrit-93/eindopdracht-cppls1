@@ -10,7 +10,7 @@ protected:
 	ShipType type;
 	int price;
 	int cargo_space;
-	Array<Cannon*>* cannons;
+	Array<Cannon>* cannons;
 	int hp;
 	
 public:
@@ -21,5 +21,11 @@ public:
 	bool hasFled(IShip& from) override;
 	void shoot(IShip& at) override;
 	int sail(WindType type, int distance) override;
+
+	ShipType getType() override;
+	int getPrice() override;
+	int getCargoSpace() override;
+	Array<Cannon>* getCannons() override;
+	int getHP() override;
 	Array<ShipTrait>* getTraits() override;
 };

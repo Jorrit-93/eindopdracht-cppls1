@@ -31,7 +31,7 @@ String* shipTraitToString(const ShipTrait ship_trait)
 
 ShipTrait getShipTrait(String* s)
 {
-	auto types = Dictionary<String*, ShipTrait>();
+	auto types = Dictionary<String, ShipTrait>();
 
 	types.add(new String("klein"), ShipTrait::klein);
 	types.add(new String("licht"), ShipTrait::licht);

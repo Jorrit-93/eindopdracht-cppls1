@@ -21,17 +21,17 @@ IShip* ShipBuilder::createShip(ShipType type)
 {
 	int i = 0;
 	auto ship = ship_structs->getAt(i);
-	while (ship->type != type)
+	while (ship.type != type)
 	{
 		ship = ship_structs->getAt(i);
 		i++;
 	}
-	return setType(ship->type)
-		.setPrice(ship->price)
-		.setCargoSpace(ship->storage_capacity)
-		.setCannonAmount(ship->cannons)
-		.setHP(ship->health)
-		.setAttributes(ship->traits)
+	return setType(ship.type)
+		.setPrice(ship.price)
+		.setCargoSpace(ship.storage_capacity)
+		.setCannonAmount(ship.cannons)
+		.setHP(ship.health)
+		.setAttributes(ship.traits)
 		.build();
 }
 

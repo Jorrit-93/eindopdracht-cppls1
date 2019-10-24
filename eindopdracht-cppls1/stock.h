@@ -9,6 +9,7 @@ private:
 	RandomValue* price;
 
 public:
+	Stock() = default;
 	Stock(StockType type, int min_price, int max_price);
 	~Stock();
 

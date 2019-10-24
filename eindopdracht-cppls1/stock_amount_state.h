@@ -4,6 +4,6 @@
 
 class StockAmountState : public ParseState<StockAmountStruct>
 {
-	List<StockAmountStruct*>* parse(std::ifstream& stream) override;
+	List<StockAmountStruct>* parse(std::ifstream& stream) override;
 };
 

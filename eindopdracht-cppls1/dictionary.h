@@ -1,16 +1,27 @@
 #pragma once
+#include <type_traits>
 #include "list.h"
 
 template<typename K, typename V>
 class Dictionary
 {
+	static_assert(!std::is_pointer<K>::value || !std::is_pointer<V>::value, "No pointer types permitted");
+	
 private:
-	List<K>* n_key;
-	List<V>* n_value;
+	List<K>* n_keys = nullptr;
+	List<V>* n_values = nullptr;
 	
 public:
-	Dictionary() : n_key(new List<K>()), n_value(new List<V>()) { }
-	~Dictionary() { delete n_key; delete n_value; }
+	Dictionary()
+		: n_keys(new List<K>()), n_values(new List<V>())
+	{
+		
+	}
+	~Dictionary()
+	{
+		delete n_keys;
+		delete n_values;
+	}
 
 	//copy
 	Dictionary(const Dictionary& other)
@@ -19,15 +30,10 @@ public:
 	}
 	Dictionary& operator=(const Dictionary& other)
 	{
-		delete n_key;
-		delete n_value;
-		n_key = new List<K>();
-		n_value = new List<V>();
-		for (int i = 0; i < other.getKeys()->count(); i++)
-		{
-			n_key->add(other.getKeys()->getAt(i));
-			n_value->add(other.getValues()->getAt(i));
-		}
+		delete n_keys;
+		delete n_values;
+		n_keys = new List<K>(*other.n_keys);
+		n_values = new List<V>(*other.n_values);
 		return *this;
 	}
 
@@ -38,53 +44,93 @@ public:
 	}
 	Dictionary& operator=(Dictionary&& other) noexcept
 	{
-		delete n_key, n_value;
-		n_key = new List<K>();
-		n_value = new List<V>();
-		for (int i = 0; i < other.getKeys()->count(); i++)
-		{
-			n_key->add(other.getKeys()->getAt(i));
-			n_value->add(other.getValues()->getAt(i));
-		}
+		delete n_keys;
+		delete n_values;
+		n_keys = new List<K>(*other.n_keys);
+		n_values = new List<V>(*other.n_values);
+		delete *other;
 		return *this;
 	}
-
+	
+	bool operator==(const Dictionary* other)
+	{
+		return *this == *other;
+	}
 	bool operator==(const Dictionary& other)
 	{
-		return ((*n_key == *other.n_key) && (*n_value == *other.n_value));
+		return ((n_keys == other.n_keys) && (n_values == other.n_values));
 	}
 
-	void add(K k, V v)
+	void add(const K* k, const V* v)
 	{
-		n_key->add(k);
-		n_value->add(v);
+		add(*k, *v);
+	}
+	void add(const K* k, const V& v)
+	{
+		add(*k, v);
+	}
+	void add(const K& k, const V* v)
+	{
+		add(k, *v);
+	}
+	void add(const K& k, const V& v)
+	{
+		n_keys->add(k);
+		n_values->add(v);
 	}
 
-	V get(const K k)
+	V get(const K* k)
 	{
-		int index = n_key->indexOf(k);
-		return n_value->getAt(index);
+		return get(*k);
+	}
+	V get(const K& k)
+	{
+		return getValueAt(n_keys->indexOf(k));
+	}
+	K getKeyAt(const int index)
+	{
+		return K(n_keys->getAt(index));
+	}
+	V getValueAt(const int index)
+	{
+		return V(n_values->getAt(index));
 	}
 
-	void remove(const K k)
+	void remove(const K* k)
 	{
-		int index = n_key->indexOf(k);
-		n_key->removeAt(index);
-		n_value->removeAt(index);
+		remove(*k);
+	}
+	void remove(const K& k)
+	{
+		removeAt(n_keys->indexOf(k));
+	}
+	void removeAt(const int index)
+	{
+		n_keys->removeAt(index);
+		n_values->removeAt(index);
 	}
 
-	List<K>* getKeys() const
+	bool contains(const K* k)
 	{
-		return n_key;
+		return contains(*k);
 	}
-
-	List<V>* getValues() const
+	bool contains(const K& k)
 	{
-		return n_value;
+		return n_keys->contains(k);
 	}
 
 	int count() const
 	{
-		return n_key->count();
+		return n_keys->count();
+	}
+
+	List<K> getKeys() const
+	{
+		return *n_keys;
+	}
+
+	List<V> getValues() const
+	{
+		return *n_values;
 	}
 };
