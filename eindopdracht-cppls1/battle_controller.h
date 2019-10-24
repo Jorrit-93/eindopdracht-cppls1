@@ -12,7 +12,7 @@ private:
 	BattleView* view;
 	GameController& game;
 
-	bool isOver = false;
+	bool is_over = false;
 	IShip* pirate_ship;
 	
 public:
@@ -20,6 +20,6 @@ public:
 	~BattleController();
 
 	void initialize();
-	void enterBattle() const;
-	void exitBattle() const;
+	void enterBattle();
+	void exitBattle();
 };
