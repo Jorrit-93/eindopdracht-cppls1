@@ -1,7 +1,7 @@
 #include "harbor_name.h"
 #include "dictionary.h"
 
-std::ostream& operator<<(std::ostream& os, HarborName harbor_name)
+std::ostream& operator<<(std::ostream& os, const HarborName harbor_name)
 {
 	switch (harbor_name)
 	{
@@ -54,6 +54,63 @@ std::ostream& operator<<(std::ostream& os, HarborName harbor_name)
 	case HarborName::Providence:
 		return os << "Providence";
 	}
+	return os;
+}
+
+String* harborNameToString(const HarborName harbor_name)
+{
+	switch (harbor_name)
+	{
+	case HarborName::Roatan:
+		return new String("Roatan");
+	case HarborName::Belize:
+		return new String("Belize");
+	case HarborName::Cayman:
+		return new String("Cayman");
+	case HarborName::Evangelista:
+		return new String("Evangelista");
+	case HarborName::Trinidad:
+		return new String("Trinidad");
+	case HarborName::Port_Royale:
+		return new String("Port Royale");
+	case HarborName::Santiago:
+		return new String("Santiago");
+	case HarborName::Port_au_prince:
+		return new String("Port-au-prince");
+	case HarborName::Santo_Domingo:
+		return new String("Santo Domingo");
+	case HarborName::Saint_Kitts:
+		return new String("Saint Kitts");
+	case HarborName::Santa_Lucia:
+		return new String("Santa Lucia");
+	case HarborName::Grenada:
+		return new String("Grenada");
+	case HarborName::Port_of_Spain:
+		return new String("Port of Spain");
+	case HarborName::Puerto_Santo:
+		return new String("Puerto Santo");
+	case HarborName::Margarita:
+		return new String("Margarita");
+	case HarborName::Caracas:
+		return new String("Caracas");
+	case HarborName::Puerto_Cabello:
+		return new String("Puerto Cabello");
+	case HarborName::Curacao:
+		return new String("Curacao");
+	case HarborName::Coro:
+		return new String("Coro");
+	case HarborName::Gibraltar:
+		return new String("Gibraltar");
+	case HarborName::Maracaibo:
+		return new String("Maracaibo");
+	case HarborName::Santa_Marta:
+		return new String("Santa Marta");
+	case HarborName::Cartagena:
+		return new String("Cartagena");
+	case HarborName::Providence:
+		return new String("Providence");
+	}
+	return nullptr;
 }
 
 HarborName getHarborName(String* s)

@@ -11,3 +11,7 @@ void HarborView::printStockOutput(const Dictionary<Stock*, RandomValue*>& stocks
 void HarborView::printRepairOutput()
 {
 }
+
+void HarborView::printBonVoyageOutput(Dictionary<HarborName, int>& destinations)
+{
+}

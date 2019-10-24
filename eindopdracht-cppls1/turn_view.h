@@ -9,5 +9,6 @@ public:
 	virtual ~TurnView() = default;
 	
 	virtual int getInput(Array<String*>* options);
+	virtual int getInputAmount(int max_amount);
 	virtual void getInput();
 };

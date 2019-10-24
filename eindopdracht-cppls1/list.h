@@ -94,4 +94,9 @@ public:
 	{
 		return n_array->count();
 	}
+
+	Array<T>& toArray()
+	{
+		return *n_array;
+	}
 };

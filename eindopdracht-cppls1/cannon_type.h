@@ -11,4 +11,5 @@ enum class CannonType
 
 std::ostream& operator<<(std::ostream& os, CannonType cannon_type);
 
+String* cannonTypeToString(CannonType cannon_type);
 CannonType getCannonType(String* s);

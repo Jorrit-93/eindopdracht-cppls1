@@ -1,7 +1,7 @@
 #include "ship_type.h"
 #include "dictionary.h"
 
-std::ostream& operator<<(std::ostream& os, ShipType ship_type)
+std::ostream& operator<<(std::ostream& os, const ShipType ship_type)
 {
 	switch (ship_type)
 	{
@@ -32,6 +32,41 @@ std::ostream& operator<<(std::ostream& os, ShipType ship_type)
 	case ShipType::Ship_of_the_Line:
 		return os << "Ship of the Line";
 	}
+	return os;
+}
+
+String* shipTypeToString(const ShipType ship_type)
+{
+	switch (ship_type)
+	{
+	case ShipType::Pinnace:
+		return new String("Pinnace");
+	case ShipType::Sloep:
+		return new String("Sloep");
+	case ShipType::Brigg:
+		return new String("Brigg");
+	case ShipType::Barque:
+		return new String("Barque");
+	case ShipType::Korvet:
+		return new String("Korvet");
+	case ShipType::Fluyt:
+		return new String("Fluyt");
+	case ShipType::Fregat:
+		return new String("Fregat");
+	case ShipType::Galjoen:
+		return new String("Galjoen");
+	case ShipType::Handelsfluyt:
+		return new String("Handelsfluyt");
+	case ShipType::Caravel:
+		return new String("Caravel");
+	case ShipType::Carrack:
+		return new String("Carrack");
+	case ShipType::Oorlogsgaljoen:
+		return new String("Oorlogsgaljoen");
+	case ShipType::Ship_of_the_Line:
+		return new String("Ship of the Line");
+	}
+	return nullptr;
 }
 
 ShipType getShipType(String* s)

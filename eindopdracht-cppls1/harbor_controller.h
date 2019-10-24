@@ -24,7 +24,7 @@ public:
 	~HarborController();
 
 	void instantiateHarbor(HarborName name);
-	void enterHarbor() const;
+	void enterHarbor();
 	void exitHarbor(HarborName name, int distance) const;
 
 	void buyStock();

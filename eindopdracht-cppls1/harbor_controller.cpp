@@ -21,7 +21,7 @@ void HarborController::instantiateHarbor(const HarborName name)
 	enterHarbor();
 }
 
-void HarborController::enterHarbor() const
+void HarborController::enterHarbor()
 {
 	auto option1 = String("koop goederen");
 	auto option2 = String("koop kannonen");
@@ -44,7 +44,7 @@ void HarborController::enterHarbor() const
 	{
 		case 1:
 			view->printStockOutput(*harbor->stocks);
-			//buy stock
+			buyStock();
 			break;
 		case 2:
 			//view->printCannonOutput();
@@ -56,12 +56,11 @@ void HarborController::enterHarbor() const
 			break;
 		case 4:
 			view->printRepairOutput();
-			//repair ship
+			repairShip();
 			break;
 		case 5:
-			game.engageInBattle();
-			//view->printBonVoyageOutput();
-			//game.moveToSea();
+			view->printBonVoyageOutput(*harbor->distances);
+			bonVoyage();
 			break;
 		case 6:
 			game.quit();
@@ -76,14 +75,79 @@ void HarborController::exitHarbor(HarborName name, int distance) const
 	delete harbor;
 }
 
+void HarborController::buyStock()
+{
+	auto stocks = harbor->stocks->getKeys()->toArray();
+	auto options = new Array<String*>(stocks.count() + 1);
+
+	for (int i = 0; i < stocks.count(); i++)
+	{
+		options->add(stockTypeToString(stocks.getAt(i)->getType()));
+	}
+	auto returnOption = String("Terug naar de haven");
+	options->add(&returnOption);
+
+	const auto input = view->getInput(options);
+	if (input == options->count())
+	{
+		enterHarbor();
+		return;
+	}
+
+	Stock* stock = nullptr;
+	int stock_amount;
+	for (int i = 0; i < stocks.count(); i++)
+	{
+		if (stocks.getAt(i)->getType() == getStockType(options->getAt(input - 1)))
+		{
+			stock = harbor->stocks->getKeys()->getAt(i);
+			stock_amount = harbor->stocks->getValues()->getAt(i)->getValue();
+		}
+	}
+
+	int max_amount = game.getGold() / stock->getPrice();
+	if (max_amount > stock_amount)
+	{
+		max_amount = stock_amount;
+	}
+
+	const auto amount = view->getInputAmount(max_amount);
+	
+	delete options;
+	enterHarbor();
+}
+
+void HarborController::repairShip()
+{
+}
+
 void HarborController::bonVoyage()
 {
-	//auto options = harbor->distances->getKeys();
+	auto harbors = harbor->distances->getKeys()->toArray();
+	auto options = new Array<String*>(harbors.count() + 1);
 
-/*	auto option1 = HarborName::Belize;
-	auto options = Array<HarborName>(1);
-	options.add(option1);
-	const auto input = view->getInput<HarborName>(&options);*/ //IMPLEMENT LIST.TOARRAY();
+	for(int i = 0; i < harbors.count(); i++)
+	{
+		if (harbors.getAt(i) != harbor->name)
+		{
+			options->add(harborNameToString(harbors.getAt(i)));
+		}
+	}
+	auto returnOption = String("Terug naar de haven");
+	options->add(&returnOption);
+
+	const auto input = view->getInput(options);
+	if (input == options->count())
+	{
+		enterHarbor();
+		return;
+	}
+	
+	auto destination = getHarborName(options->getAt(input - 1));
+	auto distance = harbor->distances->get(destination);
+
+	delete options;
+	//move to sea
 }
 
 

@@ -102,7 +102,7 @@ void GameController::generalInfo() const
 
 void GameController::moveToHarbor(const HarborName name) const
 {
-	in_harbor->instantiateHarbor(HarborName::Curacao);
+	in_harbor->instantiateHarbor(name);
 	in_harbor->enterHarbor();
 }
 
@@ -130,6 +130,11 @@ void GameController::setShip(ShipType type)
 void GameController::addGold(const int value)
 {
 	gold += value;
+}
+
+int GameController::getGold() const
+{
+	return gold;
 }
 
 Dictionary<Stock*, int>* GameController::getStocks()

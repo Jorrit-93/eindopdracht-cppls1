@@ -19,6 +19,21 @@ int TurnView::getInput(Array<String*>* options)
 	return input;
 }
 
+int TurnView::getInputAmount(int max_amount)
+{
+	std::cout << '\n';
+	int input = max_amount + 1;
+	while (input > max_amount)
+	{
+		std::cout << "Maximaal mogelijke hoeveelheid: " << max_amount << '\n';
+		std::cout << "Kies een hoeveelheid..." << '\n';
+		std::cin >> input;
+		std::cout << '\n';
+	}
+
+	return input;
+}
+
 void TurnView::getInput()
 {
 	std::cout << "Druk op ENTER om verder te gaan..." << '\n';
