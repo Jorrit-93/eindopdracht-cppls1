@@ -16,11 +16,13 @@ public:
 	: n_array(new T[size]), n_size(size), n_count(0) { }
 	~Array()
 	{
-		for (int i = 0; i < n_count; i++)
+		if (std::is_pointer<T>::value)
 		{
-			delete (toPointer(n_array[i]));
+			for (int i = n_count - 1; i >= 0; i--)
+			{
+				delete (toPointer(n_array[i]));
+			}
 		}
-		
 		delete[] n_array;
 	}
 

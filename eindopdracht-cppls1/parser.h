@@ -19,7 +19,7 @@ public:
 			return nullptr;
 		}
 		std::ifstream* ifs = new std::ifstream(this->path->toCharArray());
-		List<T*>* returnList = state.parse(*ifs);
+ 		List<T*>* returnList = state.parse(*ifs);
 		delete ifs;
 		return returnList;
 	}

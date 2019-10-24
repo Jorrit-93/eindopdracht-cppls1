@@ -5,8 +5,8 @@ template<typename K, typename V>
 class Dictionary
 {
 private:
-	List<K>* n_key;
-	List<V>* n_value;
+	List<K>* n_key = nullptr;
+	List<V>* n_value = nullptr;
 	
 public:
 	Dictionary() : n_key(new List<K>()), n_value(new List<V>()) { }

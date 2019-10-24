@@ -58,9 +58,7 @@ public:
 			{
 				newArray->add(n_array->getAt(i));
 			}
-			auto temp = n_array;
 			n_array = newArray;
-			delete temp;
 		}
 		n_array->add(t);
 	}
