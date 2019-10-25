@@ -26,7 +26,8 @@ IShip* ShipBuilder::createShip(ShipType type)
 		ship = ship_structs->getAt(i);
 		i++;
 	}
-	return setType(ship.type)
+	
+	return setType(type)
 		.setPrice(ship.price)
 		.setCargoSpace(ship.storage_capacity)
 		.setCannonAmount(ship.cannons)
@@ -67,11 +68,11 @@ ShipBuilder& ShipBuilder::setHP(const int hp)
 ShipBuilder& ShipBuilder::setAttributes(Array<ShipTrait>* attributes)
 {
 	delete attributes_def;
-	attributes_def = attributes;
+	attributes_def = new Array<ShipTrait>(*attributes);
 	return *this;
 }
 
-IShip* ShipBuilder::build() const
+IShip* ShipBuilder::build()
 {
 	IShip* ship = new Ship(type_def, price_def, cargo_space_def, cannon_amount_def, hp_def);
 
@@ -90,5 +91,9 @@ IShip* ShipBuilder::build() const
 			break;
 		}
 	}
+
+	delete attributes_def;
+	attributes_def = nullptr;
+	
 	return ship;
 }

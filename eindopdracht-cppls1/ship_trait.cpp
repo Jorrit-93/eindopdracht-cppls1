@@ -3,15 +3,9 @@
 
 std::ostream& operator<<(std::ostream& os, const ShipTrait ship_trait)
 {
-	switch (ship_trait)
-	{
-	case ShipTrait::klein:
-		return os << "klein";
-	case ShipTrait::licht:
-		return os << "licht";
-	case ShipTrait::log:
-		return os << "log";
-	}
+	const auto string = shipTraitToString(ship_trait);
+	os << string;
+	delete string;
 	return os;
 }
 
@@ -29,13 +23,13 @@ String* shipTraitToString(const ShipTrait ship_trait)
 	return nullptr;
 }
 
-ShipTrait getShipTrait(String* s)
+ShipTrait getShipTrait(String& s)
 {
 	auto types = Dictionary<String, ShipTrait>();
 
-	types.add(new String("klein"), ShipTrait::klein);
-	types.add(new String("licht"), ShipTrait::licht);
-	types.add(new String("log"), ShipTrait::log);
+	types.add(String("klein"), ShipTrait::klein);
+	types.add(String("licht"), ShipTrait::licht);
+	types.add(String("log"), ShipTrait::log);
 
 	return types.get(s);
 }

@@ -12,4 +12,4 @@ enum class ShipTrait
 std::ostream& operator<<(std::ostream& os, ShipTrait ship_trait);
 
 String* shipTraitToString(ShipTrait ship_trait);
-ShipTrait getShipTrait(String* s);
+ShipTrait getShipTrait(String& s);

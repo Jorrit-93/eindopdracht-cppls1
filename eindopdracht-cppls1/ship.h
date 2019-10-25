@@ -10,12 +10,16 @@ protected:
 	ShipType type;
 	int price;
 	int cargo_space;
-	Array<Cannon>* cannons;
+	Array<Cannon>* cannons = nullptr;
 	int hp;
 	
 public:
 	Ship(ShipType type, int price, int cargo_space, int cannon_amount, int hp);
 	~Ship();
+	Ship(const Ship& other);
+	Ship& operator=(const Ship& other);
+	Ship(Ship&& other) noexcept;
+	Ship& operator=(Ship&& other) noexcept;
 	
 	bool hasSunk() override;
 	bool hasFled(IShip& from) override;

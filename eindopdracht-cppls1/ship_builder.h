@@ -12,9 +12,9 @@ private:
 	int cargo_space_def = 1;
 	int cannon_amount_def = 1;
 	int hp_def = 1;
-	Array<ShipTrait>* attributes_def = new Array<ShipTrait>(0);
+	Array<ShipTrait>* attributes_def = nullptr;
 
-	List<ShipStruct>* ship_structs;
+	List<ShipStruct>* ship_structs = nullptr;
 	
 public:
 	ShipBuilder();
@@ -30,5 +30,5 @@ private:
 	ShipBuilder& setHP(int hp);
 	ShipBuilder& setAttributes(Array<ShipTrait>* attributes);
 
-	IShip* build() const;
+	IShip* build();
 };

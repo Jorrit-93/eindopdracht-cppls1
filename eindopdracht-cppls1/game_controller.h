@@ -16,13 +16,13 @@ class GameController
 private:
 	bool is_playing = true;
 	
-	GameView* view;
-	HarborController* harbor_c;
-	SeaController* sea_c;
-	BattleController* battle_c;
+	GameView* view = nullptr;
+	HarborController* harbor_c = nullptr;
+	SeaController* sea_c = nullptr;
+	BattleController* battle_c = nullptr;
 	IController* current_c = nullptr;
 
-	ShipBuilder* ship_builder;
+	ShipBuilder* ship_builder = nullptr;
 	
 	IShip* ship = nullptr;
 	Dictionary<Stock, int>* stocks = new Dictionary<Stock, int>();

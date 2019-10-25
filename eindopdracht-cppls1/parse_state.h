@@ -11,20 +11,19 @@ public:
 	virtual List<T>* parse(std::ifstream& stream) = 0;
 
 protected:
-	static std::istream& getLine(std::istream& stream, String& line, char delimeter = '\n')
+	static std::istream& getLine(std::istream& stream, String& line, const char delimiter = '\n')
 	{
 		char ch;
 
-		line = "";
-
-		while (stream.get(ch)) {
-
-			if (ch == delimeter)
+		while (stream.get(ch))
+		{
+			if (ch == delimiter)
+			{
 				break;
-
+			}
 			line += ch;
 		}
-
+		
 		return stream;
 	}
 	
@@ -46,28 +45,24 @@ protected:
 		}
 	}
 	
-	static List<String>* explode(const String& string, const char delimiter = ';')
+	static List<String>& explode(const String& string, const char delimiter = ';')
 	{
-		auto results = new List<String>;
-		auto stream = new std::stringstream(string.toCharArray());
+		const auto results = new List<String>();
+		auto stream = std::stringstream(string.toCharArray());
 
-		String s;
+		auto s = String("");
 
-		while (!stream->eof(), getLine(*stream, s, delimiter))
+		while (!stream.eof())
 		{
-			if(!s.isEmpty())
+			getLine(stream, s, delimiter);
+			if (!s.isEmpty())
 			{
-				results->add(new String(s));
+				results->add(&s);
 			}
-		}
-		if (!s.isEmpty())
-		{
-			results->add(new String(s));
+			s.clear();
 		}
 
-		delete stream;
-
-		return results;
+		return *results;
 	}
 };
 

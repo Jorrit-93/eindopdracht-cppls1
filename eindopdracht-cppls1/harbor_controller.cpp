@@ -24,12 +24,12 @@ void HarborController::enter()
 {
 	game.generalInfo();
 	auto options = Array<String>(6);
-	options.add(new String("koop goederen"));
-	options.add(new String("koop kannonen"));
-	options.add(new String("koop schip"));
-	options.add(new String("repareer schip"));
-	options.add(new String("vaar weg"));
-	options.add(new String("stop"));
+	options.add(String("koop goederen"));
+	options.add(String("koop kannonen"));
+	options.add(String("koop schip"));
+	options.add(String("repareer schip"));
+	options.add(String("vaar weg"));
+	options.add(String("stop"));
 
 	//view->printEnterHarborOutput();
 	const auto input = view->getInput(&options);
@@ -140,8 +140,8 @@ void HarborController::bonVoyage()
 		return;
 	}
 	
-	auto destination = getHarborName(&options->getAt(input - 1));
-	auto distance = harbor->distances->get(destination);
+	//auto destination = getHarborName(&options->getAt(input - 1));
+	//auto distance = harbor->distances->get(destination);
 
 	delete options;
 	//move to sea

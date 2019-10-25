@@ -21,8 +21,8 @@ enum class ShipType
 
 std::ostream& operator<<(std::ostream& os, ShipType ship_type);
 
-String* shipTypeToString(ShipType ship_type);
-ShipType getShipType(String* s);
+String shipTypeToString(ShipType ship_type);
+ShipType getShipType(String& s);
 
 
 

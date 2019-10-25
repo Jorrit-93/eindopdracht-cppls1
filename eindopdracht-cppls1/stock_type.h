@@ -24,4 +24,4 @@ enum class StockType
 std::ostream& operator<<(std::ostream& os, StockType stock_type);
 
 String* stockTypeToString(StockType stock_type);
-StockType getStockType(String* s);
+StockType getStockType(String& s);

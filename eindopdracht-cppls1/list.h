@@ -91,9 +91,9 @@ public:
 	{
 		return getAt(indexOf(t));
 	}
-	T getAt(const int index) const
+	T& getAt(const int index) const
 	{
-		return T(n_array->getAt(index));
+		return n_array->getAt(index);
 	}
 
 	void remove(const T* t)

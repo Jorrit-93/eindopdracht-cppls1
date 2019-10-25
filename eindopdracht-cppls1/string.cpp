@@ -47,6 +47,7 @@ String& String::operator=(String&& other) noexcept
 		n_string[i] = other.n_string[i];
 	}
 	n_string[n_length] = '\0';
+	other.n_string = nullptr;
 	return *this;
 }
 
@@ -149,6 +150,7 @@ void String::pushBack(const char c)
 
 void String::clear()
 {
+	delete[] n_string;
 	n_length = 0;
 	n_string = new char[n_length + 1];
 	n_string[n_length] = '\0';

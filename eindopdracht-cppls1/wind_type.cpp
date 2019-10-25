@@ -3,7 +3,10 @@
 
 std::ostream& operator<<(std::ostream& os, WindType wind_type)
 {
-	return os << windTypeToString(wind_type);
+	const auto string = windTypeToString(wind_type);
+	os << string;
+	delete string;
+	return os;
 }
 
 String* windTypeToString(WindType wind_type)
@@ -26,16 +29,16 @@ String* windTypeToString(WindType wind_type)
 	return nullptr;
 }
 
-WindType getWindType(String* s)
+WindType getWindType(String& s)
 {
 	auto types = Dictionary<String, WindType>();
 
-	types.add(new String("geen"), WindType::geen);
-	types.add(new String("briesje"), WindType::briesje);
-	types.add(new String("zwak"), WindType::zwak);
-	types.add(new String("normaal"), WindType::normaal);
-	types.add(new String("sterk"), WindType::sterk);
-	types.add(new String("storm"), WindType::storm);
+	types.add(String("geen"), WindType::geen);
+	types.add(String("briesje"), WindType::briesje);
+	types.add(String("zwak"), WindType::zwak);
+	types.add(String("normaal"), WindType::normaal);
+	types.add(String("sterk"), WindType::sterk);
+	types.add(String("storm"), WindType::storm);
 
 	return types.get(s);
 }

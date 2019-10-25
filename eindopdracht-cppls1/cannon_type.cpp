@@ -3,7 +3,10 @@
 
 std::ostream& operator<<(std::ostream& os, const CannonType cannon_type)
 {
-	return os << cannonTypeToString(cannon_type)->toCharArray();
+	const auto string = cannonTypeToString(cannon_type);
+	os << string;
+	delete string;
+	return os;
 }
 
 String* cannonTypeToString(const CannonType cannon_type)
@@ -20,13 +23,13 @@ String* cannonTypeToString(const CannonType cannon_type)
 	return nullptr;
 }
 
-CannonType getCannonType(String* s)
+CannonType getCannonType(String& s)
 {
 	auto types = Dictionary<String, CannonType>();
 
-	types.add(new String("licht"), CannonType::licht);
-	types.add(new String("medium"), CannonType::medium);
-	types.add(new String("zwaar"), CannonType::zwaar);
+	types.add(String("licht"), CannonType::licht);
+	types.add(String("medium"), CannonType::medium);
+	types.add(String("zwaar"), CannonType::zwaar);
 
 	return types.get(s);
 }

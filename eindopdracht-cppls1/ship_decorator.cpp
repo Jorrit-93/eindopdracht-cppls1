@@ -5,6 +5,11 @@ ShipDecorator::ShipDecorator(IShip* ship) : ship(ship)
 	
 }
 
+ShipDecorator::~ShipDecorator()
+{
+	delete ship;
+}
+
 bool ShipDecorator::hasSunk()
 {
 	return ship->hasSunk();

@@ -4,11 +4,10 @@
 #include <sstream>
 
 GameController::GameController()
-	: view(new GameView()), harbor_c(new HarborController(*this)), sea_c(new SeaController(*this)), battle_c(new BattleController(*this))
+	: view(new GameView()), harbor_c(new HarborController(*this)), sea_c(new SeaController(*this)), battle_c(new BattleController(*this)), ship_builder(new ShipBuilder())
 {
-	ship_builder = new ShipBuilder();
-	//initialize();
-	//start();
+	initialize();
+	start();
 }
 
 GameController::~GameController()
@@ -17,8 +16,11 @@ GameController::~GameController()
 	delete harbor_c;
 	delete sea_c;
 	delete battle_c;
+	
 	delete ship_builder;
+	
 	delete ship;
+	delete stocks;
 }
 
 void GameController::initialize()
@@ -27,7 +29,7 @@ void GameController::initialize()
 	gold = 1000;
 	//view->printStartOutput();
 	//view->getInput();
-
+	
 	moveToHarbor(static_cast<HarborName>(Random::global()->randomInt(0, 23)));
 }
 
@@ -79,8 +81,8 @@ void GameController::quit()
 {
 	generalInfo();
 	auto options = Array<String>(2);
-	options.add(new String("ja"));
-	options.add(new String("nee"));
+	options.add(String("ja"));
+	options.add(String("nee"));
 	
 	view->printQuitOutput();
 	const auto input = view->getInput(&options);
@@ -103,19 +105,19 @@ void GameController::generalInfo() const
 	
 	auto dictionary = Dictionary<String, String>();
 
-	dictionary.add(new String("ship"), new String(shipTypeToString(ship->getType())->toCharArray()));
+	dictionary.add(String("ship"), shipTypeToString(ship->getType()).toCharArray());
 	
 	std::stringstream str1;
 	str1 << ship->getHP();
-	dictionary.add(new String("hp") , new String(str1.str().c_str()));
+	dictionary.add(String("hp") , String(str1.str().c_str()));
 	
 	std::stringstream str2;
 	str2 << gold;
-	dictionary.add(new String("gold"), new String(str2.str().c_str()));
+	dictionary.add(String("gold"), String(str2.str().c_str()));
 	
 	std::stringstream str3;
 	str3 << ship->getCargoSpace() - stocks->count();
-	dictionary.add(new String("cargo space"), new String(str3.str().c_str()));
+	dictionary.add(String("cargo space"), String(str3.str().c_str()));
 	
 	view->printGeneralInfoOutput(dictionary);
 }

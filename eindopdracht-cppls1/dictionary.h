@@ -79,21 +79,21 @@ public:
 		n_values->add(v);
 	}
 
-	V get(const K* k)
+	V& get(const K* k)
 	{
 		return get(*k);
 	}
-	V get(const K& k)
+	V& get(const K& k)
 	{
 		return getValueAt(n_keys->indexOf(k));
 	}
-	K getKeyAt(const int index)
+	K& getKeyAt(const int index)
 	{
-		return K(n_keys->getAt(index));
+		return n_keys->getAt(index);
 	}
-	V getValueAt(const int index)
+	V& getValueAt(const int index)
 	{
-		return V(n_values->getAt(index));
+		return n_values->getAt(index);
 	}
 
 	void remove(const K* k)

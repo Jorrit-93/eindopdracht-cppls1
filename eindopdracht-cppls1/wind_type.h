@@ -15,4 +15,4 @@ enum class WindType
 std::ostream& operator<<(std::ostream& os, WindType wind_type);
 
 String* windTypeToString(WindType wind_type);
-WindType getWindType(String* s);
+WindType getWindType(String& s);

@@ -3,89 +3,63 @@
 
 std::ostream& operator<<(std::ostream& os, const ShipType ship_type)
 {
-	switch (ship_type)
-	{
-	case ShipType::Pinnace:
-		return os << "Pinnace";
-	case ShipType::Sloep:
-		return os << "Sloep";
-	case ShipType::Brigg:
-		return os << "Brigg";
-	case ShipType::Barque:
-		return os << "Barque";
-	case ShipType::Korvet:
-		return os << "Korvet";
-	case ShipType::Fluyt:
-		return os << "Fluyt";
-	case ShipType::Fregat:
-		return os << "Fregat";
-	case ShipType::Galjoen:
-		return os << "Galjoen";
-	case ShipType::Handelsfluyt:
-		return os << "Handelsfluyt";
-	case ShipType::Caravel:
-		return os << "Caravel";
-	case ShipType::Carrack:
-		return os << "Carrack";
-	case ShipType::Oorlogsgaljoen:
-		return os << "Oorlogsgaljoen";
-	case ShipType::Ship_of_the_Line:
-		return os << "Ship of the Line";
-	}
+	const auto string = shipTypeToString(ship_type);
+	os << string;
+	//delete string;
 	return os;
 }
 
-String* shipTypeToString(const ShipType ship_type)
+String shipTypeToString(const ShipType ship_type)
 {
 	switch (ship_type)
 	{
 	case ShipType::Pinnace:
-		return new String("Pinnace");
+		return String("Pinnace");
 	case ShipType::Sloep:
-		return new String("Sloep");
+		return String("Sloep");
 	case ShipType::Brigg:
-		return new String("Brigg");
+		return String("Brigg");
 	case ShipType::Barque:
-		return new String("Barque");
+		return String("Barque");
 	case ShipType::Korvet:
-		return new String("Korvet");
+		return String("Korvet");
 	case ShipType::Fluyt:
-		return new String("Fluyt");
+		return String("Fluyt");
 	case ShipType::Fregat:
-		return new String("Fregat");
+		return String("Fregat");
 	case ShipType::Galjoen:
-		return new String("Galjoen");
+		return String("Galjoen");
 	case ShipType::Handelsfluyt:
-		return new String("Handelsfluyt");
+		return String("Handelsfluyt");
 	case ShipType::Caravel:
-		return new String("Caravel");
+		return String("Caravel");
 	case ShipType::Carrack:
-		return new String("Carrack");
+		return String("Carrack");
 	case ShipType::Oorlogsgaljoen:
-		return new String("Oorlogsgaljoen");
+		return String("Oorlogsgaljoen");
 	case ShipType::Ship_of_the_Line:
-		return new String("Ship of the Line");
+		return String("Ship of the Line");
 	}
-	return nullptr;
+	return String("");
 }
 
-ShipType getShipType(String* s)
+ShipType getShipType(String& s)
 {
 	auto types = Dictionary<String, ShipType>();
 
-	types.add(new String("Pinnace"), ShipType::Pinnace);
-	types.add(new String("Sloep"), ShipType::Sloep);
-	types.add(new String("Brigg"), ShipType::Brigg);
-	types.add(new String("Barque"), ShipType::Barque);
-	types.add(new String("Korvet"), ShipType::Korvet);
-	types.add(new String("Fluyt"), ShipType::Fluyt);
-	types.add(new String("Fregat"), ShipType::Fregat);
-	types.add(new String("Galjoen"), ShipType::Galjoen);
-	types.add(new String("Handelsfluyt"), ShipType::Handelsfluyt);
-	types.add(new String("Caravel"), ShipType::Caravel);
-	types.add(new String("Carrack"), ShipType::Carrack);
-	types.add(new String("Oorlogsgaljoen"), ShipType::Oorlogsgaljoen);
-	types.add(new String("Ship of the Line"), ShipType::Ship_of_the_Line);
+	types.add(String("Pinnace"), ShipType::Pinnace);
+	types.add(String("Sloep"), ShipType::Sloep);
+	types.add(String("Brigg"), ShipType::Brigg);
+	types.add(String("Barque"), ShipType::Barque);
+	types.add(String("Korvet"), ShipType::Korvet);
+	types.add(String("Fluyt"), ShipType::Fluyt);
+	types.add(String("Fregat"), ShipType::Fregat);
+	types.add(String("Galjoen"), ShipType::Galjoen);
+	types.add(String("Handelsfluyt"), ShipType::Handelsfluyt);
+	types.add(String("Caravel"), ShipType::Caravel);
+	types.add(String("Carrack"), ShipType::Carrack);
+	types.add(String("Oorlogsgaljoen"), ShipType::Oorlogsgaljoen);
+	types.add(String("Ship of the Line"), ShipType::Ship_of_the_Line);
 
 	return types.get(s);
 }

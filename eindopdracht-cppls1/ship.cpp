@@ -11,6 +11,39 @@ Ship::~Ship()
 	delete cannons;
 }
 
+Ship::Ship(const Ship& other)
+{
+	*this = other;
+}
+
+Ship& Ship::operator=(const Ship& other)
+{
+	delete cannons;
+	cannons = new Array<Cannon>(*other.cannons);
+	type = other.type;
+	price = other.price;
+	cargo_space = other.cargo_space;
+	hp = other.hp;
+	return *this;
+}
+
+Ship::Ship(Ship&& other) noexcept
+{
+	*this = other;
+}
+
+Ship& Ship::operator=(Ship&& other) noexcept
+{
+	delete cannons;
+	cannons = other.cannons;
+	other.cannons = nullptr;
+	type = other.type;
+	price = other.price;
+	cargo_space = other.cargo_space;
+	hp = other.hp;
+	return *this;
+}
+
 bool Ship::hasSunk()
 {
 	return hp <= 0;

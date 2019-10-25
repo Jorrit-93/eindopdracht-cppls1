@@ -11,14 +11,14 @@
 class HarborBuilder {
 private:
 	HarborName name_def = HarborName::Roatan;
-	Dictionary<HarborName, int>* distances_def = new Dictionary<HarborName, int>();
-	Dictionary<Cannon, RandomValue>* cannons_def = new Dictionary<Cannon, RandomValue>();
-	Dictionary<Stock, RandomValue>* stocks_def = new Dictionary<Stock, RandomValue>();
-	Array<ShipType>* ships_def = new Array<ShipType>(0);
+	Dictionary<HarborName, int>* distances_def = nullptr;
+	Dictionary<Cannon, RandomValue>* cannons_def = nullptr;
+	Dictionary<Stock, RandomValue>* stocks_def = nullptr;
+	Array<ShipType>* ships_def = nullptr;
 
-	List<HarborDistanceStruct>* harbor_distance_structs;
-	List<StockAmountStruct>* stock_amount_structs;
-	List<StockPriceStruct>* stock_price_structs;
+	List<HarborDistanceStruct>* harbor_distance_structs = nullptr;
+	List<StockAmountStruct>* stock_amount_structs = nullptr;
+	List<StockPriceStruct>* stock_price_structs = nullptr;
 
 public:
 	HarborBuilder();
@@ -33,5 +33,5 @@ private:
 	HarborBuilder& setStocks(Dictionary<StockType, int>* min_amount_list, Dictionary<StockType, int>* max_amount_list, Dictionary<StockType, int>* min_price_list, Dictionary<StockType, int>* max_price_list);
 	HarborBuilder& setShips();
 
-	Harbor* build() const;
+	Harbor* build();
 };

@@ -121,11 +121,11 @@ public:
 	{
 		return getAt(indexOf(t));
 	}
-	T getAt(const int index)
+	T& getAt(const int index)
 	{
 		if (n_count > index)
 		{
-			return T(n_array[index]);
+			return n_array[index];
 		}
 		else
 		{

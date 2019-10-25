@@ -47,10 +47,10 @@ Harbor* HarborBuilder::createHarbor(HarborName name)
 		k++;
 	}
 
-	return setName(harbor_distance.name)
+	return setName(name)
 		.setDistances(harbor_distance.distances)
 		.setCannons()
-		.setStocks(stock_amount.minAmount, stock_amount.maxAmount, stock_price.min_price, stock_price.max_price)
+		.setStocks(stock_amount.min_amount, stock_amount.max_amount, stock_price.min_price, stock_price.max_price)
 		.setShips()
 		.build();
 }
@@ -64,7 +64,7 @@ HarborBuilder& HarborBuilder::setName(HarborName name)
 HarborBuilder& HarborBuilder::setDistances(Dictionary<HarborName, int>* distances)
 {
 	delete distances_def;
-	distances_def = distances;
+	distances_def = new Dictionary<HarborName, int>(*distances);
 	return *this;
 }
 
@@ -72,9 +72,9 @@ HarborBuilder& HarborBuilder::setCannons()
 {
 	delete cannons_def;
 	cannons_def = new Dictionary<Cannon, RandomValue>();
-	cannons_def->add(new Cannon(CannonType::licht, 50, 2), new RandomValue(0, 5));
-	cannons_def->add(new Cannon(CannonType::medium, 200, 4), new RandomValue(0, 3));
-	cannons_def->add(new Cannon(CannonType::zwaar, 1000, 6), new RandomValue(0, 2));
+	cannons_def->add(Cannon(CannonType::licht, 50, 2), RandomValue(0, 5));
+	cannons_def->add(Cannon(CannonType::medium, 200, 4), RandomValue(0, 3));
+	cannons_def->add(Cannon(CannonType::zwaar, 1000, 6), RandomValue(0, 2));
 	return *this;
 }
 
@@ -89,7 +89,7 @@ HarborBuilder& HarborBuilder::setStocks(Dictionary<StockType, int>* min_amount_l
 		const auto max_amount = max_amount_list->get(type);
 		const auto min_price = min_price_list->get(type);
 		const auto max_price = max_price_list->get(type);
-		stocks_def->add(new Stock(type, min_price, max_price), new RandomValue(min_amount, max_amount));
+		stocks_def->add(Stock(type, min_price, max_price), RandomValue(min_amount, max_amount));
 	}
 	return *this;
 }
@@ -105,7 +105,14 @@ HarborBuilder& HarborBuilder::setShips()
 	return *this;
 }
 
-Harbor* HarborBuilder::build() const
+Harbor* HarborBuilder::build()
 {
-	return new Harbor(name_def, distances_def, cannons_def, stocks_def, ships_def);
+	const auto harbor = new Harbor(name_def, distances_def, cannons_def, stocks_def, ships_def);
+	
+	distances_def = nullptr;
+	cannons_def = nullptr;
+	stocks_def = nullptr;
+	ships_def = nullptr;
+	
+	return harbor;
 }

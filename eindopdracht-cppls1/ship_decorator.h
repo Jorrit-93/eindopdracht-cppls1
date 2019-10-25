@@ -4,11 +4,12 @@
 class ShipDecorator : public IShip
 {
 protected:
-	IShip* ship;
+	IShip* ship = nullptr;
 	
 public:
 	ShipDecorator(IShip* ship);
-
+	~ShipDecorator();
+	
 	bool hasSunk() override;
 	bool hasFled(IShip& from) override;
 	void shoot(IShip& at) override;
