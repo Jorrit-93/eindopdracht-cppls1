@@ -45,7 +45,7 @@ int ShipDecorator::getCargoSpace()
 	return ship->getCargoSpace();
 }
 
-Array<Cannon>* ShipDecorator::getCannons()
+Array<Cannon*>* ShipDecorator::getCannons()
 {
 	return ship->getCannons();
 }

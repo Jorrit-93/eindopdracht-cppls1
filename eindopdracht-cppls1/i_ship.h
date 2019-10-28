@@ -18,7 +18,7 @@ public:
 	virtual ShipType getType() = 0;
 	virtual int getPrice() = 0;
 	virtual int getCargoSpace() = 0;
-	virtual Array<Cannon>* getCannons() = 0;
+	virtual Array<Cannon*>* getCannons() = 0;
 	virtual int getHP() = 0;
 	virtual Array<ShipTrait>* getTraits() = 0;
 };

@@ -2,7 +2,7 @@
 #include "parse_state.h"
 #include "stock_price_struct.h"
 
-class StockPriceState : public ParseState<StockPriceStruct>
+class StockPriceState : public ParseState<StockPriceStruct*>
 {
-	List<StockPriceStruct>* parse(std::ifstream& stream) override;
+	List<StockPriceStruct*>* parse(std::ifstream& stream) override;
 };

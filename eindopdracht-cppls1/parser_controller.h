@@ -13,8 +13,8 @@ private:
 public:
 	~ParserController();
 
-	List<ShipStruct>* parseShips() const;
-	List<HarborDistanceStruct>* parseHarborDistances() const;
-	List<StockAmountStruct>* parseStockAmount() const;
-	List<StockPriceStruct>* parseStockPrices() const;
+	List<ShipStruct*>* parseShips() const;
+	List<HarborDistanceStruct*>* parseHarborDistances() const;
+	List<StockAmountStruct*>* parseStockAmount() const;
+	List<StockPriceStruct*>* parseStockPrices() const;
 };

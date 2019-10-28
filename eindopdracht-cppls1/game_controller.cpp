@@ -4,7 +4,7 @@
 #include <sstream>
 
 GameController::GameController()
-	: view(new GameView()), harbor_c(new HarborController(*this)), sea_c(new SeaController(*this)), battle_c(new BattleController(*this)), ship_builder(new ShipBuilder())
+	: view(new GameView()), harbor_c(new HarborController(*this)), /*sea_c(new SeaController(*this)), battle_c(new BattleController(*this)),*/ ship_builder(new ShipBuilder())
 {
 	initialize();
 	start();
@@ -59,8 +59,8 @@ void GameController::redo()
 {
 	generalInfo();
 	auto options = Array<String>(2);
-	options.add(new String("ja"));
-	options.add(new String("nee"));
+	options.add(String("ja"));
+	options.add(String("nee"));
 
 	view->printRedoOutput();
 	const auto input = view->getInput(&options);
@@ -125,12 +125,25 @@ void GameController::generalInfo() const
 void GameController::moveToHarbor(const HarborName name)
 {
 	harbor_c->instantiate(name);
+	if (current_c)
+	{
+		current_c->exit();
+	}
 	current_c = harbor_c;
+}
+
+void GameController::moveToSea(const HarborName destination, const int distance)
+{
+	sea_c->instantiate(destination, distance);
+	moveToSea();
 }
 
 void GameController::moveToSea()
 {
-	//sea_c->instantiate();
+	if (current_c)
+	{
+		current_c->exit();
+	}
 	current_c = sea_c;
 }
 
@@ -145,7 +158,7 @@ IShip& GameController::getShip() const
 	return *ship;
 }
 
-void GameController::setShip(ShipType type)
+void GameController::setShip(const ShipType type)
 {
 	delete ship;
 	ship = ship_builder->createShip(type);
@@ -160,11 +173,9 @@ void GameController::addStock(Stock* stock, int amount) const
 {
 	for(int i = 0; i < stocks->count(); i++)
 	{
-		if (stocks->getKeys().getAt(i).getType() == stock->getType())
+		if (stocks->getKeyAt(i)->getType() == stock->getType())
 		{
-			amount += stocks->getValues().getAt(i);
-			stocks->getKeys().removeAt(i);
-			stocks->getValues().removeAt(i);
+			amount += stocks->getValueAt(i);
 		}
 	}
 	stocks->add(stock, amount);
@@ -175,12 +186,12 @@ int GameController::getGold() const
 	return gold;
 }
 
-Dictionary<Stock, int>* GameController::getStocks() const
+Dictionary<Stock*, int>* GameController::getStocks() const
 {
 	return stocks;
 }
 
-void GameController::setStocks(Dictionary<Stock, int>* stocks)
+void GameController::setStocks(Dictionary<Stock*, int>* stocks)
 {
 	delete stocks;
 	this->stocks = stocks;

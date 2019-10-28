@@ -18,7 +18,7 @@ public:
 	ShipType getType() override;
 	int getPrice() override;
 	int getCargoSpace() override;
-	Array<Cannon>* getCannons() override;
+	Array<Cannon*>* getCannons() override;
 	int getHP() override;
 	Array<ShipTrait>* getTraits() override;
 };

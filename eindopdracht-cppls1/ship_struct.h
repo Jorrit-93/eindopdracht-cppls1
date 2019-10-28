@@ -26,30 +26,37 @@ public:
 	ShipStruct& operator=(const ShipStruct& other)
 	{
 		delete traits;
-		traits = new Array<ShipTrait>(*other.traits);
+		if (other.traits)
+		{
+			traits = new Array<ShipTrait>(*other.traits);
+		}
+		
 		type = other.type;
 		price = other.price;
 		storage_capacity = other.storage_capacity;
 		cannons = other.cannons;
 		health = other.health;
+		
 		return *this;
 	}
 
 	//move
 	ShipStruct(ShipStruct&& other) noexcept
 	{
-		*this = other;
+		*this = std::move(other);
 	}
 	ShipStruct& operator=(ShipStruct&& other) noexcept
 	{
 		delete traits;
 		traits = other.traits;
 		other.traits = nullptr;
+		
 		type = other.type;
 		price = other.price;
 		storage_capacity = other.storage_capacity;
 		cannons = other.cannons;
 		health = other.health;
+		
 		return *this;
 	}
 };

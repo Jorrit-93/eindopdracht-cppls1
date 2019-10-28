@@ -5,7 +5,6 @@ std::ostream& operator<<(std::ostream& os, const ShipType ship_type)
 {
 	const auto string = shipTypeToString(ship_type);
 	os << string;
-	//delete string;
 	return os;
 }
 

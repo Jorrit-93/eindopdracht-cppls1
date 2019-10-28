@@ -5,46 +5,45 @@ std::ostream& operator<<(std::ostream& os, const StockType stock_type)
 {
 	const auto string = stockTypeToString(stock_type);
 	os << string;
-	delete string;
 	return os;
 }
 
-String* stockTypeToString(const StockType stock_type)
+String stockTypeToString(const StockType stock_type)
 {
 	switch (stock_type)
 	{
 	case StockType::bakstenen:
-		return new String("bakstenen");
+		return String("bakstenen");
 	case StockType::laken:
-		return new String("laken");
+		return String("laken");
 	case StockType::cacao:
-		return new String("cacao");
+		return String("cacao");
 	case StockType::katoen:
-		return new String("katoen");
+		return String("katoen");
 	case StockType::verfstof:
-		return new String("verfstof");
+		return String("verfstof");
 	case StockType::vis:
-		return new String("vis");
+		return String("vis");
 	case StockType::hennep:
-		return new String("hennep");
+		return String("hennep");
 	case StockType::aardappels:
-		return new String("aardappels");
+		return String("aardappels");
 	case StockType::rum:
-		return new String("rum");
+		return String("rum");
 	case StockType::zout:
-		return new String("zout");
+		return String("zout");
 	case StockType::suiker:
-		return new String("suiker");
+		return String("suiker");
 	case StockType::tabak:
-		return new String("tabak");
+		return String("tabak");
 	case StockType::graan:
-		return new String("graan");
+		return String("graan");
 	case StockType::vlees:
-		return new String("vlees");
+		return String("vlees");
 	case StockType::hout:
-		return new String("hout");
+		return String("hout");
 	}
-	return nullptr;
+	return String("");
 }
 
 StockType getStockType(String& s)

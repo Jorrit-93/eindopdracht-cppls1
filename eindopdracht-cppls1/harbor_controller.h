@@ -24,7 +24,7 @@ public:
 	void enter() override;
 	void exit() override;
 
-	void buyStock();
+	void buyStock() const;
 	void buyCannon();
 	void buyShip();
 	void repairShip();

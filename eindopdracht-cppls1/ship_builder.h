@@ -14,7 +14,7 @@ private:
 	int hp_def = 1;
 	Array<ShipTrait>* attributes_def = nullptr;
 
-	List<ShipStruct>* ship_structs = nullptr;
+	List<ShipStruct*>* ship_structs = nullptr;
 	
 public:
 	ShipBuilder();

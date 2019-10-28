@@ -5,64 +5,63 @@ std::ostream& operator<<(std::ostream& os, const HarborName harbor_name)
 {
 	const auto string = harborNameToString(harbor_name);
 	os << string;
-	delete string;
 	return os;
 }
 
-String* harborNameToString(const HarborName harbor_name)
+String harborNameToString(const HarborName harbor_name)
 {
 	switch (harbor_name)
 	{
 	case HarborName::Roatan:
-		return new String("Roatan");
+		return String("Roatan");
 	case HarborName::Belize:
-		return new String("Belize");
+		return String("Belize");
 	case HarborName::Cayman:
-		return new String("Cayman");
+		return String("Cayman");
 	case HarborName::Evangelista:
-		return new String("Evangelista");
+		return String("Evangelista");
 	case HarborName::Trinidad:
-		return new String("Trinidad");
+		return String("Trinidad");
 	case HarborName::Port_Royale:
-		return new String("Port Royale");
+		return String("Port Royale");
 	case HarborName::Santiago:
-		return new String("Santiago");
+		return String("Santiago");
 	case HarborName::Port_au_prince:
-		return new String("Port-au-prince");
+		return String("Port-au-prince");
 	case HarborName::Santo_Domingo:
-		return new String("Santo Domingo");
+		return String("Santo Domingo");
 	case HarborName::Saint_Kitts:
-		return new String("Saint Kitts");
+		return String("Saint Kitts");
 	case HarborName::Santa_Lucia:
-		return new String("Santa Lucia");
+		return String("Santa Lucia");
 	case HarborName::Grenada:
-		return new String("Grenada");
+		return String("Grenada");
 	case HarborName::Port_of_Spain:
-		return new String("Port of Spain");
+		return String("Port of Spain");
 	case HarborName::Puerto_Santo:
-		return new String("Puerto Santo");
+		return String("Puerto Santo");
 	case HarborName::Margarita:
-		return new String("Margarita");
+		return String("Margarita");
 	case HarborName::Caracas:
-		return new String("Caracas");
+		return String("Caracas");
 	case HarborName::Puerto_Cabello:
-		return new String("Puerto Cabello");
+		return String("Puerto Cabello");
 	case HarborName::Curacao:
-		return new String("Curacao");
+		return String("Curacao");
 	case HarborName::Coro:
-		return new String("Coro");
+		return String("Coro");
 	case HarborName::Gibraltar:
-		return new String("Gibraltar");
+		return String("Gibraltar");
 	case HarborName::Maracaibo:
-		return new String("Maracaibo");
+		return String("Maracaibo");
 	case HarborName::Santa_Marta:
-		return new String("Santa Marta");
+		return String("Santa Marta");
 	case HarborName::Cartagena:
-		return new String("Cartagena");
+		return String("Cartagena");
 	case HarborName::Providence:
-		return new String("Providence");
+		return String("Providence");
 	}
-	return nullptr;
+	return String("");
 }
 
 HarborName getHarborName(String& s)

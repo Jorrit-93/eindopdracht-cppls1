@@ -7,7 +7,7 @@ class String
 {
 	
 private:
-	char* n_string;
+	char* n_string = nullptr;
 	int n_length;
 
 public:

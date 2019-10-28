@@ -10,4 +10,9 @@ public:
 	WindType wind_type;
 
 	Sea(HarborName destination, int distance);
+	~Sea() = default;
+	Sea(const Sea& other) = delete;
+	Sea& operator=(const Sea& other) = delete;
+	Sea(Sea&& other) noexcept = delete;
+	Sea& operator=(Sea&& other) noexcept = delete;
 };

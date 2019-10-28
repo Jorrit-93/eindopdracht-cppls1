@@ -25,10 +25,19 @@ public:
 	StockAmountStruct& operator=(const StockAmountStruct& other)
 	{
 		delete min_amount;
+		if (other.min_amount)
+		{
+			min_amount = new Dictionary<StockType, int>(*other.min_amount);
+		}
+		
 		delete max_amount;
-		min_amount = new Dictionary<StockType, int>(*other.min_amount);
-		max_amount = new Dictionary<StockType, int>(*other.max_amount);
+		if (other.max_amount)
+		{
+			max_amount = new Dictionary<StockType, int>(*other.max_amount);
+		}
+		
 		name = other.name;
+		
 		return *this;
 	}
 
@@ -40,12 +49,15 @@ public:
 	StockAmountStruct& operator=(StockAmountStruct&& other) noexcept
 	{
 		delete min_amount;
-		delete max_amount;
 		min_amount = other.min_amount;
-		max_amount = other.max_amount;
 		other.min_amount = nullptr;
+		
+		delete max_amount;
+		max_amount = other.max_amount;
 		other.max_amount = nullptr;
+		
 		name = other.name;
+		
 		return *this;
 	}
 };

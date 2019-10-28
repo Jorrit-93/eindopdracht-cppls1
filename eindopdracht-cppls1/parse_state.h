@@ -45,24 +45,26 @@ protected:
 		}
 	}
 	
-	static List<String>& explode(const String& string, const char delimiter = ';')
+	static List<String*>* explode(const String& string, const char delimiter = ';')
 	{
-		const auto results = new List<String>();
+		const auto results = new List<String*>();
 		auto stream = std::stringstream(string.toCharArray());
-
-		auto s = String("");
 
 		while (!stream.eof())
 		{
-			getLine(stream, s, delimiter);
-			if (!s.isEmpty())
+			auto s = new String();
+			getLine(stream, *s, delimiter);
+			if (!s->isEmpty())
 			{
-				results->add(&s);
+				results->add(s);
 			}
-			s.clear();
+			else
+			{
+				delete s;
+			}
 		}
 
-		return *results;
+		return results;
 	}
 };
 

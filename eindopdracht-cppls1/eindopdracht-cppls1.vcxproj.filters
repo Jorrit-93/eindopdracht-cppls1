@@ -341,6 +341,9 @@
     <ClInclude Include="i_controller.h">
       <Filter>Header Files\Controller</Filter>
     </ClInclude>
+    <ClInclude Include="ship_trait.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\goederen hoeveelheid.csv">

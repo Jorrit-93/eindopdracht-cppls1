@@ -2,7 +2,7 @@
 #include "random.h"
 
 Ship::Ship(ShipType type, int price, int cargo_space, int cannon_amount, int hp)
-	: type(type), price(price), cargo_space(cargo_space), cannons(new Array<Cannon>(cannon_amount)), hp(hp)
+	: type(type), price(price), cargo_space(cargo_space), cannons(new Array<Cannon*>(cannon_amount)), hp(hp)
 {
 }
 
@@ -11,6 +11,7 @@ Ship::~Ship()
 	delete cannons;
 }
 
+//copy
 Ship::Ship(const Ship& other)
 {
 	*this = other;
@@ -18,29 +19,37 @@ Ship::Ship(const Ship& other)
 
 Ship& Ship::operator=(const Ship& other)
 {
-	delete cannons;
-	cannons = new Array<Cannon>(*other.cannons);
 	type = other.type;
 	price = other.price;
 	cargo_space = other.cargo_space;
 	hp = other.hp;
+	
+	delete cannons;
+	if (other.cannons)
+	{
+		cannons = new Array<Cannon*>(*other.cannons);
+	}
+	
 	return *this;
 }
 
+//move
 Ship::Ship(Ship&& other) noexcept
 {
-	*this = other;
+	*this = std::move(other);
 }
 
 Ship& Ship::operator=(Ship&& other) noexcept
 {
-	delete cannons;
-	cannons = other.cannons;
-	other.cannons = nullptr;
 	type = other.type;
 	price = other.price;
 	cargo_space = other.cargo_space;
 	hp = other.hp;
+
+	delete cannons;
+	cannons = other.cannons;
+	other.cannons = nullptr;
+	
 	return *this;
 }
 
@@ -114,7 +123,7 @@ int Ship::getCargoSpace()
 	return cargo_space;
 }
 
-Array<Cannon>* Ship::getCannons()
+Array<Cannon*>* Ship::getCannons()
 {
 	return cannons;
 }

@@ -18,22 +18,29 @@ Stock::Stock(const Stock& other)
 Stock& Stock::operator=(const Stock& other)
 {
 	delete price;
-	price = new RandomValue(*other.price);
+	if (other.price)
+	{
+		price = new RandomValue(*other.price);
+	}
+	
 	type = other.type;
+	
 	return *this;
 }
 
 //move
 Stock::Stock(Stock&& other) noexcept
 {
-	*this = other;
+	*this = std::move(other);
 }
 Stock& Stock::operator=(Stock&& other) noexcept
 {
 	delete price;
 	price = other.price;
 	other.price = nullptr;
+	
 	type = other.type;
+	
 	return *this;
 }
 

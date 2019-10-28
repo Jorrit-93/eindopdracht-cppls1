@@ -18,24 +18,31 @@ Cannon::Cannon(const Cannon& other)
 Cannon& Cannon::operator=(const Cannon& other)
 {
 	delete damage;
-	damage = new RandomValue(*other.damage);
+	if (other.damage)
+	{
+		damage = new RandomValue(*other.damage);
+	}
+	
 	type = other.type;
 	price = other.price;
+	
 	return *this;
 }
 
 //move
 Cannon::Cannon(Cannon&& other) noexcept
 {
-	*this = other;
+	*this = std::move(other);
 }
 Cannon& Cannon::operator=(Cannon&& other) noexcept
 {
 	delete damage;
 	damage = other.damage;
 	other.damage = nullptr;
+	
 	type = other.type;
 	price = other.price;
+	
 	return *this;
 }
 

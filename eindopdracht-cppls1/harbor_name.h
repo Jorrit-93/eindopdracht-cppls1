@@ -32,5 +32,5 @@ enum class HarborName
 
 std::ostream& operator<<(std::ostream& os, HarborName harbor_name);
 
-String* harborNameToString(HarborName harbor_name);
+String harborNameToString(HarborName harbor_name);
 HarborName getHarborName(String& s);

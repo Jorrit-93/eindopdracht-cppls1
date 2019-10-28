@@ -22,22 +22,29 @@ public:
 	HarborDistanceStruct& operator=(const HarborDistanceStruct& other)
 	{
 		delete distances;
-		distances = new Dictionary<HarborName, int>(*other.distances);
+		if (other.distances)
+		{
+			distances = new Dictionary<HarborName, int>(*other.distances);
+		}
+		
 		name = other.name;
+		
 		return *this;
 	}
 
 	//move
 	HarborDistanceStruct(HarborDistanceStruct&& other) noexcept
 	{
-		*this = other;
+		*this = std::move(other);
 	}
 	HarborDistanceStruct& operator=(HarborDistanceStruct&& other) noexcept
 	{
 		delete distances;
 		distances = other.distances;
 		other.distances = nullptr;
+		
 		name = other.name;
+		
 		return *this;
 	}
 };

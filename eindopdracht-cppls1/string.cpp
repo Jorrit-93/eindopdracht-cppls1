@@ -20,34 +20,36 @@ String::String(const String& other)
 }
 String& String::operator=(const String& other)
 {
-	delete[] n_string;
 	n_length = other.n_length;
-	n_string = new char[n_length + 1];
-	for (int i = 0; i < n_length; i++)
+	
+	delete[] n_string;
+	if (other.n_string)
 	{
-		n_string[i] = other.n_string[i];
+		n_string = new char[n_length + 1];
+		for (int i = 0; i < n_length; i++)
+		{
+			n_string[i] = other.n_string[i];
+		}
+		n_string[n_length] = '\0';
 	}
-	n_string[n_length] = '\0';
+	
 	return *this;
 }
 
 //move
 String::String(String&& other) noexcept
 {
-	*this = other;
+	*this = std::move(other);
 }
 
 String& String::operator=(String&& other) noexcept
 {
-	delete[] n_string;
 	n_length = other.n_length;
-	n_string = new char[n_length + 1];
-	for (int i = 0; i < n_length; i++)
-	{
-		n_string[i] = other.n_string[i];
-	}
-	n_string[n_length] = '\0';
+	
+	delete[] n_string;
+	n_string = other.n_string;
 	other.n_string = nullptr;
+	
 	return *this;
 }
 
@@ -58,7 +60,6 @@ String::String(const char* input) noexcept
 }
 String& String::operator=(const char* input) noexcept
 {
-	n_string = nullptr;
 	delete[] n_string;
 	n_length = 0;
 	while (input[n_length] != '\0')
