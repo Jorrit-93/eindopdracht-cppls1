@@ -20,5 +20,5 @@ public:
 	int getCargoSpace() override;
 	Array<Cannon*>* getCannons() override;
 	int getHP() override;
-	Array<ShipTrait>* getTraits() override;
+	List<ShipTrait>* getTraits() override;
 };

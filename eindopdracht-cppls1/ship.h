@@ -11,6 +11,7 @@ protected:
 	int price;
 	int cargo_space;
 	Array<Cannon*>* cannons = nullptr;
+	List<ShipTrait>* traits = nullptr;
 	int hp;
 	
 public:
@@ -31,5 +32,5 @@ public:
 	int getCargoSpace() override;
 	Array<Cannon*>* getCannons() override;
 	int getHP() override;
-	Array<ShipTrait>* getTraits() override;
+	List<ShipTrait>* getTraits() override;
 };

@@ -13,9 +13,9 @@ bool SmallShip::hasFled(IShip& from)
 	return true;
 }
 
-Array<ShipTrait>* SmallShip::getTraits()
+List<ShipTrait>* SmallShip::getTraits()
 {
-	auto* traits = ship->getTraits();
+	auto traits = ship->getTraits();
 
 	traits->add(ShipTrait::klein);
 

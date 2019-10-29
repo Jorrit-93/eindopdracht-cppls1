@@ -21,9 +21,9 @@ bool HeavyShip::hasFled(IShip& from)
 	return true;
 }
 
-Array<ShipTrait>* HeavyShip::getTraits()
+List<ShipTrait>* HeavyShip::getTraits()
 {
-	auto* traits = ship->getTraits();
+	auto traits = ship->getTraits();
 
 	traits->add(ShipTrait::log);
 

@@ -1,7 +1,7 @@
 #include "harbor.h"
 #include "ship.h"
 
-Harbor::Harbor(HarborName name, Dictionary<HarborName, int>* distances, Dictionary<Cannon*, RandomValue*>* cannons, Dictionary<Stock*, RandomValue*>* stocks, Array<ShipType>* ships)
+Harbor::Harbor(HarborName name, Dictionary<HarborName, int>* distances, Dictionary<Cannon*, RandomValue*>* cannons, Dictionary<Stock*, RandomValue*>* stocks, Array<IShip*>* ships)
 	: name(name), distances(distances), cannons(cannons), stocks(stocks), ships(ships)
 {
 	
@@ -15,7 +15,7 @@ Harbor::~Harbor()
 	delete ships;
 }
 
-Stock* Harbor::buyStock(const StockType type, const int amount) const
+void Harbor::buyStock(const StockType type, const int amount) const
 {
 	for (int i = 0; i < stocks->count(); i++)
 	{
@@ -23,10 +23,8 @@ Stock* Harbor::buyStock(const StockType type, const int amount) const
 		if (stock->getType() == type)
 		{
 			stocks->getValueAt(i)->addToValue(-amount);
-			return new Stock(*stock);
 		}
 	}
-	return nullptr;
 }
 
 Cannon* Harbor::buyCannon(const CannonType type, const int amount) const

@@ -5,16 +5,17 @@
 #include "stock_type.h"
 #include "cannon_type.h"
 #include "ship_type.h"
-#include "random_value.h"
-#include "stock.h"
+
 
 class HarborView : public TurnView
 {
 public:
-	void printEnterHarborOutput(HarborName name);
-	void printStockOutput(const Dictionary<Stock*, RandomValue*>& stocks);
-	void printCannonOutput(Dictionary<CannonType, String>& cannons);
-	void printShipOutput(Dictionary<ShipType, String>& ships);
-	void printRepairOutput();
-	void printBonVoyageOutput(Dictionary<HarborName, int>& destinations);
+	void printEnterHarborOutput(HarborName name) const;
+	void printBuyStockOutput(const Dictionary<StockType,int>& stocks) const;
+	void printSellCargoOutput(const Dictionary<StockType, int>& stocks) const;
+	void printBuyCannonOutput(const Dictionary<CannonType, int>& cannons) const;
+	void printSellCannonOutput() const;
+	void printBuyShipOutput(const Array<ShipType>& ships) const;
+	void printRepairOutput() const;
+	void printBonVoyageOutput(const Dictionary<HarborName, int>& destinations) const;
 };

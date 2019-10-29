@@ -25,8 +25,10 @@ public:
 	void exit() override;
 
 	void buyStock() const;
-	void buyCannon();
-	void buyShip();
-	void repairShip();
-	void bonVoyage();
+	void sellStock() const;
+	void buyCannon() const;
+	void sellCannon() const;
+	void buyShip() const;
+	void repairShip() const;
+	void bonVoyage() const;
 };

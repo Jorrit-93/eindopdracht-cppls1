@@ -6,5 +6,5 @@ class SmallShip : public ShipDecorator
 public:
 	SmallShip(IShip* ship);
 	bool hasFled(IShip& from) override;
-	Array<ShipTrait>* getTraits() override;
+	List<ShipTrait>* getTraits() override;
 };
