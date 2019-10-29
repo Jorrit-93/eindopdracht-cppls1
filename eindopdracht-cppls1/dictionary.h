@@ -99,11 +99,11 @@ public:
 	{
 		return getValueAt(n_keys->indexOf(k));
 	}
-	K& getKeyAt(const int index)
+	K& getKeyAt(const int index) const
 	{
 		return n_keys->getAt(index);
 	}
-	V& getValueAt(const int index)
+	V& getValueAt(const int index) const
 	{
 		return n_values->getAt(index);
 	}

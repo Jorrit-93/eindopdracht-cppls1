@@ -2,13 +2,14 @@
 #include "random.h"
 
 Ship::Ship(ShipType type, int price, int cargo_space, int cannon_amount, int hp)
-	: type(type), price(price), cargo_space(cargo_space), cannons(new Array<Cannon*>(cannon_amount)), hp(hp)
+	: type(type), price(price), cargo_space(cargo_space), cannons(new Array<Cannon*>(cannon_amount)), traits(new List<ShipTrait>()), hp(hp)
 {
 }
 
 Ship::~Ship()
 {
 	delete cannons;
+	delete traits;
 }
 
 //copy
@@ -60,7 +61,7 @@ bool Ship::hasSunk()
 
 bool Ship::hasFled(IShip& from)
 {
-	Array<ShipTrait>* traits = from.getTraits();
+	auto traits = from.getTraits();
 
 	if (traits->contains(ShipTrait::licht)) 
 		return Random::global()->chance(50);
@@ -133,9 +134,7 @@ int Ship::getHP()
 	return hp;
 }
 
-Array<ShipTrait>* Ship::getTraits()
+List<ShipTrait>* Ship::getTraits()
 {
-	Array<ShipTrait>* traits = new Array<ShipTrait>(5);
-
 	return traits;
 }

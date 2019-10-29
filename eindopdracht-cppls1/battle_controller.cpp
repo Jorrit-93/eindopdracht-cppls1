@@ -67,9 +67,9 @@ void BattleController::enter()
 		//	break;
 		//case 3:
 		//	{
-		//	const auto stocks = new Dictionary<Stock, int>();
+		//	const auto cargo = new Dictionary<Stock, int>();
 
-		//	game.setStocks(stocks);
+		//	game.setStocks(cargo);
 
 		//	exit();
 		//	break;

@@ -1,6 +1,7 @@
 #include "harbor_builder.h"
 #include "parser_controller.h"
 #include "random.h"
+#include "ship_builder.h"
 
 HarborBuilder::HarborBuilder()
 {
@@ -97,10 +98,11 @@ HarborBuilder& HarborBuilder::setStocks(Dictionary<StockType, int>* min_amount_l
 HarborBuilder& HarborBuilder::setShips()
 {
 	delete ships_def;
-	ships_def = new Array<ShipType>(Random::global()->randomInt(0, 3));
+	ships_def = new Array<IShip*>(Random::global()->randomInt(1, 3));
+	auto temp = ShipBuilder();
 	for (int i = 0; i < ships_def->size(); i++)
 	{
-		ships_def->add(static_cast<ShipType>(Random::global()->randomInt(0, 12)));
+		ships_def->add(temp.createShip(static_cast<ShipType>(Random::global()->randomInt(0, 12))));
 	}
 	return *this;
 }

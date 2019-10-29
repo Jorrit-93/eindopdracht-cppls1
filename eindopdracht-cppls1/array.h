@@ -134,7 +134,7 @@ public:
 	{
 		return getAt(indexOf(t));
 	}
-	type& getAt(const int index)
+	type& getAt(const int index) const
 	{
 		if (n_count > index)
 		{
@@ -348,7 +348,7 @@ public:
 	{
 		return getAt(indexOf(t));
 	}
-	type& getAt(const int index)
+	type& getAt(const int index) const 
 	{
 		if (n_count > index)
 		{

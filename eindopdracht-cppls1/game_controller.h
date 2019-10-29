@@ -25,7 +25,8 @@ private:
 	ShipBuilder* ship_builder = nullptr;
 	
 	IShip* ship = nullptr;
-	Dictionary<Stock*, int>* stocks = new Dictionary<Stock*, int>();
+	Dictionary<StockType, int>* cargo = new Dictionary<StockType, int>();
+	int hp = 0;
 	int gold = 0;
 
 public:
@@ -47,10 +48,15 @@ public:
 
 	IShip& getShip() const;
 	void setShip(ShipType type);
-	void addGold(int value);
+
+	Dictionary<StockType, int>* getCargo() const;
+	int getCargoSize() const;
+	void addCargo(StockType cargo, int amount) const;
+	void removeCargo(StockType stock, int amount) const;
+
+	int getHP() const;
+	void addHP(int value);
+
 	int getGold() const;
-	void setStocks(Dictionary<Stock*, int>* stocks);
-	void addStock(Stock* stock, int amount) const;
-	void removeStock(Stock* stock, int amount) const;
-	Dictionary<Stock*, int>* getStocks() const;
+	void addGold(int value);
 };

@@ -20,13 +20,13 @@ GameController::~GameController()
 	delete ship_builder;
 	
 	delete ship;
-	delete stocks;
+	delete cargo;
 }
 
 void GameController::initialize()
 {
 	setShip(ShipType::Pinnace);
-	gold = 1000;
+	gold = 1000000;
 	//view->printStartOutput();
 	//view->getInput();
 	
@@ -108,16 +108,20 @@ void GameController::generalInfo() const
 	dictionary.add(String("ship"), shipTypeToString(ship->getType()).toCharArray());
 	
 	std::stringstream str1;
-	str1 << ship->getHP();
+	str1 << hp;
 	dictionary.add(String("hp") , String(str1.str().c_str()));
 	
 	std::stringstream str2;
 	str2 << gold;
 	dictionary.add(String("gold"), String(str2.str().c_str()));
-	
+
 	std::stringstream str3;
-	str3 << ship->getCargoSpace() - stocks->count();
-	dictionary.add(String("cargo space"), String(str3.str().c_str()));
+	str3 << ship->getCannons()->size() - ship->getCannons()->count();
+	dictionary.add(String("cannons"), String(str3.str().c_str()));
+	
+	std::stringstream str4;
+	str4 << ship->getCargoSpace() - getCargoSize();
+	dictionary.add(String("cargo space"), String(str4.str().c_str()));
 	
 	view->printGeneralInfoOutput(dictionary);
 }
@@ -157,42 +161,64 @@ IShip& GameController::getShip() const
 {
 	return *ship;
 }
-
 void GameController::setShip(const ShipType type)
 {
 	delete ship;
 	ship = ship_builder->createShip(type);
+	hp = ship->getHP();
 }
 
-void GameController::addGold(const int value)
+Dictionary<StockType, int>* GameController::getCargo() const
 {
-	gold += value;
+	return cargo;
 }
-
-void GameController::addStock(Stock* stock, int amount) const
+int GameController::getCargoSize() const
 {
-	for(int i = 0; i < stocks->count(); i++)
+	int size = 0;
+	for(int i = 0; i < cargo->count(); i++)
 	{
-		if (stocks->getKeyAt(i)->getType() == stock->getType())
-		{
-			amount += stocks->getValueAt(i);
-		}
+		size += cargo->getValueAt(i);
 	}
-	stocks->add(stock, amount);
+	return size;
+}
+void GameController::addCargo(StockType cargo_type, int amount) const
+{
+	if (cargo->contains(cargo_type))
+	{
+		cargo->get(cargo_type) += amount;
+	}
+	else
+	{
+		cargo->add(cargo_type, amount);
+	}
+}
+void GameController::removeCargo(StockType cargo_type, int amount) const
+{
+	cargo->get(cargo_type) -= amount;
+	if (cargo->get(cargo_type) <= 0)
+	{
+		cargo->remove(cargo_type);
+	}
+}
+
+int GameController::getHP() const
+{
+	return hp;
+}
+void GameController::addHP(const int value)
+{
+	hp += value;
+	if (hp <= 0)
+	{
+		gameOver();
+	}
 }
 
 int GameController::getGold() const
 {
 	return gold;
 }
-
-Dictionary<Stock*, int>* GameController::getStocks() const
+void GameController::addGold(const int value)
 {
-	return stocks;
-}
-
-void GameController::setStocks(Dictionary<Stock*, int>* stocks)
-{
-	delete stocks;
-	this->stocks = stocks;
+	gold += value;
 }

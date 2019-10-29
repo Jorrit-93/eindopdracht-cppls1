@@ -53,7 +53,7 @@ int ShipDecorator::getHP()
 {
 	return ship->getHP();
 }
-Array<ShipTrait>* ShipDecorator::getTraits()
+List<ShipTrait>* ShipDecorator::getTraits()
 {
 	return ship->getTraits();
 }
