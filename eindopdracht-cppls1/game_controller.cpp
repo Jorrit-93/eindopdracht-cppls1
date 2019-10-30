@@ -116,7 +116,8 @@ void GameController::generalInfo() const
 	dictionary.add(String("gold"), String(str2.str().c_str()));
 
 	std::stringstream str3;
-	str3 << ship->getCannons()->size() - ship->getCannons()->count();
+	
+	str3 << ship->getCannons()->count() << "/" << ship->getCannons()->size();
 	dictionary.add(String("cannons"), String(str3.str().c_str()));
 	
 	std::stringstream str4;

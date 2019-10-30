@@ -1,16 +1,19 @@
 #include "game_controller.h"
 
 #include <crtdbg.h>
+#include "random.h"
 #define _CRTDBG_MAP_ALLOC
 
-void game()
-{
-	GameController();
-}
+// void game()
+// {
+// 	
+// }
 
 int main()
 {
-	game();
+	GameController();
+	
+	Random::deleteInstance();
 	
 	_CrtDumpMemoryLeaks();
 

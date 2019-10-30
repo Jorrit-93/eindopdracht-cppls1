@@ -23,3 +23,8 @@ bool Random::chance(const int percentage)
 	
 	return percentage <= r;
 }
+
+void Random::deleteInstance()
+{
+	delete instance;
+}
