@@ -4,6 +4,11 @@
 Sea::Sea(const HarborName destination, const int distance)
 	: destination(destination), distance(distance)
 {
+
+}
+
+void Sea::setRandomWindType()
+{
 	switch (Random::global()->randomInt(1, 20))
 	{
 	case 1:

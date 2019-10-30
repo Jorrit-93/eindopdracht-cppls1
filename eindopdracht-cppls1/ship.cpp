@@ -63,7 +63,7 @@ bool Ship::hasFled(IShip& from)
 {
 	auto traits = from.getTraits();
 
-	if (traits->contains(ShipTrait::licht)) 
+	if (traits->contains(ShipTrait::licht))
 		return Random::global()->chance(50);
 
 	if (traits->contains(ShipTrait::log))
@@ -77,7 +77,16 @@ bool Ship::hasFled(IShip& from)
 
 void Ship::shoot(IShip& at)
 {
+	int damage = 0;
+
+	for(int i = 0; i < cannons->count(); i++)
+	{
+		damage += cannons->getAt(i)->getDamage();
+	}
+
+	int health = at.getHP() - damage;
 	
+	at.setHP(health);
 }
 
 int Ship::sail(WindType type, int distance)
@@ -132,6 +141,11 @@ Array<Cannon*>* Ship::getCannons()
 int Ship::getHP()
 {
 	return hp;
+}
+
+void Ship::setHP(const int& hp)
+{
+	this->hp = hp;
 }
 
 List<ShipTrait>* Ship::getTraits()

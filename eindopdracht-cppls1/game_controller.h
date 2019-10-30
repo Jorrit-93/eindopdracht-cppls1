@@ -34,7 +34,7 @@ public:
 	~GameController();
 	
 	void initialize();
-	void start();
+	void start() const;
 	void win();
 	void gameOver();
 	void redo();
@@ -42,7 +42,7 @@ public:
 	void generalInfo() const;
 
 	void moveToHarbor(HarborName name);
-	void moveToSea(HarborName destination, int distance);
+	void moveToSea(const HarborName& destination, const int& distance);
 	void moveToSea();
 	void engageInBattle();
 

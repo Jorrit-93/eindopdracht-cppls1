@@ -4,6 +4,6 @@ class PirateShip : public Ship
 {
 public:
 	PirateShip();
-	
+	~PirateShip();
 };
 

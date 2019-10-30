@@ -18,7 +18,7 @@ public:
 	SeaController(GameController& game);
 	~SeaController();
 
-	void instantiate(HarborName destination, int distance);
+	void instantiate(const HarborName& destination, const int& distance);
 	void enter() override;
 	void exit() override;
 };

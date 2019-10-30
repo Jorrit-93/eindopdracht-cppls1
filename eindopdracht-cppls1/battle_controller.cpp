@@ -12,76 +12,92 @@ BattleController::BattleController(GameController& game) : view(new BattleView()
 
 BattleController::~BattleController()
 {
+	delete pirate_ship;
 	delete view;
 }
 
 void BattleController::instantiate()
 {
+	is_over = false;
+	
 	switch(Random::global()->randomInt(0, 2))
 	{
-	case 0:
-		pirate_ship = new LightShip(new PirateShip());
-	case 1:
-		pirate_ship = new PirateShip();
-	case 2:
-		pirate_ship = new HeavyShip(new PirateShip());
+		case 0:
+			pirate_ship = new LightShip(new PirateShip());
+			break;
+		case 1:
+			pirate_ship = new PirateShip();
+			break;
+		case 2:
+			pirate_ship = new HeavyShip(new PirateShip());
+			break;
 	}
-
-	// Start the battle
-	enter();
 }
 
 void BattleController::enter()
 {
 	while (!is_over)
 	{
+		// Show info
+		game.generalInfo();
+		view->printBattleOutput(*pirate_ship);
+		
 		// Initialize Options
 		auto options = Array<String>(3);
-		options.add(String("schiet"));
+		options.add(String(game.getShip().getCannons()->count() == 0 ? "schieten zonder kannonen" : "schiet" ));
 		options.add(String("vlucht"));
 		options.add(String("geef over"));
-
+	
 		// Get input
 		const auto input = view->getInput(&options);
-
+	
 		// Handle the input
-		//switch (input)
-		//{
-		//case 1:
-		//	game.getShip().shoot(*pirate_ship);
-
-		//	if (pirate_ship->hasSunk())
-		//		break;
-
-		//	pirate_ship->shoot(game.getShip());
-
-		//	break;
-		//case 2:
-		//	pirate_ship->shoot(game.getShip());
-
-		//	if (game.getShip().hasFled(*pirate_ship))
-		//	{
-		//		exit();
-		//	}
-
-		//	break;
-		//case 3:
-		//	{
-		//	const auto cargo = new Dictionary<Stock, int>();
-
-		//	game.setStocks(cargo);
-
-		//	exit();
-		//	break;
-		//	}
-		//default:
-		//	throw;
-		//}
+		switch (input)
+		{
+		case 1:
+			game.getShip().shoot(*pirate_ship);
+	
+			if (pirate_ship->hasSunk())
+			{
+				is_over = true;
+				break;
+			}
+	
+			pirate_ship->shoot(game.getShip());
+	
+			break;
+		case 2:
+			pirate_ship->shoot(game.getShip());
+	
+			is_over = true;
+	
+			break;
+		case 3:
+			{
+				for(int i = 0; i < game.getCargoSize(); i++)
+				{
+					game.removeCargo(game.getCargo()->getKeyAt(i), game.getCargo()->getValueAt(i));
+				}
+	
+				is_over = true;
+				break;
+			}
+		default:
+			throw;
+		}
+	
+		if (game.getShip().hasSunk())
+		{
+			game.gameOver();
+			return;
+		}
 	}
+
+	game.moveToSea();
 }
 
 void BattleController::exit()
 {
 	delete pirate_ship;
-	is_over = true;
+	pirate_ship = nullptr;
 }

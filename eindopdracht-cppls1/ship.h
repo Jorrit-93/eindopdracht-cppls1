@@ -32,5 +32,6 @@ public:
 	int getCargoSpace() override;
 	Array<Cannon*>* getCannons() override;
 	int getHP() override;
+	void setHP(const int& hp) override;
 	List<ShipTrait>* getTraits() override;
 };

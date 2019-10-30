@@ -71,6 +71,7 @@ void HarborController::enter()
 void HarborController::exit()
 {
 	delete harbor;
+	harbor = nullptr;
 }
 
 void HarborController::buyStock() const
@@ -374,7 +375,7 @@ void HarborController::bonVoyage() const
 	const auto destination = getHarborName(options.getAt(input - 1));
 	const auto distance = harbor->distances->get(destination);
 
-	//move to sea
+	game.moveToSea(destination, distance);
 }
 
 

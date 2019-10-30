@@ -4,7 +4,7 @@
 #include <sstream>
 
 GameController::GameController()
-	: view(new GameView()), harbor_c(new HarborController(*this)), /*sea_c(new SeaController(*this)), battle_c(new BattleController(*this)),*/ ship_builder(new ShipBuilder())
+	: view(new GameView()), harbor_c(new HarborController(*this)), sea_c(new SeaController(*this)), battle_c(new BattleController(*this)), ship_builder(new ShipBuilder())
 {
 	initialize();
 	start();
@@ -27,18 +27,18 @@ void GameController::initialize()
 {
 	setShip(ShipType::Pinnace);
 	gold = 1000000;
-	//view->printStartOutput();
-	//view->getInput();
 	
 	moveToHarbor(static_cast<HarborName>(Random::global()->randomInt(0, 23)));
 }
 
-void GameController::start()
+void GameController::start() const
 {
 	while (is_playing)
 	{
 		current_c->enter();
 	}
+
+	current_c->exit();
 }
 
 void GameController::win()
@@ -50,6 +50,7 @@ void GameController::win()
 
 void GameController::gameOver()
 {
+	view->clear();
 	view->printGameOverOutput();
 	view->getInput();
 	redo();
@@ -57,7 +58,6 @@ void GameController::gameOver()
 
 void GameController::redo()
 {
-	generalInfo();
 	auto options = Array<String>(2);
 	options.add(String("ja"));
 	options.add(String("nee"));
@@ -108,7 +108,7 @@ void GameController::generalInfo() const
 	dictionary.add(String("ship"), shipTypeToString(ship->getType()).toCharArray());
 	
 	std::stringstream str1;
-	str1 << hp;
+	str1 << ship->getHP() << "/" << hp;
 	dictionary.add(String("hp") , String(str1.str().c_str()));
 	
 	std::stringstream str2;
@@ -136,11 +136,12 @@ void GameController::moveToHarbor(const HarborName name)
 	current_c = harbor_c;
 }
 
-void GameController::moveToSea(const HarborName destination, const int distance)
+void GameController::moveToSea(const HarborName& destination, const int& distance)
 {
 	sea_c->instantiate(destination, distance);
 	moveToSea();
 }
+
 
 void GameController::moveToSea()
 {
@@ -153,6 +154,11 @@ void GameController::moveToSea()
 
 void GameController::engageInBattle()
 {
+	// if(current_c)
+	// {
+	// 	current_c->exit();
+	// }
+	
 	battle_c->instantiate();
 	current_c = battle_c;
 }

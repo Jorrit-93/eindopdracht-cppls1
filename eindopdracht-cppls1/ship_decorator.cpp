@@ -53,6 +53,12 @@ int ShipDecorator::getHP()
 {
 	return ship->getHP();
 }
+
+void ShipDecorator::setHP(const int& hp)
+{
+	ship->setHP(hp);
+}
+
 List<ShipTrait>* ShipDecorator::getTraits()
 {
 	return ship->getTraits();

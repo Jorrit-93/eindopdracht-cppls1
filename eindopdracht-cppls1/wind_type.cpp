@@ -4,7 +4,7 @@
 std::ostream& operator<<(std::ostream& os, WindType wind_type)
 {
 	const auto string = windTypeToString(wind_type);
-	os << string;
+	os << *string;
 	delete string;
 	return os;
 }

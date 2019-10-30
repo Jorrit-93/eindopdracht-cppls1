@@ -20,5 +20,6 @@ public:
 	virtual int getCargoSpace() = 0;
 	virtual Array<Cannon*>* getCannons() = 0;
 	virtual int getHP() = 0;
+	virtual void setHP(const int& hp) = 0;
 	virtual List<ShipTrait>* getTraits() = 0;
 };
