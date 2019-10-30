@@ -26,7 +26,7 @@ GameController::~GameController()
 void GameController::initialize()
 {
 	setShip(ShipType::Pinnace);
-	gold = 1000000;
+	gold = 990000;
 	
 	moveToHarbor(static_cast<HarborName>(Random::global()->randomInt(0, 23)));
 }
@@ -43,6 +43,7 @@ void GameController::start() const
 
 void GameController::win()
 {
+	view->clear();
 	view->printWinOutput();
 	view->getInput();
 	redo();
@@ -121,7 +122,7 @@ void GameController::generalInfo() const
 	dictionary.add(String("cannons"), String(str3.str().c_str()));
 	
 	std::stringstream str4;
-	str4 << ship->getCargoSpace() - getCargoSize();
+	str4 << getCargoSize() << "/" << ship->getCargoSpace();
 	dictionary.add(String("cargo space"), String(str4.str().c_str()));
 	
 	view->printGeneralInfoOutput(dictionary);
@@ -228,4 +229,9 @@ int GameController::getGold() const
 void GameController::addGold(const int value)
 {
 	gold += value;
+
+	if(gold >= 1000000)
+	{
+		win();
+	}
 }
